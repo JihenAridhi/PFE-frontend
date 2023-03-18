@@ -1,0 +1,398 @@
+
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #202020;
+  z-index: -1;
+  text-align: center;
+}
+.content .header{
+  font-size: 45px;
+  font-weight: 600;
+}
+.content p{
+  font-size: 30px;
+  font-weight: 500;
+}
+
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;height: 90vh;
+}
+
+.wrapper{
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  height: 500px;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; right: 0;
+  max-width: 480px;
+  width: 100%;
+  height: 500px;
+  margin: auto;
+
+}
+.container h1 {
+  position: absolute;
+  top: 40px;
+  color: #123C60;
+}
+
+.container input {
+  display: block;
+  margin: auto;
+  width: 240px;
+  height: 30px;
+  border : 0.5px solid #EEEEEE;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.container label {
+  display: block;
+  margin: auto;
+  padding-top:7px ;
+  padding-bottom: 7px;
+}
+
+.container .SBM {
+  position: absolute;
+  bottom :40px;
+  width: 160px;
+}
+.container .SBM:hover {
+  background-color: #555;
+  color: #FFF;
+}
+
+.container2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; left: 0;
+  max-width: 320px;
+  width: 100%;
+  height: 500px;
+
+
+}
+
+.wrapper .container2 img  {
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.input_container {
+  position: absolute;
+  top: 360px;
+  width: 160px;
+  height: 30px;
+
+}
+input[type=file]::file-selector-button {
+  color: #000;
+  width: 160px;
+  height: 30px;
+  border: 0.5px solid #EEEEEE;
+  border-right: 1px solid #e5e5e5;
+  padding: 10px 15px;
+  margin-right: 20px;
+  transition: .5s;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #555;
+  color: #FFF;
+}
+.wrapper .container2 #open-popup {
+  position: absolute;
+  top: 400px;
+  width: 160px;
+  height: 30px;
+  border : 0.5px solid #EEEEEE;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+.wrapper .container2 #open-popup:hover{
+  background-color: #555;
+  color: #FFF;
+}
+
+
+@media screen and (max-width:991px){
+
+
+  section{
+    display: inline-block;
+    position: relative;
+    top: 80px;
+    height: 1000px;
+
+  }
+  .wrapper .container{
+    position: relative;
+
+
+  }
+  .wrapper .container2{
+    position: relative;
+    max-width: 100%;
+    height: 300px;
+
+  }
+  .wrapper .container2 .H1{
+
+
+  }
+  .container2 #H1 span {
+    color : #0D89BF;
+  }
+
+}
+
+
+.contain{
+
+}
+
+.contain#blur.active{
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+.contain .main{
+  position: relative;
+
+}
+
+
+#popup{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+  background: #EEE;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+#popup.active{
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  transform: 0.5s;
+}
+
+#close-popup {
+  width: 60px;
+  height: 30px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  border: 0 solid #fff;
+}
+#close-popup:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 430px;
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  background-color: #EEE;
+
+}
+
+.cont input {
+  display: block;
+  margin: auto;
+  width: 240px;
+  height: 30px;
+  border : 0.5px solid #EEEEEE;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.cont label {
+  display: block;
+  margin: auto;
+  padding-top:7px ;
+  padding-bottom: 7px;
+}
+
+
+
+
+.table-container{
+
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+table{
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-collapse: collapse;
+}
+tr{
+  background-color: #fff;
+  color: #333;
+}
+
+th{
+  background-color: #fff;
+  color: #555;
+  font-weight: 300;
+  font-size: 20px;
+}
+.add{
+  width: 150px;
+  color: #fff;
+  background-color: #0D89BF;
+  font-size: 13px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.add:hover{
+  background-color: #aaa;
+  color: #fff;
+}
+
+td,th{
+  padding: 12px;
+  border: none;
+}
+td:nth-of-type(1){
+  max-width: 500px;
+}
+
+
+
+
+
+td p {
+  font-family: Arial;
+  font-size: 16px;
+}
+
+.btn2{
+  color: #fff;
+  background-color: #0D89BF;
+  font-size: 13px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn2:hover{
+  background-color: #aaa;
+  color: #fff;
+}
+
+
+@media only screen and (max-width:768px),
+(min-device-width:768px) and (max-device-width:992px){
+  .table-container{
+    width:95%;
+    background: transparent;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr{
+    display: block;
+  }
+
+  thead tr{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr{
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  td{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+
+  }
+
+  td::before{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  td:nth-of-type(1)::before{
+    content: "TITLE";
+  }
+
+  td:nth-of-type(2)::before{
+    content: "QUOTED BY";
+  }
+
+  td:nth-of-type(3)::before{
+    content: "YEAR";
+  }
+
+  td:nth-of-type(4)::before{
+    content: "ACTION";
+  }
+  td:nth-of-type(5)::before{
+    content: "ACTION";
+  }
+
+
+
+}

@@ -1,0 +1,69 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="container">
+  <header>Add Article</header>
+  <form action="#" class="form">
+
+    <div class="input-box">
+      <label>Auteur</label>
+      <input type="text" placeholder=" Full name" required />
+
+      <div id="survey_options">
+      </div>
+      <div class="controls">
+        <a routerLink="#" id="add_more_fields" (click)="add()"><i class="fa fa-plus"></i>Add More</a>
+        <a routerLink="#" id="remove_fields" (click)="remove()"><i class="fa fa-plus"></i>Remove Field</a>
+      </div>
+    </div>
+
+
+    <div class="input-box">
+      <label>Year of publication</label>
+      <input type="text" placeholder=" Year of publication" required />
+    </div>
+    <div class="input-box">
+      <label>Conférence / journal</label>
+      <input type="text" placeholder=" Name of conference" required />
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <label>Page </label>
+        <input type="number" placeholder=" Start page" required />
+      </div>
+      <div class="input-box">
+        <label>page </label>
+        <input type="number" placeholder=" Last page" required />
+      </div>
+    </div>
+
+    <div class="input-box">
+      <label>Editor</label>
+      <input type="text" placeholder=" Name of editor"required/>
+    </div>
+
+    <div class="input-box">
+      <label>DOI of article</label>
+      <input type="text" placeholder=" Url of article" required />
+    </div>
+
+    <div class="select-box">
+      <select>
+        <option hidden>TYPE</option>
+        <option>TYPE1</option>
+        <option>TYPE2</option>
+        <option>TYPE3</option>
+        <option>TYPE4</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label>description</label>
+      <textarea name="description" rows="10" cols="70"></textarea>
+    </div>
+
+    <button>Submit</button>
+  </form>
+</section>
+
+

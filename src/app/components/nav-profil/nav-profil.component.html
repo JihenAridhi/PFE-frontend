@@ -1,0 +1,32 @@
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+
+<div class="main" id="blur">
+  <div class="navbar">
+    <div class="btn " (click)="btn()">
+      <span class="fas fa-bars"></span>
+    </div>
+    <a routerLink="/account/profil"><img src="https://i.pinimg.com/236x/40/e4/f2/40e4f222740a74b3a284a900e3fdeead.jpg"></a>
+  </div>
+  <nav class="sidebar">
+    <div class="text">
+      Profil
+    </div>
+    <ul>
+      <li (click)="li()"><a routerLink="/account/home">HOME</a><hr color="#fff"></li>
+      <li (click)="li()"><a routerLink="/account/update">UPDATE</a><hr color="#fff"></li>
+      <li (click)="li()"><a routerLink="/account/requests">REQUESTS</a><hr color="#fff"></li>
+      <li (click)="li()"><a routerLink="/account/members">MEMBERS</a><hr color="#fff"></li>
+      <li (click)="li()"><a routerLink="/account/edit-news">EDIT NEWS</a><hr color="#fff"></li>
+      <li (click)="li()"><a routerLink="/account/edit-event">EDIT EVENT</a><hr color="#fff">  </li>
+      <li (click)="li()"><a routerLink="/account/feedback">FEEDBACK</a><hr color="#fff"></li>
+      <li (click)="li()"><a routerLink="/home">LOG OUT</a><hr color="#fff"></li>
+    </ul>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+</div>
+
+

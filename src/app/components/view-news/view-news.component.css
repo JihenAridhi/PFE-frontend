@@ -1,0 +1,25 @@
+#container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container1
+{
+  display: flex;
+  width: 80%;
+  margin: 20px;
+}
+
+#content h1{color: #123C60; margin: 10px;}
+#content p{color: #2d2d2d; margin: 10px;}
+
+#container1{margin-bottom: 100px;}
+
+#container1 img {max-height: 300px; margin: 10px;}
+
+@media screen and (min-width: 280px) and (max-width: 767px)
+{
+  #container1{flex-direction: column}
+}

@@ -1,0 +1,119 @@
+<section>
+  <div class="wrapper">
+    <div class="container">
+      <h1>Update your information</h1>
+      <form>
+        <label for="first-name"> First Name </label>
+        <input type="text" name="first-name" placeholder="  your first name ...">
+        <label for="last-name"> Last Name </label>
+        <input type="text" name="last-name" placeholder="  your last name ...">
+        <label for="email"> Add email </label>
+        <input type="email" name="email" placeholder="  add your e-mail ...">
+        <label for="interest"> Area of interest </label>
+        <input type="text" name="interest" placeholder="  your area of interest ...">
+        <label for="homepage"> Home page</label>
+        <input type="text" name="homepage" placeholder="  url of your home page ...">
+        <input type="submit" name="" value="Update your account" class="SBM">
+      </form>
+    </div>
+    <div class="container2">
+      <img src="https://i.pinimg.com/236x/87/64/f1/8764f1f9e4eee4bdd4d62563ad241bcc.jpg" alt="">
+      <div class="input_container">
+        <input type="file" name="" value="Update " id="fileUpload" >
+      </div>
+      <button id="open-popup" (click)="toggle()">Update password</button>
+    </div>
+  </div>
+</section>
+
+
+
+<div id="popup">
+  <div class="cont ">
+    <form>
+      <label for="first-name"> Old password </label>
+      <input type="text" name="first-name" placeholder="  your old password ...">
+      <label for="password"> Password </label>
+      <input type="password" name="password" placeholder="  your new password ...">
+      <label for="passwordtest"> Confirm your password </label>
+      <input type="password" name="passwordtest" placeholder="  Confirm your new password ...">
+      <input type="submit" name="" value="Update your password" class="SBM">
+    </form>
+  </div>
+  <button  id="close-popup" (click)="toggle()">Close</button>
+</div>
+
+
+<div class="table-container">
+  <table>
+    <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>QUOTED BY</th>
+      <th>YEAR</th>
+      <th align="center"><a routerLink="/account/add-article" class="add">ADD ARTICLE</a></th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a> <p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+
+    <tr>
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+    <tr>
+      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
+      <td>LOREM</td>
+      <td>2018</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+
+
+
+    </tbody>
+  </table>
+</div>

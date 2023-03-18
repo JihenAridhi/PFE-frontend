@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.container{
+  position: relative;
+  top: 0;
+  width : 100%;
+  text-align: center;
+  z-index: 3;
+  background: #123C60;
+  background-image:url("https://static.vecteezy.com/system/resources/previews/003/497/193/original/internet-cyber-security-connection-concept-background-free-vector.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.container #H4 {
+  padding-top:60px ;
+  color : #0D89BF ;
+  font-family: Helvetica;
+  font-size : 30px;
+  padding-bottom: 40px ;
+}
+
+.container #H1{
+  font-size : 55px;
+  color : #fff;
+  font-family: Helvetica;
+  padding-bottom: 70px ;
+}
+.container #H1 span {
+  color : #0D89BF ;
+}
+
+.container #P{
+  padding-bottom: 70px ;
+  color : #fff ;
+  font-family: Helvetica;
+  font-size : 20px;
+}
+
+
+.wrapper{
+  position: relative;
+  width: 100%;
+  height: 150px;
+  padding-bottom: 10px;
+}
+
+
+.login {
+  position: absolute;
+  top :5px; right: 180px;
+  color: #000;
+}
+.register {
+  position: absolute;
+  top :5px; right: 60px;
+  color: #000;
+}
+
+
+.wrapper nav{
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .content{
+  display: flex;
+  align-items: center;
+}
+nav .content .links{
+  background: #EEEEEE;
+  position: absolute;
+  top: 5px;
+  left: 200px;
+  margin-left: 80px;
+  display: flex;
+}
+.content .logo  {
+  position: absolute;
+  left: 60px; top: 5px;
+}
+.content .logo a img {
+
+  height: 70px;
+  width: 150px;
+}
+.content .links li{
+  list-style: none;
+  line-height: 70px;
+}
+.content .links li a,
+.content .links li label{
+  color: #555;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 9px 17px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.content .links li label{
+  display: none;
+}
+.content .links li a:hover,
+.content .links li label:hover{
+  background: #555;
+  color: #fff;
+}
+.wrapper .search-icon,
+.wrapper .menu-icon{
+  color: #555;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 70px;
+  width: 70px;
+  text-align: center;
+}
+.wrapper .menu-icon{
+  display: none;
+}
+.wrapper #show-search:checked ~ .search-icon i::before{
+  content: "\f00d";
+}
+
+.wrapper .search-box{
+  position: absolute;
+  top: 2px;
+  left: 260px;
+  height: 110%;
+  max-width: calc(100% - 360px);
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.wrapper #show-search:checked ~ .search-box{
+  opacity: 1;
+  pointer-events: auto;
+}
+.search-box input{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: #555;
+  background:#EEEEEE;
+  padding: 0 100px 0 15px;
+}
+.search-box input::placeholder{
+  color: #777;
+}
+.search-box .go-icon{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 60px;
+  width: 70px;
+  background: #EEEEEE;
+  border: none;
+  outline: none;
+  color: #555;
+  font-size: 20px;
+  cursor: pointer;
+}
+.wrapper input[type="checkbox"]{
+  display: none;
+}
+
+/* Dropdown Menu code start */
+.content .links ul{
+  position: absolute;
+  background: #EEEEEE;
+  top: 80px;
+  max-width: 100vh;
+  z-index: 19;
+  opacity: 0;
+  visibility: hidden;
+}
+.content .links li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+.content .links ul li a{
+  display: block;
+  width: 100%;
+  line-height: 30px;
+  border-radius: 0px!important;
+}
+.content .links ul ul{
+  position: absolute;
+  top: 0;
+  right: calc(-100% + 8px);
+}
+.content .links ul li{
+  position: relative;
+}
+.content .links ul li:hover ul{
+  top: 0;
+}
+
+
+/* Responsive code start */
+@media screen and (max-width: 1250px){
+  .wrapper nav{
+    position: relative;
+    top:0;
+    max-width: 100%;
+    min-width: 50%;
+    padding: 0 20px;
+    z-index: 19;
+
+  }
+  nav .content .links{
+    margin-left: 30px;
+  }
+  .content .links li a{
+    padding: 8px 13px;
+  }
+  .wrapper .search-box{
+    position: absolute;
+    left: 0;
+    max-width: calc(100% - 100px);
+  }
+  .wrapper .search-box input{
+    padding: 0 100px 0 15px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .wrapper .menu-icon{
+    display: flex;
+  }
+  .wrapper #show-menu:checked ~ .menu-icon i::before{
+    content: "\f00d";
+  }
+  nav .content .links{
+    display: block;
+    position: fixed;
+    background: #EEEEEE;
+    height: 100%;
+    width: 100vh;
+    top: 140px;
+    left: -100%;
+    margin-left: 0;
+    max-width: 100%;
+    overflow-y: auto;
+    padding-bottom: 150px;
+    transition: all 0.3s ease;
+  }
+  nav #show-menu:checked ~ .content .links{
+    left: 0%;
+  }
+  .content .links li{
+    margin: 15px 20px;
+  }
+  .content .links li a,
+  .content .links li label{
+    line-height: 40px;
+    font-size: 20px;
+    display: block;
+    padding: 8px 18px;
+    cursor: pointer;
+  }
+  .content .links li a.nav-link{
+    display: none;
+  }
+
+  /* dropdown responsive code start */
+  .content .links ul,
+  .content .links ul ul{
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    max-height: 0px;
+    overflow: hidden;
+
+  }
+  .content .links #show-Research:checked ~ ul,
+  .content .links #show-Collaboration:checked ~ ul,
+  .content .links #show-Members:checked ~ ul{
+    max-height: 100vh;
+  }
+  .content .links ul li{
+    margin: 7px 20px;
+  }
+  .content .links ul li a{
+    font-size: 18px;
+    line-height: 30px;
+    border-radius: 5px!important;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .wrapper nav{
+    padding: 0 10px;
+  }
+  .content .logo img {
+    height: 10px;
+    padding-left: 50px;
+  }
+  .wrapper .search-box{
+    max-width: calc(100% - 70px);
+  }
+  .wrapper .search-box .go-icon{
+    width: 30px;
+    right: 0;
+  }
+  .wrapper .search-box input{
+    padding-right: 30px;
+  }
+}
