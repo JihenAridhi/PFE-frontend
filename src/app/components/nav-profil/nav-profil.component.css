@@ -130,10 +130,8 @@ nav ul li a{
   width: 100%;
   border-left: 3px solid transparent;
 }
-nav ul li.active a{
-  color: #000;
-  background: #123C60;
-  border-left-color: #fff;
+nav ul li a:active{
+  background-color: #1a578b;
 }
 nav ul li a:hover{
   background: #1a578b;
