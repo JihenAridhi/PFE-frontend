@@ -96,7 +96,7 @@ label {
   justify-content: center!important;
   margin: auto;
   width: 80%;
-  flex-direction: column;
+  /*flex-direction: column;*/
 
 }
 
@@ -201,16 +201,7 @@ label {
   overflow-y: scroll;
 }
 
-.tab{
-  display: flex;
-  justify-content: center;
-  margin:20vh auto;
-  padding: 5px;
-  position: relative;
-  font-family: arial;
-  font-size:15px ;
 
-}
 .table{
   max-width: 800px;
   border: 10px;

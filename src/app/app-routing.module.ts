@@ -26,8 +26,9 @@ import {AddArticleComponent} from "./components/add-article/add-article.componen
 import {EditEventComponent} from "./components/edit-event/edit-event.component";
 import {EditNewsComponent} from "./components/edit-news/edit-news.component";
 import {RequestsComponent} from "./components/requests/requests.component";
-import {AddNewsComponent} from "./components/edit-event/add-news/add-news.component";
-import {AddEventComponent} from "./components/edit-event/add-event/add-event.component";
+import {AddNewsComponent} from "./components/add-news/add-news.component";
+import {AddEventComponent} from "./components/add-event/add-event.component";
+
 
 
 

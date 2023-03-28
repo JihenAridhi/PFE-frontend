@@ -30,8 +30,10 @@ import {AddArticleComponent} from "./components/add-article/add-article.componen
 import {EditNewsComponent} from "./components/edit-news/edit-news.component";
 import {EditEventComponent} from "./components/edit-event/edit-event.component";
 import { RequestsComponent } from './components/requests/requests.component';
-import {AddEventComponent} from "./components/edit-event/add-event/add-event.component";
-import {AddNewsComponent} from "./components/edit-event/add-news/add-news.component";
+import {AddNewsComponent} from "./components/add-news/add-news.component";
+import {AddEventComponent} from "./components/add-event/add-event.component";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -67,13 +69,15 @@ import {AddNewsComponent} from "./components/edit-event/add-news/add-news.compon
     AddEventComponent,
     RequestsComponent,
   ],
-    imports: [
-        BrowserModule,
-        RouterOutlet,
-        AppRoutingModule,
-        RouterModule,
+  imports: [
+    BrowserModule,
+    RouterOutlet,
+    AppRoutingModule,
+    RouterModule,
+    FormsModule,
+    HttpClientModule
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
