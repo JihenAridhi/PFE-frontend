@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {ArticleService} from "../../services/article.service";
 
 @Component({
   selector: 'app-add-article',
@@ -7,7 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AddArticleComponent {
 
-    add() {
+  constructor(private as: ArticleService) {}
+
+    addAuthor() {
       var survey_options = document.getElementById('survey_options');
       const newField = document.createElement('input');
       newField.setAttribute('type', 'text');
@@ -19,7 +23,7 @@ export class AddArticleComponent {
         survey_options.appendChild(newField);
     }
 
-    remove() {
+    removeAuthor() {
       var survey_options = document.getElementById('survey_options');
       if(survey_options) {
         const inputTags = survey_options.getElementsByTagName('input');
@@ -28,26 +32,6 @@ export class AddArticleComponent {
         }
       }
     }
-/*
-  private survey_options = document.getElementById('survey_options');
 
-  add() {
-    const newField = document.createElement('input');
-    newField.setAttribute('type', 'text');
-    newField.setAttribute('name', 'survey_options[]');
-    newField.setAttribute('class', 'survey_options');
-    newField.setAttribute('size', '50');
-    newField.setAttribute('placeholder', 'Full name');
-    if (this.survey_options)
-      this.survey_options.appendChild(newField);
-  }
-
-  remove() {
-    if (this.survey_options) {
-      const inputTags = this.survey_options.getElementsByTagName('input');
-      if (inputTags.length > 0) {
-        this.survey_options.removeChild(inputTags[inputTags.length - 1]);
-      }
-    }
-  }*/
+  addArticle(addF: NgForm) {this.as.add(addF.value)}
 }

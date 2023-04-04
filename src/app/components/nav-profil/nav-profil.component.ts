@@ -1,4 +1,5 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {PersonService} from "../../services/person.service";
 
 @Component({
   selector: 'app-nav-profil',
@@ -6,14 +7,29 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./nav-profil.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NavProfilComponent {
+export class NavProfilComponent implements OnInit{
 
- btn() {
+  autorisation: Array<string> = new Array<string>()
+
+  constructor(private ps: PersonService) {}
+
+  btn() {
    $('.btn').toggleClass("click");
    $('.sidebar').toggleClass("show");
   }
 
-  feat_btn() {
+  li() {$(this).addClass("active").siblings().removeClass("active");}
+
+  ngOnInit(): void {
+    this.ps.autorisations.asObservable().subscribe(data => {
+      let auto: Array<string> = new Array<string>()
+      for (let i=0; i<data.length; i++)
+        auto[i] = data[i].autorisation
+      this.autorisation = auto
+    })
+  }
+
+/*  feat_btn() {
     $('nav ul .feat-show').toggleClass("show");
     $('nav ul .first').toggleClass("rotate");
   }
@@ -26,11 +42,9 @@ export class NavProfilComponent {
   mem_btn() {
     $('nav ul .mem-show').toggleClass("show2");
     $('nav ul .third').toggleClass("rotate");
-  }
+  }*/
 
-  li() {
-    $(this).addClass("active").siblings().removeClass("active");
-  }
+
 
 
 }

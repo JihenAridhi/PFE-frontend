@@ -5,17 +5,17 @@
   <div class="wrapper">
     <div class="container">
       <h1>General Information</h1>
-      <form>
-        <label for="first-name"> First Name </label>
-        <input type="text" name="first-name" placeholder="  your first name ...">
-        <label for="last-name"> Last Name </label>
-        <input type="text" name="last-name" placeholder="  your last name ...">
-        <label for="email"> email </label>
-        <input type="email" name="email" placeholder="  your e-mail ...">
-        <label for="password"> Password </label>
-        <input type="password" name="password" placeholder="  your password ...">
-        <label for="passwordtest"> Confirm your password </label>
-        <input type="password" name="passwordtest" placeholder="  Confirm your password ...">
+      <form #addF='ngForm' (ngSubmit)="addPerson(addF)">
+        <label> First Name </label>
+        <input type="text" name="firstName" placeholder="  your first name ..." required ngModel>
+        <label> Last Name </label>
+        <input type="text" name="lastName" placeholder="  your last name ..." required ngModel>
+        <label> email </label>
+        <input type="email" name="email" placeholder="  your e-mail ..." required ngModel>
+        <label> Password </label>
+        <input type="password" name="password" placeholder="  your password ..." required ngModel>
+        <label> Confirm your password </label>
+        <input type="password" name="password1" placeholder="  Confirm your password ..." required ngModel>
         <input type="submit" name="" value="Create an account" class="SBM">
       </form>
     </div>

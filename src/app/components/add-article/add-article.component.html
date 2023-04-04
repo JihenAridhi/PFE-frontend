@@ -1,18 +1,18 @@
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <section class="container">
-  <header>Add Article</header>
-  <form action="#" class="form">
+  <header>Article</header>
+  <form class="form" #addF='ngForm' (ngSubmit)="addArticle(addF)">
 
     <div class="input-box">
-      <label>Auteur</label>
-      <input type="text" placeholder=" Full name" required />
+      <label>Author</label>
+      <input type="text" placeholder=" Full name" required ngModel name="authors"/>
 
       <div id="survey_options">
       </div>
       <div class="controls">
-        <a routerLink="#" id="add_more_fields" (click)="add()"><i class="fa fa-plus"></i>Add More</a>
-        <a routerLink="#" id="remove_fields" (click)="remove()"><i class="fa fa-plus"></i>Remove Field</a>
+        <a routerLink="#" id="add_more_fields" (click)="addAuthor()"><i class="fa fa-plus"></i>Add More</a>
+        <a routerLink="#" id="remove_fields" (click)="removeAuthor()"><i class="fa fa-plus"></i>Remove Field</a>
       </div>
     </div>
 
@@ -29,21 +29,21 @@
     <div class="column">
       <div class="input-box">
         <label>Page </label>
-        <input type="number" placeholder=" Start page" required />
+        <input type="number" placeholder=" Start page" required ngModel name="firstPage"/>
       </div>
       <div class="input-box">
         <label>page </label>
-        <input type="number" placeholder=" Last page" required />
+        <input type="number" placeholder=" Last page" required ngModel name="lastName"/>
       </div>
     </div>
 
     <div class="input-box">
       <label>Editor</label>
-      <input type="text" placeholder=" Name of editor"required/>
+      <input type="text" placeholder=" Name of editor" required ngModel name="editor"/>
     </div>
 
     <div class="input-box">
-      <label>DOI of article</label>
+      <label>URL of article</label>
       <input type="text" placeholder=" Url of article" required />
     </div>
 
@@ -59,7 +59,7 @@
 
     <div class="input-box">
       <label>description</label>
-      <textarea name="description" rows="10" cols="70"></textarea>
+      <textarea name="description" rows="10" cols="70" ngModel></textarea>
     </div>
 
     <button>Submit</button>

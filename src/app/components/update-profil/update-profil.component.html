@@ -2,17 +2,17 @@
   <div class="wrapper">
     <div class="container">
       <h1>Update your information</h1>
-      <form>
-        <label for="first-name"> First Name </label>
-        <input type="text" name="first-name" placeholder="  your first name ...">
-        <label for="last-name"> Last Name </label>
-        <input type="text" name="last-name" placeholder="  your last name ...">
-        <label for="email"> Add email </label>
-        <input type="email" name="email" placeholder="  add your e-mail ...">
-        <label for="interest"> Area of interest </label>
-        <input type="text" name="interest" placeholder="  your area of interest ...">
-        <label for="homepage"> Home page</label>
-        <input type="text" name="homepage" placeholder="  url of your home page ...">
+      <form #updateF='ngForm' (ngSubmit)="update(updateF)">
+        <label> First Name </label>
+        <input type="text" name="firstName" placeholder="  your first name ..." [(ngModel)]="person.firstName">
+        <label> Last Name </label>
+        <input type="text" name="lastName" placeholder="  your last name ..." [(ngModel)]="person.lastName">
+        <label> Add email </label>
+        <input type="email" name="email" placeholder="  add your e-mail ..." [(ngModel)]="person.email">
+        <label> Area of interest </label>
+        <input type="text" name="interest" placeholder="  your area of interest ..." [(ngModel)]="person.interest">
+        <!--<label> Home page</label>
+        <input type="text" name="homepage" placeholder="  url of your home page ..." value="{{person.firstName}}">-->
         <input type="submit" name="" value="Update your account" class="SBM">
       </form>
     </div>
@@ -29,14 +29,14 @@
 
 
 <div id="popup">
-  <div class="cont ">
-    <form>
-      <label for="first-name"> Old password </label>
-      <input type="text" name="first-name" placeholder="  your old password ...">
-      <label for="password"> Password </label>
-      <input type="password" name="password" placeholder="  your new password ...">
-      <label for="passwordtest"> Confirm your password </label>
-      <input type="password" name="passwordtest" placeholder="  Confirm your new password ...">
+  <div class="cont">
+    <form #updateP='ngForm' (ngSubmit)="updatePass(updateP)">
+      <label> Old password </label>
+      <input type="password" name="oldP" placeholder="  your old password ..." ngModel required>
+      <label> Password </label>
+      <input type="password" name="newP" placeholder="  your new password ..." ngModel required>
+      <label> Confirm your password </label>
+      <input type="password" name="confirmP" placeholder="  Confirm your new password ..." ngModel required>
       <input type="submit" name="" value="Update your password" class="SBM">
     </form>
   </div>
