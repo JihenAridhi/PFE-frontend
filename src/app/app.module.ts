@@ -34,6 +34,7 @@ import {AddNewsComponent} from "./components/add-news/add-news.component";
 import {AddEventComponent} from "./components/add-event/add-event.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {DatePipe} from "@angular/common";
 
 
 
@@ -76,9 +77,8 @@ import {HttpClientModule} from "@angular/common/http";
     RouterModule,
     FormsModule,
     HttpClientModule
-
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,7 +26,6 @@ export class NewsService {
 
   save(news: News)
   {
-    console.log(news)
     if(!news.id)
       this.http.post('http://localhost:8000/news/add', news).subscribe((data)=>console.log(data))
     else
