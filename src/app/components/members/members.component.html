@@ -1,121 +1,52 @@
 <div class="table-container">
-  <table id="keywords" cellspacing="0" cellpadding="0">
-  <thead>
-  <tr>
-    <th>MEMBER</th>
-    <th>UPDATE</th>
-    <th>DELETE</th>
-    <th>TEAMS</th>
-    <th>AUTORISATION1</th>
-    <th>AUTORISATION2</th>
-
-
-
-  </tr>
-  </thead>
-
-  <tbody>
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-  <tr>
-    <td><a routerLink="#" (click)="toggle()">Harry Dickens</a> </td>
-    <td><button class="btn2">UPPDATE</button></td>
-    <td><button class="btn2">DELETE</button></td>
-    <td><select name="teams" class="teams">
-      <option value="Team1">Team1</option>
-      <option value="Team2">Team2</option>
-      <option value="Team3">Team3</option>
-      <option value="Team4">Team4</option></select></td>
-    <td><input type="checkbox" name="autorisation1" class="check"></td>
-    <td><input type="checkbox" name="autorisation2" class="check"></td>
-  </tr>
-
-
-
-  </tbody>
-</table>
+  <form #changesF="ngForm" (ngSubmit)="submit(changesF)">
+    <table id="keywords" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>MEMBER</th>
+          <th>DELETE</th>
+          <th>PROFESSION</th>
+          <th>TEAMS</th>
+          <th>NEWS</th>
+          <th>EVENTS</th>
+          <th>MEMBERS</th>
+          <th>FEEDBACK</th>
+          <th>REQUESTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of members; let i = index;">
+          <td><a routerLink="#" (click)="toggle(m)">{{m.firstName}} {{m.lastName}}</a></td>
+          <td><button class="btn2" (click)="delete(m.id)">DELETE</button></td>
+          <td><select name="profession" class="teams" ngModel>
+            <option value=""></option>
+            <option [selected]="m.profession == 'teacher Researcher'" value="Teacher Researcher">Researcher</option>
+            <option [selected]="m.profession == 'Doctor'" value="Doctor">Doctor</option>
+            <option [selected]="m.profession == 'Ph.D Student'" value="Ph.D Student">Ph.D Student</option>
+          </select></td>
+          <td><select name="teams" class="teams" ngModel>
+            <option value=""></option>
+            <option [selected]="m.team == 'HR'" value="HR ">HR</option>
+            <option [selected]="m.team == 'Development'" value="Development" >Development</option>
+          </select></td>
+          <td><input  type="checkbox" name="1" class="check" [checked]="autorisations[i].includes(1)"></td>
+          <td><input  type="checkbox" name="2" class="check" [checked]="autorisations[i].includes(2)"></td>
+          <td><input  type="checkbox" name="3" class="check" [checked]="autorisations[i].includes(3)"></td>
+          <td><input  type="checkbox" name="4" class="check" [checked]="autorisations[i].includes(4)"></td>
+          <td><input  type="checkbox" name="5" class="check" [checked]="autorisations[i].includes(5)"></td>
+        </tr>
+        <tr><td colspan="9"><input type="submit" value="SUBMIT CHANGES" class="btn2"></td></tr>
+      </tbody>
+  </table>
+  </form>
 </div>
 <div id="popup">
 
-  <h1 id="close" align="right" (click)="toggle()">&#10006;</h1>
+  <h1 id="close" align="right" (click)="toggle(member)">&#10006;</h1>
 
-  <p> name : harry dickens</p>
-  <p>email : harrydickens@gmail.com</p>
-  <p>birthdate : 12/08/1993  </p>
-  <p>proffession : PH.D.Students</p>
-  <p>teams : RH</p>
+  <p> name : {{member.firstName}} {{member.lastName}}</p>
+  <p>email : {{member.email}}</p>
+  <p>profession : {{member.profession}}</p>
+  <p>teams : {{member.team}}</p>
 
 </div>

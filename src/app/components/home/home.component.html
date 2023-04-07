@@ -144,39 +144,12 @@
 <div>
   <div class="group"> <h1 style="text-align: center; color: #123C60; "><b>SMART LAB NEWS</b></h1></div>
   <div id="news">
-    <article>
-      <a routerLink="/view-news">
+    <article *ngFor="let n of allNews">
+      <a (click)="viewNews(n.id)">
         <img src="assets/photo/test.jpg">
         <div>
-          <h2>artilce 1</h2>
-          <p>date</p>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a routerLink="/view-news">
-        <img src="assets/photo/test.jpg">
-        <div>
-          <h2>artilce 2</h2>
-          <p>date</p>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a routerLink="/view-news">
-        <img src="assets/photo/test.jpg">
-        <div>
-          <h2>artilce 3</h2>
-          <p>date</p>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a routerLink="/view-news">
-        <img src="assets/photo/test.jpg">
-        <div>
-          <h2>artilce 4</h2>
-          <p>date</p>
+          <h2>{{n.title}}</h2>
+          <p>{{n.date | date: 'd-m-Y'}}</p>
         </div>
       </a>
     </article>

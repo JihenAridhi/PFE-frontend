@@ -1,7 +1,7 @@
 <div class="wrapp">
   <h1>All</h1>
   <div class="our_team">
-    <div class="team_member">
+    <!--<div class="team_member" *ngFor="let p of people">
       <div class="member_img">
         <img src="https://i.pinimg.com/236x/61/f2/09/61f209923eae607cbd5b30dd179de1d7.jpg" alt="our_team">
         <div class="social_media">
@@ -10,10 +10,9 @@
           <div class="instagram item"><i class="fab fa-linkedin"></i></div>
         </div>
       </div>
-      <a routerLink="/profil"><h3>harry dickens</h3></a>
-      <span>CEO</span>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p>
-    </div>
+      <a routerLink="/profil"><h3>{{p.firstName}} {{p.lastName}}</h3></a>
+      <span>{{p.profession}}</span>
+    </div>-->
     <div class="team_member">
       <div class="member_img">
         <img src="https://i.pinimg.com/236x/61/f2/09/61f209923eae607cbd5b30dd179de1d7.jpg" alt="our_team">

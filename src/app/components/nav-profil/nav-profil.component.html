@@ -16,11 +16,11 @@
     <ul>
       <li (click)="li()"><a routerLink="/account/profil">PROFILE</a><hr color="#fff"></li>
       <li (click)="li()"><a routerLink="/account/update">UPDATE</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autorisation.includes('requests')"><a routerLink="/account/requests">REQUESTS</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autorisation.includes('members')"><a routerLink="/account/members">MEMBERS</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autorisation.includes('news')"><a routerLink="/account/edit-news">EDIT NEWS</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autorisation.includes('events')"><a routerLink="/account/edit-event">EDIT EVENT</a><hr color="#fff">  </li>
-      <li (click)="li()" *ngIf="autorisation.includes('feedback')"><a routerLink="/account/feedback">FEEDBACK</a><hr color="#fff"></li>
+      <li (click)="li()" *ngIf="autorisation.includes(1)"><a routerLink="/account/edit-news">EDIT NEWS</a><hr color="#fff"></li>
+      <li (click)="li()" *ngIf="autorisation.includes(2)"><a routerLink="/account/edit-event">EDIT EVENT</a><hr color="#fff">  </li>
+      <li (click)="li()" *ngIf="autorisation.includes(3)"><a routerLink="/account/members">MEMBERS</a><hr color="#fff"></li>
+      <li (click)="li()" *ngIf="autorisation.includes(4)"><a routerLink="/account/feedback">FEEDBACK</a><hr color="#fff"></li>
+      <li (click)="li()" *ngIf="autorisation.includes(5)"><a routerLink="/account/requests">REQUESTS</a><hr color="#fff"></li>
       <li (click)="li()"><a routerLink="/home">LOG OUT</a><hr color="#fff"></li>
     </ul>
   </nav>

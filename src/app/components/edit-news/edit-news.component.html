@@ -6,7 +6,7 @@
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
     <tr>
-      <th>NAME</th>
+      <th>TITLE</th>
       <th>DESCRIPTION</th>
       <th>DATE</th>
       <th colspan="2"><a routerLink="/account/add-news" class="btn2">ADD NEWS</a></th>
@@ -14,32 +14,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
+    <tr *ngFor="let n of allNews">
+      <td>{{n.title}}</td>
+      <td>{{n.description}}</td>
+      <td>{{n.date | date: 'dd-MM-yyyy'}}</td>
+      <td><a (click)="update(n)" class="btn2">Update</a></td>
+      <td><a (click)="delete(n.id)" class="btn2">Delete</a></td>
     </tr>
 
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
+    <!--<tr>
       <td>LOREM</td>
       <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
       <td>12/03/2023</td>
@@ -62,6 +45,7 @@
       <td>12/03/2023</td>
       <td><a routerLink="#" class="btn2">Update</a></td>
       <td><a routerLink="#" class="btn2">Delete</a></td>
+
     </tr>
 
     <tr>
@@ -71,89 +55,25 @@
       <td><a routerLink="#" class="btn2">Update</a></td>
       <td><a routerLink="#" class="btn2">Delete</a></td>
     </tr>
+
+    <tr>
+      <td>LOREM</td>
+      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
+      <td>12/03/2023</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>
+
+    <tr>
+      <td>LOREM</td>
+      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
+      <td>12/03/2023</td>
+      <td><a routerLink="#" class="btn2">Update</a></td>
+      <td><a routerLink="#" class="btn2">Delete</a></td>
+    </tr>-->
 
 
 
     </tbody>
   </table>
-
-
-
-
-
-
-  <!--<table>
-    <thead>
-    <tr>
-      <th>NAME</th>
-      <th>DESCRIPTION</th>
-      <th>DATE</th>
-      <th colspan="2"><a routerLink="add-news-admin.html" class="btn2">ADD NEWS</a></th>
-
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
-      <td>LOREM</td>
-      <td>RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? lorem ipsum dolor sit amet</td>
-      <td>12/03/2023</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-
-
-    </tbody>
-  </table>-->
 </div>

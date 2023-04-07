@@ -548,6 +548,8 @@ nav .content .links{
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 25px;
+  height: 400px;
+  overflow: hidden;
 }
 
 #news article

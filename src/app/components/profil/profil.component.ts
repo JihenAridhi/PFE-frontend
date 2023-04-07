@@ -25,4 +25,5 @@ export class ProfilComponent implements OnInit{
     this.ps.person.asObservable().subscribe(data => this.person = data)
   }
 
+
 }

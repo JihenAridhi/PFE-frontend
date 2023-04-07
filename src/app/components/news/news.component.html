@@ -1,14 +1,13 @@
 <section class="articles">
 
-  <div class="article">
+  <div class="article" *ngFor="let n of allNews" (click)="viewNews(n.id)">
     <div class="left">
       <img src="https://i.pinimg.com/564x/20/ae/fc/20aefcc6a0946d28ec7dda58d4dc0b5b.jpg" alt="">
     </div>
     <div class="right">
-      <p class="date">Juillet, 24, 2020</p>
-      <a routerLink="/view-news"><h1 id="tit">Interview - l'impact de l'intelligence artificielle</h1></a>
-      <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad cupiditate repellendus dolor necessitatibus. Modi, quos! Explicabo voluptates vero ullam quis ipsum impedit illum numquam cum quaerat animi? Ad, fugiat neque.</p>
-      <p class="auteur">Julie Lablonde</p>
+      <p class="date">{{n.date | date: 'dd-MM-yyyy'}}</p>
+      <a routerLink="/view-news"><h1 id="tit">{{n.title}}</h1></a>
+      <p class="description">{{n.description}}</p>
     </div>
   </div>
 
