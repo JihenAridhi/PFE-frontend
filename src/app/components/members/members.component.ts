@@ -27,24 +27,23 @@ export class MembersComponent implements OnInit{
   ngOnInit(): void
   {
     this.ps.getStatus(true)
-    this.ps.allPerson.asObservable().subscribe(data =>
+    this.ps.allPerson.asObservable().subscribe(data => {
+      this.members = data
+      for (let i=0; i<this.members.length; i++)
       {
-        console.log(data)
-        this.members = data
-        for (let i=0; i<this.members.length; i++)
+        this.ps.getAutorisations(this.members[i])
+        this.ps.autorisations.asObservable().subscribe(auto =>
         {
-          this.ps.getAutorisations(this.members[i])
-          this.ps.autorisations.asObservable().subscribe(auto =>
-          {
-            let a = new Array<number|undefined>()
-            for(let j=0; j<auto.length; j++)
-              a[j]=auto[j].id
-            this.autorisations[i] = a
-            console.log(i+': '+this.autorisations[i])
-          })
-        }
+          console.log(auto)
+          let a = new Array<number|undefined>()
+          for(let j=0; j<auto.length; j++)
+            a[j]=auto[j].id
+          this.autorisations[i] = a
+        })
       }
+    }
     )
+    //console.log(this.autorisations)
   }
 
   submit(changesF: NgForm)

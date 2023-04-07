@@ -13,22 +13,22 @@ export class PersonService {
    person: BehaviorSubject<Person> = new BehaviorSubject<Person>(new Person())
    allPerson: BehaviorSubject<Person[]> = new BehaviorSubject<Person[]>(new Array<Person>())
    autorisations:  BehaviorSubject<Array<Autorisation>> = new BehaviorSubject<Array<Autorisation>>(new Array<Autorisation>())
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient,
+              private router: Router) { }
 
 
 
   public get(id: number)
-  {this.http.get('http://localhost:8000/person/get/'+id).subscribe(data=>
   {
-    //this.person = new BehaviorSubject<Person>(new Person())
-    this.person.next(data)
-  })}
+    this.person = new BehaviorSubject<Person>(new Person())
+    this.http.get('http://localhost:8000/person/get/'+id).subscribe(data=> this.person.next(data))
+  }
 
   public getAll()
-  {this.http.get<Person[]>('http://localhost:8000/person/getAll').subscribe(data=> {
-    //this.allPerson = new BehaviorSubject<Person[]>(new Array<Person>())
-    this.allPerson.next(data)
-  })}
+  {
+    this.allPerson = new BehaviorSubject<Person[]>(new Array<Person>())
+    this.http.get<Person[]>('http://localhost:8000/person/getAll').subscribe(data=> this.allPerson.next(data))
+  }
 
   public add(person: Person)
   {
@@ -46,6 +46,7 @@ export class PersonService {
 
   login(person: Person)
   {
+    this.person = new BehaviorSubject<Person>(new Person())
     this.http.get('http://127.0.0.1:8000/person/getByEmail/'+person.email).subscribe(
       (data: Person)=>
       {
@@ -53,7 +54,6 @@ export class PersonService {
         {
           if(person.password == data.password && data.status) {
             this.router.navigate(['/account/profil'])
-            //this.person = new BehaviorSubject<Person>(new Person())
             this.person.next(data)
             this.getAutorisations(data)
           }
@@ -66,20 +66,15 @@ export class PersonService {
 
   getStatus(status: boolean)
   {
-    this.http.get<Array<Person>>('http://localhost:8000/person/getAll/status/'+status).subscribe(data => {
-    //this.allPerson = new BehaviorSubject<Person[]>(new Array<Person>())
-    this.allPerson.next(data)
-  })}
+    this.allPerson = new BehaviorSubject<Person[]>(new Array<Person>())
+    this.http.get<Array<Person>>('http://localhost:8000/person/getAll/status/'+status).subscribe(data => this.allPerson.next(data))
+  }
 
   getAutorisations(person: Person)
   {
+    this.autorisations = new BehaviorSubject<Array<Autorisation>>(new Array<Autorisation>())
     this.http.get<Array<Autorisation>>('http://localhost:8000/person/' + person.id + '/getAutorisations').subscribe(
-      (auto: Autorisation[]) =>
-      {
-        //this.autorisations = new BehaviorSubject<Array<Autorisation>>(new Array<Autorisation>())
-        this.autorisations.next(auto)
-      }
-    )
+      (auto: Autorisation[]) => this.autorisations.next(auto))
   }
 
   addAutorisation(idP: number, idA: number){this.http.post('http://localhost:8000/person/'+idP+'/addAutorisation/'+idA, null).subscribe()}
