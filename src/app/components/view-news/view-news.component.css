@@ -14,6 +14,9 @@
 
 #content h1{color: #123C60; margin: 10px;}
 #content p{color: #2d2d2d; margin: 10px;}
+#content {display: flex}
+
+.txt{display: flex; flex-direction: column}
 
 #container1{margin-bottom: 100px;}
 

@@ -22,7 +22,7 @@ export class ProfilComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.ps.person.asObservable().subscribe(data => this.person = data)
+    this.ps.person.asObservable().subscribe(data => Object.assign(this.person,data))
   }
 
 

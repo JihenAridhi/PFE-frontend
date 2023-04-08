@@ -70,7 +70,6 @@ const routes: Routes = [
     {path: 'add-news', component: AddNewsComponent},
     {path: 'add-event', component: AddEventComponent},
   ]},
-  {path: 'a', component: MembersComponent}
 
 
 ]

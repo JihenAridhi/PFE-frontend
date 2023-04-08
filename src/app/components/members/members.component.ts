@@ -3,6 +3,7 @@ import {Person} from "../../entities/Person";
 import {PersonService} from "../../services/person.service";
 import {NgForm} from "@angular/forms";
 import {Autorisation} from "../../entities/Autorisation";
+import {AutorisationService} from "../../services/autorisation.service";
 
 @Component({
   selector: 'app-members',
@@ -15,7 +16,7 @@ export class MembersComponent implements OnInit{
   member: Person = new Person()
   autorisations: Array<Array<number>> = new Array<Array<number>>()
 
-  constructor(private ps: PersonService) {}
+  constructor(private ps: PersonService, private as: AutorisationService) {}
 
   toggle(person: Person) {
     var blur=document.getElementById('blur');
@@ -34,15 +35,14 @@ export class MembersComponent implements OnInit{
       {
         console.log(this.members[i])
         this.autorisations[i] = new Array<number>()
-        this.ps.getAutorisations(this.members[i]).subscribe(
-          (auto: Autorisation[]) =>
-          {
-            let a = new Array<number>()
-            for (let i=0; i<auto.length; i++)
-              a[i]=auto[i].id
-              Object.assign(this.autorisations[i],a)
-          })
+        this.as.getAutorisations(this.members[i])
+        this.as.autorisations.asObservable().subscribe(auto => {
+            Object.assign(this.autorisations[i], auto)
+            console.log(i+':::'+this.autorisations[i])
+          }
+        )
       }
+      console.log('-----------------------')
     }
     )
   }

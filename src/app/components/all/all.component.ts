@@ -14,8 +14,12 @@ export class AllComponent implements OnInit{
   constructor(private ps: PersonService, private router: Router) {}
   ngOnInit(): void
   {
-    this.ps.getAll()
+    this.ps.getStatus(true)
     this.ps.allPerson.asObservable().subscribe(data=>this.people=data)
   }
 
+  profile(p: Person) {
+    this.router.navigate(['/profil'])
+    this.ps.person.next(p)
+  }
 }
