@@ -1,5 +1,5 @@
 export class Autorisation
 {
-  id?: number
-  autorisation?: string
+  id: number = 0
+  autorisation: string = ''
 }

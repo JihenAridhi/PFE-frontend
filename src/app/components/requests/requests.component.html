@@ -9,35 +9,11 @@
     </thead>
 
     <tbody>
-    <tr>
-      <td>Elias Abdurrahman</td>
-      <td>@lorem ipsum dolor sit amet</td>
-      <td><button class="btn2">ACCEPT</button></td>
-      <td><button class="btn2">DELETE</button></td>
-    </tr>
-    <tr>
-      <td>Elias Abdurrahman</td>
-      <td>@lorem ipsum dolor sit amet</td>
-      <td><button class="btn2">ACCEPT</button></td>
-      <td><button class="btn2">DELETE</button></td>
-    </tr>
-    <tr>
-      <td>Elias Abdurrahman</td>
-      <td>@lorem ipsum dolor sit amet</td>
-      <td><button class="btn2">ACCEPT</button></td>
-      <td><button class="btn2">DELETE</button></td>
-    </tr>
-    <tr>
-      <td>Elias Abdurrahman</td>
-      <td>@lorem ipsum dolor sit amet</td>
-      <td><button class="btn2">ACCEPT</button></td>
-      <td><button class="btn2">DELETE</button></td>
-    </tr>
-    <tr>
-      <td>Elias Abdurrahman</td>
-      <td>@lorem ipsum dolor sit amet</td>
-      <td><button class="btn2">ACCEPT</button></td>
-      <td><button class="btn2">DELETE</button></td>
+    <tr *ngFor="let r of requests">
+      <td>{{r.firstName}} {{r.lastName}}</td>
+      <td>{{r.email}}</td>
+      <td><button class="btn2" (click)="accept(r)">ACCEPT</button></td>
+      <td><button class="btn2" (click)="delete(r)">DELETE</button></td>
     </tr>
     </tbody>
   </table>

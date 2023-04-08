@@ -80,7 +80,7 @@ form .corps-formulaire .droite .groupe textarea {
   resize: none;
   height: 72%;
 }
-form .pied-formulaire button {
+form .pied-formulaire .button {
   margin-top: 10px;
   background-color: #123C60;
   color: white;
@@ -92,7 +92,7 @@ form .pied-formulaire button {
   cursor: pointer;
   transition: transform 0.5s;
 }
-form .pied-formulaire button:hover {
+form .pied-formulaire .button:hover {
   transform: scale(1.05);
 }
 

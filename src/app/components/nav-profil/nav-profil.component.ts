@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {PersonService} from "../../services/person.service";
+import {dateComparator} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-tools";
 
 @Component({
   selector: 'app-nav-profil',
@@ -9,8 +10,7 @@ import {PersonService} from "../../services/person.service";
 })
 export class NavProfilComponent implements OnInit{
 
-  // @ts-ignore
-  autorisation: Array<number|undefined>
+  autorisation: Array<number> = new Array<number>()
   constructor(private ps: PersonService) {}
 
   btn() {
@@ -21,12 +21,9 @@ export class NavProfilComponent implements OnInit{
   li() {$(this).addClass("active").siblings().removeClass("active");}
 
   ngOnInit(): void {
-    this.ps.autorisations.asObservable().subscribe(data => {
-      let auto = new Array<number|undefined>()
-      for (let i=0; i<data.length; i++)
-        auto[i] = data[i].id
-      this.autorisation = auto
-
+    this.ps.autorisations.asObservable().subscribe(data=> {
+      Object.assign(this.autorisation, data)
+      console.log(this.autorisation)
     })
   }
 }
