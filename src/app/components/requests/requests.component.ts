@@ -15,8 +15,7 @@ export class RequestsComponent implements OnInit{
   requests: Person[] = new Array<Person>()
 
   ngOnInit(): void {
-    this.ps.getStatus(false)
-    this.ps.allPerson.asObservable().subscribe(data=>Object.assign(this.requests,data))
+    this.ps.getStatus(false).subscribe(data=>Object.assign(this.requests,data))
   }
 
 

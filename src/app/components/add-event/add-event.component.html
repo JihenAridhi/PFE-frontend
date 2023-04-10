@@ -6,20 +6,20 @@
 
       <div class="input-box">
         <label>Title</label>
-        <input type="text" placeholder="Tile of news ..." required ngModel name="title"/>
+        <input type="text" placeholder="Tile of news ..." required [(ngModel)]="event.title" name="title"/>
       </div>
       <div class="input-box">
         <label>Location</label>
-        <input type="text" placeholder="Tile of news ..." required ngModel name="location"/>
+        <input type="text" placeholder="Tile of news ..." required [(ngModel)]="event.location" name="location"/>
       </div>
       <div class="input-box">
         <label>Organiser</label>
-        <input type="text" placeholder=" Full name" required ngModel name="organiser" />
+        <input type="text" placeholder=" Full name" required [(ngModel)]="event.organiser" name="organiser" />
       </div>
 
       <div class="input-box">
         <label>Date</label>
-        <input type="date"  required ngModel name="date"/>
+        <input type="date" id="date" required [(ngModel)]="event.date"  name="date"/>
       </div>
 
       <div class="input-box">
@@ -29,7 +29,7 @@
 
       <div class="input-box">
         <label>description</label>
-        <textarea name="description" rows="10" cols="70" required ngModel ></textarea>
+        <textarea name="description" rows="10" cols="70" required [(ngModel)]="event.description" ></textarea>
       </div>
       <button>Submit</button>
     </form>

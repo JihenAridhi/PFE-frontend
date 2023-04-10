@@ -4,77 +4,23 @@
 
   <thead>
 <tr>
-  <th>NAME</th>
-  <th>ORGANISATOR</th>
+  <th>TITLE</th>
+  <th>ORGANIZER</th>
   <th>LOCATION</th>
   <th>DATE</th>
-  <th colspan="2"><a href="/account/add-event" class="btn2">ADD EVENT</a></th>
+  <th colspan="2"><a (click)="add()" class="btn2">ADD EVENT</a></th>
 
 </tr>
 </thead>
 
 <tbody>
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
-</tr>
-
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
-</tr>
-
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
-</tr>
-
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
-</tr>
-
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
-</tr>
-
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
-</tr>
-
-<tr>
-  <td>RLorem ipsum dolor sit amet consectetur </td>
-  <td>LOREM</td>
-  <td>LOREM</td>
-  <td>12/03/2023</td>
-  <td><a href="#" class="btn2">Update</a></td>
-  <td><a href="#" class="btn2">Delete</a></td>
+<tr *ngFor="let e of allEvents">
+  <td>{{e.title}} </td>
+  <td>{{e.organiser}}</td>
+  <td>{{e.location}}</td>
+  <td>{{e.date | date: 'dd-MM-yyyy'}}</td>
+  <td><a class="btn2" (click)="update(e)">Update</a></td>
+  <td><a class="btn2">Delete</a></td>
 </tr>
 
 </tbody>

@@ -12,13 +12,12 @@ import {DatePipe} from "@angular/common";
 export class AddNewsComponent implements OnInit{
 
   news: News = new News()
-  constructor(private ns: NewsService, private d: DatePipe) {}
+  constructor(private ns: NewsService) {}
 
   save(form: NgForm)
   {
     let news = form.value
     news.date = new Date()
-    news.date = this.d.transform(news.date, 'dd-MM-yyyy HH:mm:ss')
     news.id=this.news.id
     this.ns.save(news)
   }

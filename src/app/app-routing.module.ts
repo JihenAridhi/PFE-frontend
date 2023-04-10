@@ -28,6 +28,7 @@ import {EditNewsComponent} from "./components/edit-news/edit-news.component";
 import {RequestsComponent} from "./components/requests/requests.component";
 import {AddNewsComponent} from "./components/add-news/add-news.component";
 import {AddEventComponent} from "./components/add-event/add-event.component";
+import {LoginGuard} from "./guards/login.guard";
 
 
 
@@ -57,18 +58,18 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
 
-  {path: 'account', component: NavProfilComponent, children:
+  {path: 'account', component: NavProfilComponent, canActivate: [LoginGuard], children:
   [
-    {path: 'profil', component: ProfilComponent},
-    {path: 'update', component: UpdateProfilComponent},
-    {path: 'requests', component: RequestsComponent},
-    {path: 'members', component: MembersComponent},
-    {path: 'add-article', component: AddArticleComponent},
-    {path: 'edit-event', component: EditEventComponent},
-    {path: 'edit-news', component: EditNewsComponent},
-    {path: 'feedback', component: FeedbackComponent},
-    {path: 'add-news', component: AddNewsComponent},
-    {path: 'add-event', component: AddEventComponent},
+    {path: 'profil', component: ProfilComponent, canActivateChild: [LoginGuard]},
+    {path: 'update', component: UpdateProfilComponent, canActivateChild: [LoginGuard]},
+    {path: 'requests', component: RequestsComponent, canActivateChild: [LoginGuard]},
+    {path: 'members', component: MembersComponent, canActivateChild: [LoginGuard]},
+    {path: 'add-article', component: AddArticleComponent, canActivateChild: [LoginGuard]},
+    {path: 'edit-event', component: EditEventComponent, canActivateChild: [LoginGuard]},
+    {path: 'edit-news', component: EditNewsComponent, canActivateChild: [LoginGuard]},
+    {path: 'feedback', component: FeedbackComponent, canActivateChild: [LoginGuard]},
+    {path: 'add-news', component: AddNewsComponent, canActivateChild: [LoginGuard]},
+    {path: 'add-event', component: AddEventComponent, canActivateChild: [LoginGuard]},
   ]},
 
 

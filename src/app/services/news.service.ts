@@ -9,26 +9,18 @@ import {BehaviorSubject} from "rxjs";
 })
 export class NewsService {
 
-  news: BehaviorSubject<News> = new BehaviorSubject<News>(new News())
-  allNews : BehaviorSubject<News[]> = new BehaviorSubject<News[]>(new Array<News>())
-
+  news = new BehaviorSubject<News>(new News())
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAll(){this.http.get<News[]>('http://localhost:8000/news/getAll').subscribe(data => {
-    this.allNews.next(data)
-    console.log(data)
-  })}
+  getAll(){return this.http.get<News[]>('http://localhost:8000/news/getAll')/*.subscribe(data => this.allNews.next(data))*/}
 
   get(id: number|undefined){this.http.get('http://localhost:8000/news/get/'+id).subscribe(
     (data: News) =>
-    {
       this.news.next(data)
-    }
   )}
 
   save(news: News)
   {
-    console.log(news)
     if(!news.id)
       this.http.post('http://localhost:8000/news/add', news).subscribe(()=> alert('news have been posted successfully !! '))
     else

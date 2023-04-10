@@ -21,7 +21,7 @@
       <li (click)="li()" *ngIf="autorisation.includes(3)"><a routerLink="/account/members">MEMBERS</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autorisation.includes(4)"><a routerLink="/account/feedback">FEEDBACK</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autorisation.includes(5)"><a routerLink="/account/requests">REQUESTS</a><hr color="#fff"></li>
-      <li (click)="li()"><a routerLink="/home">LOG OUT</a><hr color="#fff"></li>
+      <li (click)="li()"><a (click)="logout()">LOG OUT</a><hr color="#fff"></li>
     </ul>
   </nav>
 

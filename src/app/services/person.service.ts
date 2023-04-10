@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs";
 import {Person} from "../entities/Person";
-import {Autorisation} from "../entities/Autorisation";
 import {AutorisationService} from "./autorisation.service";
 
 @Injectable({
@@ -13,6 +12,8 @@ export class PersonService {
 
    person: BehaviorSubject<Person> = new BehaviorSubject<Person>(new Person())
    allPerson: BehaviorSubject<Person[]> = new BehaviorSubject<Person[]>([])
+  isAuthentificated = false
+  autorisations:  BehaviorSubject<Array<number>> = new BehaviorSubject<Array<number>>([])
   constructor(private http: HttpClient, private router: Router, private as: AutorisationService) { }
 
   public get(id: number)
@@ -43,8 +44,9 @@ export class PersonService {
         {
           if(person.password == data.password && data.status) {
             this.router.navigate(['/account/profil'])
+            this.isAuthentificated = true
             this.person.next(data)
-            this.as.getAutorisations(data)
+            this.as.getAutorisations(data).subscribe(auto => this.autorisations.next(auto))
           }
           else if (!data.status) alert("your request haven't been accepted yet !!")
           else alert('incorrect password')
@@ -53,11 +55,18 @@ export class PersonService {
       }
     )}
 
-  getStatus(status: any)
+/*  getStatus(status: any)
   {
     if (!status)
       status=0
     this.http.get<Array<Person>>('http://localhost:8000/person/getAll/status/'+status).subscribe(data => this.allPerson.next(data))
+  }*/
+
+  getStatus(status: any)
+  {
+    if (!status)
+      status=0
+    return this.http.get<Array<Person>>('http://localhost:8000/person/getAll/status/'+status)
   }
 
   accept(person: Person)
