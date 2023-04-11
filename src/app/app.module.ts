@@ -4,37 +4,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {RouterModule, RouterOutlet} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
-import {FooterComponent} from "./components/footer/footer.component";
-import {NavComponent} from "./components/nav/nav.component";
-import {HomeComponent} from "./components/home/home.component";
-import {LoginComponent} from "./components/login/login.component";
-import {SignupComponent} from "./components/signup/signup.component";
-import {NewsComponent} from "./components/news/news.component";
-import {EventsComponent} from "./components/events/events.component";
-import {ViewNewsComponent} from "./components/view-news/view-news.component";
-import {EventComponent} from "./components/event/event.component";
-import {TeamsComponent} from "./components/teams/teams.component";
-import {PublicationsComponent} from "./components/publications/publications.component";
-import {ContactComponent} from "./components/contact/contact.component";
-import {TeacherResearcherComponent} from "./components/teacher-researcher/teacher-researcher.component";
-import {DoctorsComponent} from "./components/doctors/doctors.component";
-import {PhdStudentsComponent} from "./components/phd-students/phd-students.component";
-import {AllComponent} from "./components/all/all.component";
-import {PartnersComponent} from "./components/partners/partners.component";
-import {ProfilComponent} from "./components/profil/profil.component";
-import {NavProfilComponent} from "./components/nav-profil/nav-profil.component";
-import {UpdateProfilComponent} from "./components/update-profil/update-profil.component";
-import { FeedbackComponent } from './components/feedback/feedback.component';
-import { MembersComponent } from './components/members/members.component';
-import {AddArticleComponent} from "./components/add-article/add-article.component";
-import {EditNewsComponent} from "./components/edit-news/edit-news.component";
-import {EditEventComponent} from "./components/edit-event/edit-event.component";
-import { RequestsComponent } from './components/requests/requests.component';
-import {AddNewsComponent} from "./components/add-news/add-news.component";
-import {AddEventComponent} from "./components/add-event/add-event.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {DatePipe} from "@angular/common";
+import {FooterComponent} from "./components/Browse/footer/footer.component";
+import {NavComponent} from "./components/Browse/nav/nav.component";
+import {HomeComponent} from "./components/Browse/home/home.component";
+import {LoginComponent} from "./components/Browse/login/login.component";
+import {SignupComponent} from "./components/Browse/signup/signup.component";
+import {ListNewsComponent} from "./components/News/list-news/list-news.component";
+import {ListEventComponent} from "./components/Events/list-event/list-event.component";
+import {ViewNewsComponent} from "./components/News/view-news/view-news.component";
+import {ViewEventComponent} from "./components/Events/view-event/view-event.component";
+import {TeamsComponent} from "./components/teams/teams.component";
+import {ListArticleComponent} from "./components/Articles/list-article/list-article.component";
+import {ContactComponent} from "./components/Browse/contact/contact.component";
+import {TeacherResearcherComponent} from "./components/New folder/teacher-researcher/teacher-researcher.component";
+import {DoctorsComponent} from "./components/New folder/doctors/doctors.component";
+import {PhdStudentsComponent} from "./components/New folder/phd-students/phd-students.component";
+import {AllComponent} from "./components/New folder/all/all.component";
+import {PartnersComponent} from "./components/Browse/partners/partners.component";
+import {ProfileComponent} from "./components/Profile/profile/profile.component";
+import {NavProfileComponent} from "./components/Profile/nav-profile/nav-profile.component";
+import {UpdateProfileComponent} from "./components/Profile/update-profile/update-profile.component";
+import {FeedbackComponent} from "./components/admin/feedback/feedback.component";
+import {SaveArticleComponent} from "./components/Articles/save-article/save-article.component";
+import {EditNewsComponent} from "./components/News/edit-news/edit-news.component";
+import {EditEventComponent} from "./components/Events/edit-event/edit-event.component";
+import {MembersComponent} from "./components/admin/members/members.component";
+import {SaveNewsComponent} from "./components/News/save-news/save-news.component";
+import {SaveEventComponent} from "./components/Events/save-event/save-event.component";
+import {RequestsComponent} from "./components/admin/requests/requests.component";
 
 
 
@@ -46,28 +45,28 @@ import {DatePipe} from "@angular/common";
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    NewsComponent,
-    EventsComponent,
+    ListNewsComponent,
+    ListEventComponent,
     ViewNewsComponent,
-    EventComponent,
+    ViewEventComponent,
     TeamsComponent,
-    PublicationsComponent,
+    ListArticleComponent,
     ContactComponent,
     TeacherResearcherComponent,
     DoctorsComponent,
     PhdStudentsComponent,
     AllComponent,
     PartnersComponent,
-    ProfilComponent,
-    NavProfilComponent,
-    UpdateProfilComponent,
+    ProfileComponent,
+    NavProfileComponent,
+    UpdateProfileComponent,
     FeedbackComponent,
-    AddArticleComponent,
+    SaveArticleComponent,
     EditNewsComponent,
     EditEventComponent,
     MembersComponent,
-    AddNewsComponent,
-    AddEventComponent,
+    SaveNewsComponent,
+    SaveEventComponent,
     RequestsComponent,
   ],
   imports: [

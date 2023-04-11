@@ -1,0 +1,52 @@
+<div class="table-container">
+  <form #changesF="ngForm" (ngSubmit)="submit(changesF)">
+    <table id="keywords" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>MEMBER</th>
+          <th>DELETE</th>
+          <th>PROFESSION</th>
+          <th>TEAMS</th>
+          <th>NEWS</th>
+          <th>EVENTS</th>
+          <th>MEMBERS</th>
+          <th>FEEDBACK</th>
+          <th>REQUESTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of members; let i = index;">
+          <td><a routerLink="#" (click)="toggle(m)">{{m.firstName}} {{m.lastName}}</a></td>
+          <td><button class="btn2" (click)="delete(m)">DELETE</button></td>
+          <td><select name="profession_{{i}}" class="teams" [(ngModel)]="m.profession">
+            <option value="">--</option>
+            <option value="Teacher Researcher">Researcher</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Ph.D Student" >Ph.D Student</option>
+          </select></td>
+          <td><select name="team_{{i}}" class="teams" [(ngModel)]="m.team">
+            <option value="">--</option>
+            <option value="HR ">HR</option>
+            <option value="Development" >Development</option>
+          </select></td>
+          <td><input  type="checkbox" name="1_{{i}}" class="check" [checked]="autoList[i].includes(1)" ngModel></td>
+          <td><input  type="checkbox" name="2_{{i}}" class="check" [checked]="autoList[i].includes(2)" ngModel></td>
+          <td><input  type="checkbox" name="3_{{i}}" class="check" [checked]="autoList[i].includes(3)" ngModel></td>
+          <td><input  type="checkbox" name="4_{{i}}" class="check" [checked]="autoList[i].includes(4)" ngModel></td>
+          <td><input  type="checkbox" name="5_{{i}}" class="check" [checked]="autoList[i].includes(5)" ngModel></td>
+        </tr>
+        <tr><td colspan="9"><input type="submit" value="SUBMIT CHANGES" class="btn2"></td></tr>
+      </tbody>
+  </table>
+  </form>
+</div>
+<div id="popup">
+
+  <h1 id="close" align="right" (click)="toggle(member)">&#10006;</h1>
+
+  <p> name : {{member.firstName}} {{member.lastName}}</p>
+  <p>email : {{member.email}}</p>
+  <p>profession : {{member.profession}}</p>
+  <p>teams : {{member.team}}</p>
+
+</div>
