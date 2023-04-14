@@ -15,16 +15,24 @@ export class RequestsComponent implements OnInit{
   requests: Person[] = new Array<Person>()
 
   ngOnInit(): void {
-    //this.ps.getStatus(false).then(data => localStorage.setItem('personList', JSON.stringify(data)))
-    //.subscribe(data=>Object.assign(this.requests,data))
-    /*let p = localStorage.getItem('personList')
-    if (p)
-      this.requests = JSON.parse(p)*/
-    this.requests = this.ps.getItem('personList')
+    //this.requests = this.ps.getItem('personList')
+    this.ps.getStatus(false).then(data => {if (data) this.requests = data})
   }
 
 
-  delete(r: Person) {this.ps.delete(r)}
+  delete(r: Person)
+  {
+    let response = confirm('are you sure ??')
+    if (response) {
+      this.ps.delete(r)
+      this.requests = this.requests.filter(p => p!==r)
+      this.ps.setItem('personList', this.requests)
+    }
+  }
 
-  accept(r: Person) {this.ps.accept(r)}
+  accept(r: Person) {
+    this.ps.accept(r)
+      this.requests = this.requests.filter(p => p!==r)
+      this.ps.setItem('personList', this.requests)
+  }
 }

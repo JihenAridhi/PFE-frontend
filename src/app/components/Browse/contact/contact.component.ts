@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {FeedbackService} from "../../../services/feedback.service";
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +9,9 @@ import {NgForm} from "@angular/forms";
 })
 export class ContactComponent {
 
+  constructor(private fs: FeedbackService) {
+  }
   add(contactF: NgForm) {
-
+    this.fs.add(contactF.value)
   }
 }

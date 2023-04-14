@@ -3,7 +3,9 @@ import {Router} from "@angular/router";
 import {PersonService} from "../../../services/person.service";
 import {NewsService} from "../../../services/news.service";
 import {AutorisationService} from "../../../services/autorisation.service";
-import {Person} from "../../../entities/Person";
+import {EventService} from "../../../services/event.service";
+import {ArticleService} from "../../../services/article.service";
+import {FeedbackService} from "../../../services/feedback.service";
 
 
 @Component({
@@ -15,10 +17,13 @@ import {Person} from "../../../entities/Person";
 export class NavProfileComponent implements OnInit{
 
   autoList: Array<number> = new Array<number>()
-  constructor(private ps: PersonService,
-              private router: Router,
+  constructor(private router: Router,
+              private ps: PersonService,
               private ns: NewsService,
-              private as: AutorisationService) {}
+              private aus: AutorisationService,
+              private es: EventService,
+              private ars: ArticleService,
+              private fs: FeedbackService) {}
 
   btn() {
    $('.btn').toggleClass("click");
@@ -28,13 +33,7 @@ export class NavProfileComponent implements OnInit{
   li() {$(this).addClass("active").siblings().removeClass("active");}
 
 
-  ngOnInit(): void {
-    //this.ps.autorisations.asObservable().subscribe(data=> (this.autorisation = data))
-   /* let a = localStorage.getItem('autoList')
-        if(a)
-          Object.assign(this.autoList, JSON.parse(a))*/
-    this.autoList = this.as.getItem('autoList')
-  }
+  ngOnInit(): void {this.autoList = this.aus.getItem('autoList')}
 
 
 
@@ -45,23 +44,18 @@ export class NavProfileComponent implements OnInit{
 
 
 
-  news() {
-
-
+  /*async news() {
+    await this.ns.getAll().then(data => this.ns.setItem('newsList', data))
+    await this.router.navigate(['account/edit-news'])
   }
 
-  events() {
-
+  async events() {
+    await this.es.getAll().then(data => this.es.setItem('eventList', data))
+    await this.router.navigate(['account/edit-event'])
   }
 
-  async members() {/*
-    let personList: Person[] = []
-    let autoList: number[][]
-    await this.ps.getStatus(true).then(data => {if (data) personList = data})
-    for (let i=0; i<personList.length; i++)
-      await this.as.getAutorisations(personList[i]).then(data => {if(data) autoList[i] = data.map(r=>r.id)})*/
-    await this.ps.getStatus(true).then(data => this.as.setItem('personList', data))
-    await this.as.getAllAutorisations().then(data => this.as.setItem('personAutoList', data))
+  async members() {
+
     await this.router.navigate(['/account/members'])
   }
 
@@ -72,6 +66,6 @@ export class NavProfileComponent implements OnInit{
   async requests() {
     await this.ps.getStatus(false).then(data => this.ps.setItem('personList', data))
     await this.router.navigate(['/account/requests'])
-  }
+  }*/
 }
 

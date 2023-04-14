@@ -12,6 +12,7 @@ export class UpdateProfileComponent implements OnInit{
 
   person: Person = new Person();
   url = '';
+  showContent = true;
 
   constructor(private ps: PersonService) {}
 
@@ -55,7 +56,14 @@ export class UpdateProfileComponent implements OnInit{
     const file: File = files[0];
     const formData = new FormData();
     formData.append('file', file, this.person.id?.toString()+'.jpg');
-    this.ps.setPhoto(formData).then(() => this.ps.getPhoto(this.person.id))
+    this.ps.setPhoto(formData).then(() => {
+      this.ps.getPhoto(this.person.id)
+      this.showContent = false;
+      setTimeout(() => {
+        this.showContent = true;
+      }, 1000);
+    })
+
   }
 
 

@@ -15,7 +15,7 @@
       </form>
     </div>
     <div class="container2">
-      <img [src]="url" alt="image">
+      <img [src]="url" alt="image" *ngIf="showContent">
       <div class="input_container">
         <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
       </div>

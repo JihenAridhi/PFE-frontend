@@ -18,10 +18,10 @@ export class AutorisationService {
 
   getAutorisations(person: Person) { return this.http.get<Autorisation[]>('http://localhost:8000/person/' + person.id + '/getAutorisations').toPromise()}
 
-  addAutorisation(idP: number|undefined, idA: number)
+  addAutorisation(idP?: number, idA?: number)
   {this.http.post('http://localhost:8000/person/'+idP+'/addAutorisation/'+idA, null).subscribe()}
 
-  deletePerson(idP: number|undefined, idA: number)
+  deletePerson(idP?: number, idA?: number)
   {this.http.delete('http://localhost:8000/person/'+idP+'/deleteAutorisation/'+idA).subscribe()}
 
   setItem(key: string, value: any) {

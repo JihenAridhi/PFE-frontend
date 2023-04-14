@@ -16,11 +16,11 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void
   {
-    this.ns.getAll().subscribe(data => {
+    /*this.ns.getAll().subscribe(data => {
       this.allNews = data
       for (let i = 0; i<data.length; i++)
         this.ns.getPhoto(this.allNews[i].id).then(data => {if (data) this.url[i] = data})
-    })
+    })*/
     //this.ns.allNews.asObservable().subscribe(data => this.allNews = data)
   }
 

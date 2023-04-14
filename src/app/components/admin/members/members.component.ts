@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
@@ -25,10 +25,10 @@ export class MembersComponent implements OnInit{
     this.member = person
   }
 
-  ngOnInit(): void
+  ngOnInit()
   {
-    this.members = this.ps.getItem('personList')
-    this.autoList = this.as.getItem('personAutoList')
+     this.ps.getStatus(true).then(data => {if (data) this.members = data})
+     this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
   }
 
   submit(changesF: NgForm)
@@ -65,7 +65,8 @@ export class MembersComponent implements OnInit{
     if (response)
     {
       this.ps.delete(m)
-      this.members.map(r => r!==m)
+      this.members = this.members.filter(r => r!==m)
+      this.ps.setItem('personList', this.members)
     }
   }
 }

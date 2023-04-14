@@ -17,7 +17,7 @@ export class PersonService {
   {this.http.get('http://localhost:8000/person/get/'+id).subscribe((data: Person)=> localStorage.setItem('person', JSON.stringify(data)))}
 
   public getAll()
-  {this.http.get<Person[]>('http://localhost:8000/person/getAll').subscribe(data=> localStorage.setItem('personList', JSON.stringify(data)))}
+  {return this.http.get<Person[]>('http://localhost:8000/person/getAll').toPromise()/*.subscribe(data=> localStorage.setItem('personList', JSON.stringify(data)))*/}
 
   public add(person: Person)
   {
@@ -70,7 +70,7 @@ export class PersonService {
   {this.http.put('http://127.0.0.1:8000/person/update', person).subscribe()}
 
   delete(person: Person)
-  {this.http.delete('http://localhost:8000/person/delete/'+person.id).subscribe(()=>alert('deleted'))}
+  {this.http.delete('http://localhost:8000/person/delete/'+person.id).subscribe()}
 
   setPhoto(formData: FormData)
   {return this.http.post<string>('http://localhost:8000/photo/user', formData).toPromise()}
