@@ -144,7 +144,7 @@
 <div>
   <div class="group"> <h1 style="text-align: center; color: #123C60; "><b>SMART LAB NEWS</b></h1></div>
   <div id="news">
-    <article *ngFor="let n of allNews; let i = index">
+    <article *ngFor="let n of newsList; let i = index">
       <a (click)="viewNews(n.id)">
         <img [src]="url[i]">
         <div>

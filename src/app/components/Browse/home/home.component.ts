@@ -9,19 +9,21 @@ import {NewsService} from "../../../services/news.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  allNews: News[] = new Array<News>()
+  newsList: News[] = new Array<News>()
   url: string[] = [];
 
   constructor(private router: Router, private ns: NewsService) {}
 
   ngOnInit(): void
   {
-    /*this.ns.getAll().subscribe(data => {
-      this.allNews = data
-      for (let i = 0; i<data.length; i++)
-        this.ns.getPhoto(this.allNews[i].id).then(data => {if (data) this.url[i] = data})
-    })*/
-    //this.ns.allNews.asObservable().subscribe(data => this.allNews = data)
+
+    this.ns.getAll().then(data =>
+    {
+      if (data)
+        this.newsList = data
+      for (let i = 0; i<this.newsList.length; i++)
+        this.ns.getPhoto(this.newsList[i].id).then(data => {if (data) this.url[i] = data})
+    })
   }
 
 
