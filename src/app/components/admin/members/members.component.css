@@ -62,10 +62,7 @@ img { border: 0; max-width: 100%; }
 h1 {
   font-family: 'Amarante', Tahoma, sans-serif;
   font-weight: bold;
-  font-size: 3.6em;
-  line-height: 1.7em;
   margin-bottom: 10px;
-  text-align: center;
 }
 
 
@@ -129,11 +126,9 @@ h1 {
 
 #popup{
   position: fixed;
-  width:1000px;
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 1000px;
   padding: 50px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
   background: #fff;
@@ -149,6 +144,9 @@ h1 {
   transform: 0.5s;
   max-height: 600px;
   overflow-y: scroll;
+}
+#popup::-webkit-scrollbar{
+  display: none;
 }
 
 

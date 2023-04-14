@@ -19,9 +19,11 @@ export class LoginGuard implements CanActivate, CanActivateChild {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem('isAuthenticated')!=null)
+    if(!localStorage.getItem('person')) {
       this.router.navigate(['login'])
-    return this.ps.isAuthenticated
+      return true
+    }
+    return false
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

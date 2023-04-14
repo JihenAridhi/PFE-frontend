@@ -1,0 +1,69 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="container">
+  <header>Article</header>
+  <form class="form" #addF='ngForm' (ngSubmit)="addArticle(addF)">
+
+    <div class="input-box">
+      <label>Author</label>
+      <input type="text" placeholder=" Full name" required ngModel name="authors"/>
+
+      <div id="survey_options">
+      </div>
+      <div class="controls">
+        <a routerLink="#" id="add_more_fields" (click)="addAuthor()"><i class="fa fa-plus"></i>Add More</a>
+        <a routerLink="#" id="remove_fields" (click)="removeAuthor()"><i class="fa fa-plus"></i>Remove Field</a>
+      </div>
+    </div>
+
+
+    <div class="input-box">
+      <label>Year of publication</label>
+      <input type="text" placeholder=" Year of publication" required />
+    </div>
+    <div class="input-box">
+      <label>Conférence / journal</label>
+      <input type="text" placeholder=" Name of conference" required />
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <label>Page </label>
+        <input type="number" placeholder=" Start page" required ngModel name="firstPage"/>
+      </div>
+      <div class="input-box">
+        <label>page </label>
+        <input type="number" placeholder=" Last page" required ngModel name="lastName"/>
+      </div>
+    </div>
+
+    <div class="input-box">
+      <label>Editor</label>
+      <input type="text" placeholder=" Name of editor" required ngModel name="editor"/>
+    </div>
+
+    <div class="input-box">
+      <label>URL of article</label>
+      <input type="text" placeholder=" Url of article" required />
+    </div>
+
+    <div class="select-box">
+      <select>
+        <option hidden>TYPE</option>
+        <option>TYPE1</option>
+        <option>TYPE2</option>
+        <option>TYPE3</option>
+        <option>TYPE4</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label>description</label>
+      <textarea name="description" rows="10" cols="70" ngModel></textarea>
+    </div>
+
+    <button>Submit</button>
+  </form>
+</section>
+
+

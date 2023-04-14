@@ -18,10 +18,6 @@ import {ViewEventComponent} from "./components/Events/view-event/view-event.comp
 import {TeamsComponent} from "./components/teams/teams.component";
 import {ListArticleComponent} from "./components/Articles/list-article/list-article.component";
 import {ContactComponent} from "./components/Browse/contact/contact.component";
-import {TeacherResearcherComponent} from "./components/New folder/teacher-researcher/teacher-researcher.component";
-import {DoctorsComponent} from "./components/New folder/doctors/doctors.component";
-import {PhdStudentsComponent} from "./components/New folder/phd-students/phd-students.component";
-import {AllComponent} from "./components/New folder/all/all.component";
 import {PartnersComponent} from "./components/Browse/partners/partners.component";
 import {ProfileComponent} from "./components/Profile/profile/profile.component";
 import {NavProfileComponent} from "./components/Profile/nav-profile/nav-profile.component";
@@ -34,6 +30,10 @@ import {MembersComponent} from "./components/admin/members/members.component";
 import {SaveNewsComponent} from "./components/News/save-news/save-news.component";
 import {SaveEventComponent} from "./components/Events/save-event/save-event.component";
 import {RequestsComponent} from "./components/admin/requests/requests.component";
+import {TeacherResearcherComponent} from "./components/Members/teacher-researcher/teacher-researcher.component";
+import {DoctorsComponent} from "./components/Members/doctors/doctors.component";
+import {PhdStudentsComponent} from "./components/Members/phd-students/phd-students.component";
+import {AllComponent} from "./components/Members/all/all.component";
 
 
 

@@ -14,6 +14,7 @@ import {PersonService} from "../../../services/person.service";
 export class ProfileComponent implements OnInit{
 
   person: Person = new Person();
+  url = ''
 
   constructor(private ps: PersonService) {}
 
@@ -23,9 +24,14 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let p = localStorage.getItem('person')
+    /*let p = localStorage.getItem('person')
     if (p)
-      this.person = JSON.parse(p)
+      this.person = JSON.parse(p)*/
+    this.person = this.ps.getItem('person')
+    this.ps.getPhoto(this.person.id).then(data => {
+      if (data)
+        this.url = data
+    })
   }
 
 

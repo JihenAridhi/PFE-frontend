@@ -27,5 +27,11 @@ export class NewsService {
       this.http.put('http://localhost:8000/news/update', news).subscribe(()=> alert('changes have been affected successfully !!'))
   }
 
-  delete(id: number|undefined) {this.http.delete('http://localhost:8000/news/delete/'+id).subscribe(()=>alert('deleted'))}
+  delete(id: number|undefined) {return this.http.delete('http://localhost:8000/news/delete/'+id)}
+
+  setPhoto(formData: FormData)
+  {return this.http.post<string>('http://localhost:8000/photo/news', formData).toPromise()}
+
+  getPhoto(id: any)
+  {return this.http.get<string>('http://localhost:8000/photo/news/get/'+id).toPromise()}
 }

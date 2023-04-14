@@ -18,22 +18,17 @@ export class MembersComponent implements OnInit{
   constructor(private ps: PersonService, private as: AutorisationService) {}
 
   toggle(person: Person) {
-    var blur=document.getElementById('blur');
+    let blur=document.getElementById('blur');
      if (blur) blur.classList.toggle('active');
-    var popup = document.getElementById('popup');
+    let popup = document.getElementById('popup');
     if (popup) popup.classList.toggle('active');
     this.member = person
   }
 
   ngOnInit(): void
   {
-
-    let m = localStorage.getItem('personList')
-    if (m)
-      this.members = JSON.parse(m)
-    let a = localStorage.getItem('allAutoList')
-    if (a)
-      this.autoList = JSON.parse(a)
+    this.members = this.ps.getItem('personList')
+    this.autoList = this.as.getItem('personAutoList')
   }
 
   submit(changesF: NgForm)
@@ -44,20 +39,33 @@ export class MembersComponent implements OnInit{
       this.members[i].profession=f['profession_'+i]
       this.members[i].team=f['team_'+i]
       this.ps.update(this.members[i])
+      this.ps.setItem('personList', this.members)
       let a = [f['1_'+i], f['2_'+i], f['3_'+i], f['4_'+i], f['5_'+i]]
       console.log(a)
       for(let j=0; j<5; j++)
       {
-        if (typeof a[j] === 'boolean')
-        {
-          console.log(a[j])
-          if (a[j]) this.as.addAutorisation(this.members[i].id, j + 1)
-          else this.as.deletePerson(this.members[i].id, j + 1)
+        if (a[j] && !this.autoList[i].includes(j+1)) {
+          this.as.addAutorisation(this.members[i].id, j + 1)
+          this.autoList[i].push(j+1)
+        }
+        else if (!a[j]) {
+          this.as.deletePerson(this.members[i].id, j + 1)
+          this.autoList[i].map(r => r!== j+1)
         }
       }
+      this.as.setItem('personAutoList', this.autoList)
     }
+    alert('the information have been updated successfully !!')
   }
 
 
-  delete(m: Person) {this.ps.delete(m)}
+  delete(m: Person)
+  {
+    let response = confirm('are you sure ?')
+    if (response)
+    {
+      this.ps.delete(m)
+      this.members.map(r => r!==m)
+    }
+  }
 }

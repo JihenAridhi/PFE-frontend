@@ -15,9 +15,9 @@
       </form>
     </div>
     <div class="container2">
-      <img src="https://i.pinimg.com/236x/87/64/f1/8764f1f9e4eee4bdd4d62563ad241bcc.jpg" alt="">
+      <img [src]="url" alt="image">
       <div class="input_container">
-        <input type="file" name="" value="Update " id="fileUpload" >
+        <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
       </div>
       <button id="open-popup" (click)="toggle()">Update password</button>
     </div>

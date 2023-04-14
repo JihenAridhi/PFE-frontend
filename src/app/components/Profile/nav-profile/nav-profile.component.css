@@ -91,6 +91,7 @@ body::-webkit-scrollbar{
   transition: left 0.4s ease;
   overflow: scroll;
   z-index: 10;
+  border-right: solid #fff;
 }
 .sidebar::-webkit-scrollbar{
   display: none;

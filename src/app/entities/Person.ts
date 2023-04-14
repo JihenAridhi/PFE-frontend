@@ -9,5 +9,4 @@ export class Person
   team?: string
   interest?: string
   status?: boolean
-
 }

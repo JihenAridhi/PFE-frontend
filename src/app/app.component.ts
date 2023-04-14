@@ -10,7 +10,10 @@ import {PersonService} from "./services/person.service";
 export class AppComponent  implements OnInit{
   constructor(private router: Router, private ps: PersonService) {}
 
-  ngOnInit(): void {/*this.router.navigate(["/home"])*/}
+  ngOnInit(): void
+  {
+
+  }
 
 
 }

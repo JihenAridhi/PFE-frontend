@@ -7,24 +7,13 @@
     <div class="btn " (click)="btn()">
       <span class="fas fa-bars"></span>
     </div>
-    <a routerLink="/account/profil"><img src="https://i.pinimg.com/236x/40/e4/f2/40e4f222740a74b3a284a900e3fdeead.jpg"></a>
   </div>
   <nav class="sidebar">
     <div class="text">
       ACCOUNT
     </div>
-    <!--<ul>
-      <li (click)="li()"><a routerLink="/account/profil">PROFILE</a><hr color="#fff"></li>
-      <li (click)="li()"><a routerLink="/account/update">UPDATE</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autoList.includes(1)"><a routerLink="/account/edit-news">EDIT NEWS</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autoList.includes(2)"><a routerLink="/account/edit-event">EDIT EVENT</a><hr color="#fff">  </li>
-      <li (click)="li()" *ngIf="autoList.includes(3)"><a routerLink="/account/members">MEMBERS</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autoList.includes(4)"><a routerLink="/account/feedback">FEEDBACK</a><hr color="#fff"></li>
-      <li (click)="li()" *ngIf="autoList.includes(5)"><a routerLink="/account/requests">REQUESTS</a><hr color="#fff"></li>
-      <li (click)="li()"><a routerLink="/home">LOG OUT</a><hr color="#fff"></li>
-    </ul>-->
 
-    <ul>
+    <!--<ul>
       <li (click)="li()"><a routerLink="/account/profile">PROFILE</a><hr color="#fff"></li>
       <li (click)="li()"><a routerLink="/account/update">UPDATE</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(1)"><a routerLink="/account/edit-news">EDIT NEWS</a><hr color="#fff"></li>
@@ -33,10 +22,10 @@
       <li (click)="li()" *ngIf="autoList.includes(4)"><a routerLink="/account/feedback">FEEDBACK</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(5)"><a routerLink="/account/requests">REQUESTS</a><hr color="#fff"></li>
       <li (click)="li()"><a (click)="logout()">LOG OUT</a><hr color="#fff"></li>
-    </ul>
+    </ul>-->
 
-    <!--<ul>
-      <li (click)="li()"><a routerLink="/account/profil">PROFILE</a><hr color="#fff"></li>
+    <ul>
+      <li (click)="li()"><a routerLink="/account/profile">PROFILE</a><hr color="#fff"></li>
       <li (click)="li()"><a routerLink="/account/update">UPDATE</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(1)"><a (click)="news()">EDIT NEWS</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(2)"><a (click)="events()">EDIT EVENT</a><hr color="#fff">  </li>
@@ -44,7 +33,7 @@
       <li (click)="li()" *ngIf="autoList.includes(4)"><a (click)="feedback()">FEEDBACK</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(5)"><a (click)="requests()">REQUESTS</a><hr color="#fff"></li>
       <li (click)="li()"><a (click)="logout()">LOG OUT</a><hr color="#fff"></li>
-    </ul>-->
+    </ul>
   </nav>
 
   <router-outlet></router-outlet>

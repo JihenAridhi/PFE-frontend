@@ -15,10 +15,12 @@ export class RequestsComponent implements OnInit{
   requests: Person[] = new Array<Person>()
 
   ngOnInit(): void {
-    //this.ps.getStatus(false).subscribe(data=>Object.assign(this.requests,data))
-    let p = localStorage.getItem('personList')
+    //this.ps.getStatus(false).then(data => localStorage.setItem('personList', JSON.stringify(data)))
+    //.subscribe(data=>Object.assign(this.requests,data))
+    /*let p = localStorage.getItem('personList')
     if (p)
-      this.requests = JSON.parse(p)
+      this.requests = JSON.parse(p)*/
+    this.requests = this.ps.getItem('personList')
   }
 
 

@@ -28,4 +28,16 @@ export class EventService
     (data: News) =>
       this.event.next(data)
   )}
+
+  delete(id: number | undefined) {
+    return this.http.delete('http://localhost:8000/event/delete/'+id)
+  }
+
+  setPhoto(formData: FormData)
+  {return this.http.post<string>('http://localhost:8000/photo/event', formData).toPromise()}
+
+  getPhoto(id: any)
+  {return this.http.get<string>('http://localhost:8000/photo/event/get/'+id).toPromise()}
+
+
 }

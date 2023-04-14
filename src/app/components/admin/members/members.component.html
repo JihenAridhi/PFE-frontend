@@ -17,7 +17,7 @@
       <tbody>
         <tr *ngFor="let m of members; let i = index;">
           <td><a routerLink="#" (click)="toggle(m)">{{m.firstName}} {{m.lastName}}</a></td>
-          <td><button class="btn2" (click)="delete(m)">DELETE</button></td>
+          <td><a class="btn2" (click)="delete(m)">DELETE</a></td>
           <td><select name="profession_{{i}}" class="teams" [(ngModel)]="m.profession">
             <option value="">--</option>
             <option value="Teacher Researcher">Researcher</option>
@@ -29,11 +29,11 @@
             <option value="HR ">HR</option>
             <option value="Development" >Development</option>
           </select></td>
-          <td><input  type="checkbox" name="1_{{i}}" class="check" [checked]="autoList[i].includes(1)" ngModel></td>
-          <td><input  type="checkbox" name="2_{{i}}" class="check" [checked]="autoList[i].includes(2)" ngModel></td>
-          <td><input  type="checkbox" name="3_{{i}}" class="check" [checked]="autoList[i].includes(3)" ngModel></td>
-          <td><input  type="checkbox" name="4_{{i}}" class="check" [checked]="autoList[i].includes(4)" ngModel></td>
-          <td><input  type="checkbox" name="5_{{i}}" class="check" [checked]="autoList[i].includes(5)" ngModel></td>
+          <td><input  type="checkbox" name="1_{{i}}" class="check" [ngModel]="autoList[i].includes(1)"></td>
+          <td><input  type="checkbox" name="2_{{i}}" class="check" [ngModel]="autoList[i].includes(2)"></td>
+          <td><input  type="checkbox" name="3_{{i}}" class="check" [ngModel]="autoList[i].includes(3)"></td>
+          <td><input  type="checkbox" name="4_{{i}}" class="check" [ngModel]="autoList[i].includes(4)"></td>
+          <td><input  type="checkbox" name="5_{{i}}" class="check" [ngModel]="autoList[i].includes(5)"></td>
         </tr>
         <tr><td colspan="9"><input type="submit" value="SUBMIT CHANGES" class="btn2"></td></tr>
       </tbody>

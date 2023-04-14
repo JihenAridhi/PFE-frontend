@@ -144,12 +144,12 @@
 <div>
   <div class="group"> <h1 style="text-align: center; color: #123C60; "><b>SMART LAB NEWS</b></h1></div>
   <div id="news">
-    <article *ngFor="let n of allNews">
+    <article *ngFor="let n of allNews; let i = index">
       <a (click)="viewNews(n.id)">
-        <img src="assets/photo/test.jpg">
+        <img [src]="url[i]">
         <div>
           <h2>{{n.title}}</h2>
-          <p>{{n.date | date: 'd-m-Y'}}</p>
+          <p>{{n.date | date: 'dd-MM-yyyy'}}</p>
         </div>
       </a>
     </article>

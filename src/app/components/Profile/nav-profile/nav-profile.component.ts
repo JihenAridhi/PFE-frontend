@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {PersonService} from "../../../services/person.service";
 import {NewsService} from "../../../services/news.service";
 import {AutorisationService} from "../../../services/autorisation.service";
+import {Person} from "../../../entities/Person";
 
 
 @Component({
@@ -29,16 +30,15 @@ export class NavProfileComponent implements OnInit{
 
   ngOnInit(): void {
     //this.ps.autorisations.asObservable().subscribe(data=> (this.autorisation = data))
-    let a = localStorage.getItem('autoList')
+   /* let a = localStorage.getItem('autoList')
         if(a)
-          Object.assign(this.autoList, JSON.parse(a))
-          console.log(this.autoList)
-        }
+          Object.assign(this.autoList, JSON.parse(a))*/
+    this.autoList = this.as.getItem('autoList')
+  }
 
 
 
   logout() {
-    this.ps.isAuthenticated = false
     this.router.navigate(['/home'])
     localStorage.clear()
   }
@@ -54,18 +54,24 @@ export class NavProfileComponent implements OnInit{
 
   }
 
-  async members() {
-    await this.ps.getStatus(true).then(data => localStorage.setItem('personList', JSON.stringify(data)))
-    await this.as.getAllAutorisations().then(data => localStorage.setItem('allAutoList', JSON.stringify(data)))
-    this.router.navigate(['/account/members'])
+  async members() {/*
+    let personList: Person[] = []
+    let autoList: number[][]
+    await this.ps.getStatus(true).then(data => {if (data) personList = data})
+    for (let i=0; i<personList.length; i++)
+      await this.as.getAutorisations(personList[i]).then(data => {if(data) autoList[i] = data.map(r=>r.id)})*/
+    await this.ps.getStatus(true).then(data => this.as.setItem('personList', data))
+    await this.as.getAllAutorisations().then(data => this.as.setItem('personAutoList', data))
+    await this.router.navigate(['/account/members'])
   }
 
-  feedback() {
+  async feedback() {
 
   }
 
-  requests() {
-
+  async requests() {
+    await this.ps.getStatus(false).then(data => this.ps.setItem('personList', data))
+    await this.router.navigate(['/account/requests'])
   }
 }
 

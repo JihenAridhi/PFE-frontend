@@ -10,10 +10,6 @@ import {ViewNewsComponent} from "./components/News/view-news/view-news.component
 import {ListEventComponent} from "./components/Events/list-event/list-event.component";
 import {ViewEventComponent} from "./components/Events/view-event/view-event.component";
 import {ListArticleComponent} from "./components/Articles/list-article/list-article.component";
-import {TeacherResearcherComponent} from "./components/New folder/teacher-researcher/teacher-researcher.component";
-import {DoctorsComponent} from "./components/New folder/doctors/doctors.component";
-import {PhdStudentsComponent} from "./components/New folder/phd-students/phd-students.component";
-import {AllComponent} from "./components/New folder/all/all.component";
 import {PartnersComponent} from "./components/Browse/partners/partners.component";
 import {ContactComponent} from "./components/Browse/contact/contact.component";
 import {ProfileComponent} from "./components/Profile/profile/profile.component";
@@ -29,6 +25,10 @@ import {EditNewsComponent} from "./components/News/edit-news/edit-news.component
 import {FeedbackComponent} from "./components/admin/feedback/feedback.component";
 import {SaveNewsComponent} from "./components/News/save-news/save-news.component";
 import {SaveEventComponent} from "./components/Events/save-event/save-event.component";
+import {TeacherResearcherComponent} from "./components/Members/teacher-researcher/teacher-researcher.component";
+import {DoctorsComponent} from "./components/Members/doctors/doctors.component";
+import {PhdStudentsComponent} from "./components/Members/phd-students/phd-students.component";
+import {AllComponent} from "./components/Members/all/all.component";
 
 
 
@@ -41,7 +41,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: '', component: NavComponent, children:
     [
-      {path: 'news', component: ListNewsComponent},
+      {path: 'list-news', component: ListNewsComponent},
       {path: 'view-news', component: ViewNewsComponent},
       {path: 'list-event', component: ListEventComponent},
       {path: 'view-event', component: ViewEventComponent},
