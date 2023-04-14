@@ -1,0 +1,28 @@
+<div class="table-container">
+
+  <table id="keywords" cellspacing="0" cellpadding="0">
+
+  <thead>
+<tr>
+  <th>TITLE</th>
+  <th>ORGANIZER</th>
+  <th>LOCATION</th>
+  <th>DATE</th>
+  <th colspan="2"><a (click)="add()" class="btn2">ADD EVENT</a></th>
+
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let e of eventList">
+  <td>{{e.title}} </td>
+  <td>{{e.organiser}}</td>
+  <td>{{e.location}}</td>
+  <td>{{e.date | date: 'dd-MM-yyyy'}}</td>
+  <td><a class="btn2" (click)="update(e)">Update</a></td>
+  <td><a class="btn2" (click)="delete(e)">Delete</a></td>
+</tr>
+
+</tbody>
+  </table>
+</div>
