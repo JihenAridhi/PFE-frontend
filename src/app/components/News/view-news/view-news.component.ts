@@ -16,8 +16,8 @@ export class ViewNewsComponent implements OnInit{
 
   ngOnInit(): void
   {
-    this.ns.news.asObservable().subscribe(data => this.news=data)
-    this.ns.getPhoto(this.news.id).then(data => {if (data) this.url = 'assets/newsPhoto/'+data})
+    this.news = this.ns.getItem('news')
+    this.ns.getPhoto(this.news.id).then(data => {if (data) this.url=data})
   }
 
 

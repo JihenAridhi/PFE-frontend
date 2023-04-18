@@ -1,6 +1,6 @@
 <section class="articles">
 
-  <div class="article" *ngFor="let n of newsList; let i = index" (click)="viewNews(n.id)">
+  <div class="article" *ngFor="let n of newsList; let i = index" (click)="viewNews(n)">
     <div class="left">
       <img [src]="url[i]" alt="">
     </div>

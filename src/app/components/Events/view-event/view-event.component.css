@@ -25,9 +25,11 @@
 #title {color: #123C60; text-align: center}
 
 
-#info div{width: 25%;}
+#info div{width: 33%;}
 
 #join{padding: 0!important;}
+
+#description{width: 100%}
 
 button
 {

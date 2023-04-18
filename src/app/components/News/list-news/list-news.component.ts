@@ -27,9 +27,9 @@ export class ListNewsComponent implements OnInit
   }
 
 
-  viewNews(id: number|undefined) {
+  viewNews(n: News) {
+    this.ns.setItem('news', n)
     this.router.navigate(['/view-news'])
-    this.ns.get(id)
   }
 
 }
