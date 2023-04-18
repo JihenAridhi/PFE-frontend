@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
+import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
 import {TeamsComponent} from "./components/teams/teams.component";
 import {LoginGuard} from "./guards/login.guard";
 import {FooterComponent} from "./components/Browse/footer/footer.component";

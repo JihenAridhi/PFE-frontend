@@ -42,6 +42,7 @@ export class UpdateProfileComponent implements OnInit{
     this.person.interest = updateF.value.interest
 
     this.ps.update(this.person)
+    this.ps.setItem('person', this.person)
     alert('your information have been updated successfully !!')
   }
 

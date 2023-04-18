@@ -36,7 +36,6 @@ export class SaveArticleComponent implements OnInit{
     let article = addF.value
     article.id = this.article.id
     article.authors = this.authors.map(r=>r.id)
-
     this.as.save(article)
   }
 

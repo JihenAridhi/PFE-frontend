@@ -21,7 +21,6 @@ export class ArticleService {
 
   save(article: any)
   {
-    console.log(article.authors)
     if(article.id)
       this.http.put('http://localhost:8000/article/update', article).subscribe(()=> {
           this.setAuthors(article.id, article.authors);

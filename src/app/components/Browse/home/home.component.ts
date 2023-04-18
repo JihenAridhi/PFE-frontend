@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from "@angular/router";
 import {News} from "../../../entities/News";
 import {NewsService} from "../../../services/news.service";

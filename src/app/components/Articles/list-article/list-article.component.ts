@@ -7,8 +7,7 @@ import {Person} from "../../../entities/Person";
 @Component({
   selector: 'app-list-article',
   templateUrl: './list-article.component.html',
-  styleUrls: ['./list-article.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./list-article.component.css']
 })
 export class ListArticleComponent implements OnInit{
 
