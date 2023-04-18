@@ -5,9 +5,12 @@ export class Article
   id?: number
   title?: string
   type?: string
-  date?: Date
+  journal?: string
+  year?: number
   firstPage?: number
-  lastPage?: number
-  editor?: string
-  authors?: Person[]
+  lastPage?: string
+  editor?: string;
+  description?: string;
+  url?: string
+  //DOI?: string;
 }

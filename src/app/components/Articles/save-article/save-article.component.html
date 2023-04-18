@@ -2,12 +2,21 @@
 
 <section class="container">
   <header>Article</header>
-  <form class="form" #addF='ngForm' (ngSubmit)="addArticle(addF)">
+  <form class="form" #addF='ngForm' (ngSubmit)="save(addF)">
+
+    <div class="input-box">
+      <label>Title</label>
+      <input type="text" placeholder=" Article Title" [(ngModel)]="article.title" name="title" required />
+    </div>
 
     <div class="input-box">
       <label>Author</label>
-      <input type="text" placeholder=" Full name" required ngModel name="authors"/>
-
+      <input *ngFor="let a of authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
+      <ul>
+        <li *ngFor="let person of filteredList" (click)="selectPerson(person)">
+          {{ person.firstName }} {{ person.lastName }}
+        </li>
+      </ul>
       <div id="survey_options">
       </div>
       <div class="controls">
@@ -17,38 +26,40 @@
     </div>
 
 
+
+
     <div class="input-box">
       <label>Year of publication</label>
-      <input type="text" placeholder=" Year of publication" required />
+      <input type="text" placeholder=" Year of publication" [(ngModel)]="article.year" name="year" required />
     </div>
     <div class="input-box">
       <label>Conférence / journal</label>
-      <input type="text" placeholder=" Name of conference" required />
+      <input type="text" placeholder=" Name of conference" [(ngModel)]="article.journal" name="journal" required />
     </div>
 
     <div class="column">
       <div class="input-box">
         <label>Page </label>
-        <input type="number" placeholder=" Start page" required ngModel name="firstPage"/>
+        <input type="number" placeholder=" Start page" required [(ngModel)]="article.firstPage" name="firstPage"/>
       </div>
       <div class="input-box">
         <label>page </label>
-        <input type="number" placeholder=" Last page" required ngModel name="lastName"/>
+        <input type="number" placeholder=" Last page" required [(ngModel)]="article.lastPage" name="lastPage"/>
       </div>
     </div>
 
     <div class="input-box">
       <label>Editor</label>
-      <input type="text" placeholder=" Name of editor" required ngModel name="editor"/>
+      <input type="text" placeholder=" Name of editor" required [(ngModel)]="article.editor" name="editor"/>
     </div>
 
     <div class="input-box">
       <label>URL of article</label>
-      <input type="text" placeholder=" Url of article" required />
+      <input type="text" placeholder=" Url of article" [(ngModel)]="article.url" name="url" required />
     </div>
 
     <div class="select-box">
-      <select>
+      <select name="type" [(ngModel)]="article.type">
         <option hidden>TYPE</option>
         <option>TYPE1</option>
         <option>TYPE2</option>
@@ -59,7 +70,7 @@
 
     <div class="input-box">
       <label>description</label>
-      <textarea name="description" rows="10" cols="70" ngModel></textarea>
+      <textarea name="description" rows="10" cols="70" [(ngModel)]="article.description"></textarea>
     </div>
 
     <button>Submit</button>

@@ -15,7 +15,6 @@ export class EventService
 
   getAll()
   {return this.http.get<Event[]>('http://localhost:8000/event/getAll').toPromise()/*.subscribe(data => this.allEvents.next(data))*/}
-  public add(event: Event) {console.log(event);this.http.post('http://127.0.0.1:8000/event/add', event).subscribe(()=>console.log('success'))}
 
   save(event: Event)
   {

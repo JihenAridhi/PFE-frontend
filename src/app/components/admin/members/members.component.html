@@ -44,9 +44,18 @@
 
   <h1 id="close" align="right" (click)="toggle(member)">&#10006;</h1>
 
-  <p> name : {{member.firstName}} {{member.lastName}}</p>
-  <p>email : {{member.email}}</p>
-  <p>profession : {{member.profession}}</p>
-  <p>teams : {{member.team}}</p>
+  <div class="profile">
+    <img src="/assets/userPhoto/{{member.id}}.jpg">
+
+    <div>
+      <p> name : {{member.firstName}} {{member.lastName}}</p>
+      <p>email : {{member.email}}</p>
+      <p>profession : {{member.profession}}</p>
+      <p>teams : {{member.team}}</p>
+    </div>
+
+  </div>
+
+
 
 </div>

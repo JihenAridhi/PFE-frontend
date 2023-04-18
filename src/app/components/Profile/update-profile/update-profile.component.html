@@ -49,69 +49,20 @@
       <th>TITLE</th>
       <th>QUOTED BY</th>
       <th>YEAR</th>
-      <th align="center"><a routerLink="/account/add-article" class="add">ADD ARTICLE</a></th>
+      <th align="center"><a (click)="add()" class="add">ADD ARTICLE</a></th>
 
 
     </tr>
     </thead>
 
     <tbody>
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a> <p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
+    <tr *ngFor="let a of articles">
+      <td><h4>{{a.title}}</h4></td>
+      <td><p>{{a.type}}</p></td>
+      <td>{{a.year}}</td>
+      <td><a (click)="updateArticle(a)" class="btn2">Update</a></td>
+      <td><a (click)="delete(a)" class="btn2">Delete</a></td>
     </tr>
-
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-    <tr>
-      <td><a routerLink="#">RLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus?</a><p>lorem ipsum dolor sit amet </p></td>
-      <td>LOREM</td>
-      <td>2018</td>
-      <td><a routerLink="#" class="btn2">Update</a></td>
-      <td><a routerLink="#" class="btn2">Delete</a></td>
-    </tr>
-
-
-
     </tbody>
   </table>
 </div>

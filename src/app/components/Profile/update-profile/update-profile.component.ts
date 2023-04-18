@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
+import {Article} from "../../../entities/Article";
+import {ArticleService} from "../../../services/article.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-update-profile',
@@ -13,8 +16,9 @@ export class UpdateProfileComponent implements OnInit{
   person: Person = new Person();
   url = '';
   showContent = true;
+  articles: Article[] = []
 
-  constructor(private ps: PersonService) {}
+  constructor(private ps: PersonService, private as: ArticleService, private router: Router) {}
 
    toggle() {
     let blur=document.getElementById('blur');
@@ -27,8 +31,8 @@ export class UpdateProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.person = this.ps.getItem('person')
-
     this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
+    this.as.getPerspnArticles(this.person.id).then(data => {if (data) this.articles = data})
   }
 
   update(updateF: NgForm) {
@@ -67,5 +71,23 @@ export class UpdateProfileComponent implements OnInit{
   }
 
 
+  async add() {
+    this.as.setItem('article', new Article())
+    await this.router.navigate(['/account/save-article'])
+  }
 
+  async updateArticle(a: Article)
+  {
+    this.as.setItem('article', a)
+    await this.router.navigate(['/account/save-article'])
+  }
+
+  delete(a: Article) {
+    let result = confirm('are you sure ??')
+    if (result)
+    {
+      this.as.delete(a.id)
+      this.articles = this.articles.filter(r => r!==a)
+    }
+  }
 }

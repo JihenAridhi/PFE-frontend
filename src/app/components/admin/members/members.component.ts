@@ -17,12 +17,12 @@ export class MembersComponent implements OnInit{
 
   constructor(private ps: PersonService, private as: AutorisationService) {}
 
-  toggle(person: Person) {
+  toggle(person?: Person) {
     let blur=document.getElementById('blur');
      if (blur) blur.classList.toggle('active');
     let popup = document.getElementById('popup');
     if (popup) popup.classList.toggle('active');
-    this.member = person
+    if (person) this.member = person
   }
 
   ngOnInit()

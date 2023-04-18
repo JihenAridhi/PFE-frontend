@@ -17,7 +17,6 @@ export class ListNewsComponent implements OnInit
 
   ngOnInit(): void
   {
-
     this.ns.getAll().then(data =>
     {
       if (data)

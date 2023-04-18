@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
+import {Article} from "../../../entities/Article";
+import {ArticleService} from "../../../services/article.service";
 
 
 
@@ -24,14 +26,8 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    /*let p = localStorage.getItem('person')
-    if (p)
-      this.person = JSON.parse(p)*/
     this.person = this.ps.getItem('person')
-    this.ps.getPhoto(this.person.id).then(data => {
-      if (data)
-        this.url = data
-    })
+    this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
   }
 
 

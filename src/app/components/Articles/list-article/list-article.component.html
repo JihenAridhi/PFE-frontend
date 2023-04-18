@@ -27,79 +27,14 @@
   </div>
 
   <table align="center" id="pub">
-    <tr>
+    <tr *ngFor="let a of articles">
       <td>
-        <div class="news">
-          <a routerLink="#" (click)="toggle()"> Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-          <p class="date"> le 24/02/2023 DE 09:15 à 16:00 .Lieu : salle 501-337 -Bat.501 </p>
-          <p class="desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a routerLink="#">Read more</a><br><br>
-          <hr color="#0D89BF"><br><br>
-
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="news">
-          <a routerLink="#" (click)="toggle()"> Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-          <p class="date"> le 24/02/2023 DE 09:15 à 16:00 .Lieu : salle 501-337 -Bat.501 </p>
-          <p class="desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a routerLink="#">Read more</a><br><br>
-          <hr color="#0D89BF"><br><br>
-
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="news">
-          <a routerLink="#" (click)="toggle()"> Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-          <p class="date"> le 24/02/2023 DE 09:15 à 16:00 .Lieu : salle 501-337 -Bat.501 </p>
-          <p class="desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a routerLink="#">Read more</a><br><br>
-          <hr color="#0D89BF"><br><br>
-
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="news">
-          <a routerLink="#" (click)="toggle()"> Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-          <p class="date"> le 24/02/2023 DE 09:15 à 16:00 .Lieu : salle 501-337 -Bat.501 </p>
-          <p class="desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a routerLink="#">Read more</a><br><br>
-          <hr color="#0D89BF"><br><br>
-
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="news">
-          <a routerLink="#" (click)="toggle()"> Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-          <p class="date"> le 24/02/2023 DE 09:15 à 16:00 .Lieu : salle 501-337 -Bat.501 </p>
-          <p class="desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a routerLink="#">Read more</a><br><br>
-          <hr color="#0D89BF"><br><br>
-
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="news">
-          <a routerLink="#" (click)="toggle()"> Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-          <p class="date"> le 24/02/2023 DE 09:15 à 16:00 .Lieu : salle 501-337 -Bat.501 </p>
-          <p class="desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a routerLink="#">Read more</a><br><br>
+        <div class="news" (click)="toggle(a)">
+          <h4 routerLink="#">{{a.title}}</h4>
+          <p class="date">{{a.year}}</p>
+          <p>{{a.type}}</p>
+          <p class="desc">{{a.description}}</p>
+          <br><br>
           <hr color="#0D89BF"><br><br>
 
         </div>
@@ -109,35 +44,35 @@
 </div>
 <div id="popup">
 
-  <h1 id="close" align="right" (click)="toggle()">&#10006;</h1>
+  <h1 id="close" align="right" (click)="toggle(article)">&#10006;</h1>
 
-  <div class="content" align="center"><h1>name of article</h1></div>
+  <div class="content" align="center"><h1>{{article.title}}</h1></div>
 
   <div class="l-inner article">
     <table class="table">
       <tr>
-        <th>Auteurs</th>
-        <td>Anouer Bennajeh, Hela Hachicha</td>
+        <th>Authors</th>
+        <td *ngFor="let a of authors">{{a.firstName}} {{a.lastName}}</td>
       </tr>
       <tr>
         <th>Date de publication Conférence</th>
-        <td>2015<br></td>
+        <td>{{article.year}}<br></td>
       </tr>
       <tr>
         <th>Pages</th>
-        <td>295-305</td>
+        <td>{{article.firstPage}}-{{article.lastPage}}</td>
       </tr>
       <tr>
-        <th>Éditeur</th>
-        <td>International Publishing</td>
+        <th>Editor</th>
+        <td>{{article.editor}}</td>
       </tr>
       <tr>
         <th>Description </th>
-        <td>The progression to use web technology has contributed the emergence of a certain number of new approaches. The web services composition is one of the most important approaches ensuring to exploit several services by a single service, called a composite service, in order to reducing time and costs, and increase overall efficiency in businesses. The work presented here is to propose a web services composition model in order to reduce the network problems during the composition and reduce the total duration of composition. In fact, this model is based on software agent technology by exploiting its characteristics, hence eliminate the passivity of web technology and make it more responsive. More than the composition of web services, this model ensures the execution of various activities to a composite service, by the integration of a control strategy which offers solutions at real-time in case to execution …</td>
+        <td>{{article.description}}</td>
       </tr>
       <tr>
         <th>Articles Google Scholar</th>
-        <td><a routerLink="#" style="color: black">A Bennajeh, H Hachicha - … Engineering in Intelligent Systems: Proceedings of the …, 2015</a></td>
+        <td><a href="{{article.url}}" target="_blank" style="color: black">{{article.title}}</a></td>
       </tr>
     </table>
   </div>

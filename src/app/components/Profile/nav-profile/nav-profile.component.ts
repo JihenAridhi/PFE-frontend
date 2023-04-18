@@ -30,7 +30,7 @@ export class NavProfileComponent implements OnInit{
    $('.sidebar').toggleClass("show");
   }
 
-  li() {$(this).addClass("active").siblings().removeClass("active");}
+  li() {$(this).addClass("active").siblings().removeClass("active"); this.btn()}
 
 
   ngOnInit(): void {this.autoList = this.aus.getItem('autoList')}

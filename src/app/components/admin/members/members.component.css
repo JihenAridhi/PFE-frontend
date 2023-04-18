@@ -200,3 +200,6 @@ h1{color: #123C60; margin: 10px;}
   cursor: pointer;
   opacity: 0.8;
 }
+
+.profile{display: flex}
+.profile img {height: 300px; width: 300px}
