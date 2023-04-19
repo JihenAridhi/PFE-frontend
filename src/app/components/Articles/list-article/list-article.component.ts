@@ -17,20 +17,20 @@ export class ListArticleComponent implements OnInit{
 
   constructor(private ps: PersonService, private as: ArticleService) {}
 
-   toggle(a: Article): void {
+   async toggle(a: Article) {
     const popup = document.getElementById('popup') as HTMLElement;
     popup.classList.toggle('active');
     this.article = a;
-    this.as.getAuthors(this.article.id).then(data => {if (data) this.authors = data})
+    await this.as.getAuthors(this.article.id).then(data => {if (data) this.authors = data})
   }
 
-  ngOnInit(): void
+  async ngOnInit()
   {
     console.log(localStorage.getItem('person') as Person)
     if(localStorage.getItem('person'))
-      this.as.getPerspnArticles(this.ps.getItem('person').id).then(data => {if (data) this.articles = data})
+      await this.as.getPerspnArticles(this.ps.getItem('person').id).then(data => {if (data) this.articles = data})
     else
-      this.as.getPerspnArticles().then(data => {if (data) this.articles = data})
+      await this.as.getPerspnArticles().then(data => {if (data) this.articles = data})
   }
 
 

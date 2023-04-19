@@ -14,9 +14,8 @@ export class RequestsComponent implements OnInit{
 
   requests: Person[] = new Array<Person>()
 
-  ngOnInit(): void {
-    //this.requests = this.ps.getItem('personList')
-    this.ps.getStatus(false).then(data => {if (data) this.requests = data})
+  async ngOnInit() {
+    await this.ps.getStatus(false).then(data => {if (data) this.requests = data})
   }
 
 

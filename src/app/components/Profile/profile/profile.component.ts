@@ -25,9 +25,9 @@ export class ProfileComponent implements OnInit{
     if (popup) {popup.classList.toggle('active');}
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.person = this.ps.getItem('person')
-    this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
+    await this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
   }
 
 

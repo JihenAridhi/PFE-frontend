@@ -10,6 +10,41 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+.top{
+  display: flex;
+  width: 100%;
+  height: 40px;
+  z-index: 19;
+
+}
+.top a {
+  color: #fff;
+  padding-left: 20px;
+}
+.top .img1{
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  top :5px; right: 10px;
+}
+.top .img2{
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  top :5px; right: 60px;
+
+}
+.top .login {
+  position: absolute;
+  top :5px; right: 210px;
+  color: #fff;
+}
+.top .register {
+  position: absolute;
+  top :5px; right: 110px;
+  color: #fff;
+}
+
 .container{
   position: relative;
   top: 0;

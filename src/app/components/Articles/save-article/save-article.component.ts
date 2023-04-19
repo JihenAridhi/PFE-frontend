@@ -52,25 +52,20 @@ export class SaveArticleComponent implements OnInit{
       this.authors[this.authors.length - 1] = person
       this.fullName[this.authors.length - 1] = person.firstName+' '+person.lastName
       this.searchList = this.searchList.filter(r => r!==person)
-
+      this.filteredList = []
   }
 
-  ngOnInit(): void
-  {
+  async ngOnInit()  {
     this.article = this.as.getItem('article')
-    this.authors.push(this.ps.getItem('person'))
-    this.fullName.push(this.authors[0].firstName + ' ' + this.authors[0].lastName)
     if (this.article.id){
-      this.as.getAuthors(this.article.id).then(
+      await this.as.getAuthors(this.article.id).then(
         data => {
-          if (data) this.authors = data.filter(r => r !== this.authors[0]);
+          if (data) this.authors = data;
           for (let i = 0; i < this.authors.length; i++)
             this.fullName[i] = this.authors[i].firstName + ' ' + this.authors[i].lastName
-          console.log(this.authors)
         }
       )
     }
-
-    this.ps.getStatus(true).then(data => {if (data) this.searchList = data.filter(r => !this.authors?.includes(r))})
+    await this.ps.getStatus(true).then(data => {if (data) this.searchList = data.filter(r => !this.authors?.includes(r))})
   }
 }

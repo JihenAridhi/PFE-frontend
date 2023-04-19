@@ -12,9 +12,9 @@ export class ViewEventComponent implements OnInit{
   url = ''
   constructor(private es: EventService) {
   }
-  ngOnInit(): void {
+  async ngOnInit() {
     this.event = this.es.getItem('event')
-    this.es.getPhoto(this.event.id).then(data => {if (data) this.url=data})
+    await this.es.getPhoto(this.event.id).then(data => {if (data) this.url=data})
   }
 
 }

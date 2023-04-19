@@ -26,11 +26,10 @@ export class SaveEventComponent implements OnInit{
     this.event = this.es.getItem('event')
     }
 
-  onFileSelected(files: any): void {
+  async onFileSelected(files: any) {
     const file: File = files[0];
     const formData = new FormData();
     formData.append('file', file, this.event.id?.toString()+'.jpg');
-    this.es.setPhoto(formData).then()
-
+    await this.es.setPhoto(formData).then()
   }
 }

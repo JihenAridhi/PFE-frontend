@@ -95,7 +95,7 @@ section {
 .wrapper .container2 img  {
   position: absolute;
   top: 50px;
-  max-width: 300px;
+  width: 300px;
   height: 300px;
   overflow: hidden;
   border-radius: 20px;

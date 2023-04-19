@@ -25,10 +25,10 @@ export class MembersComponent implements OnInit{
     if (person) this.member = person
   }
 
-  ngOnInit()
+  async ngOnInit()
   {
-     this.ps.getStatus(true).then(data => {if (data) this.members = data})
-     this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
+     await this.ps.getStatus(true).then(data => {if (data) this.members = data})
+     await this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
   }
 
   submit(changesF: NgForm)

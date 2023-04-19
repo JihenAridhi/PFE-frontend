@@ -11,10 +11,9 @@ import {NewsService} from "../../../services/news.service";
 export class EditNewsComponent implements OnInit{
 
   newsList: Array<News> = new Array<News>()
-  ngOnInit(): void
+  async ngOnInit()
   {
-    //this.newsList = this.ns.getItem('newsList')
-    this.ns.getAll().then(data => {if (data) this.newsList = data})
+    await this.ns.getAll().then(data => {if (data) this.newsList = data})
   }
 
   constructor(private ns: NewsService, private router: Router) {}

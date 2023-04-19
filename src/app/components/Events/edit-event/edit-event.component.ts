@@ -18,11 +18,9 @@ export class EditEventComponent implements OnInit{
   {
     this.es.setItem('event', e)
     await this.router.navigate(['/account/save-event'])
-    //this.es.get(e.id)
   }
 
   async add() {
-    //this.es.event.next(new Event())
     this.es.setItem('event', new Event())
     await this.router.navigate(['/account/save-event'])
   }
@@ -36,8 +34,8 @@ export class EditEventComponent implements OnInit{
     this.es.setItem('eventList', this.eventList)
   }
 
-  ngOnInit(): void {
-    this.es.getAll().then(data => {if (data) this.eventList = data})
+  async ngOnInit() {
+    await this.es.getAll().then(data => {if (data) this.eventList = data})
   }
 
 

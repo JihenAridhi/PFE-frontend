@@ -14,10 +14,10 @@ export class ViewNewsComponent implements OnInit{
 
   constructor(private ns: NewsService) {}
 
-  ngOnInit(): void
+  async ngOnInit()
   {
     this.news = this.ns.getItem('news')
-    this.ns.getPhoto(this.news.id).then(data => {if (data) this.url=data})
+    await this.ns.getPhoto(this.news.id).then(data => {if (data) this.url=data})
   }
 
 

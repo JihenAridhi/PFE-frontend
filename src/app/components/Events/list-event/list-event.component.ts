@@ -16,18 +16,18 @@ export class ListEventComponent implements OnInit{
 
   constructor(private es: EventService, private router: Router) {
   }
-  ngOnInit(): void {
-    this.es.getAll().then(data =>
+  async ngOnInit() {
+    await this.es.getAll().then(async data =>
     {
       if (data)
         this.eventList = data
       for (let i = 0; i<this.eventList.length; i++)
-        this.es.getPhoto(this.eventList[i].id).then(data => {if (data) this.url[i] = data})
+        await this.es.getPhoto(this.eventList[i].id).then(data => {if (data) this.url[i] = data})
     })
   }
 
-  viewEvent(e: Event) {
+  async viewEvent(e: Event) {
     this.es.setItem('event', e)
-    this.router.navigate(['/view-event'])
+    await this.router.navigate(['/view-event'])
   }
 }

@@ -12,11 +12,13 @@
     <div class="input-box">
       <label>Author</label>
       <input *ngFor="let a of authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
+      <div class="dropdown">
       <ul>
         <li *ngFor="let person of filteredList" (click)="selectPerson(person)">
           {{ person.firstName }} {{ person.lastName }}
         </li>
       </ul>
+      </div>
       <div id="survey_options">
       </div>
       <div class="controls">

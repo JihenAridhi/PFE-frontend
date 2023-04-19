@@ -13,8 +13,8 @@ export class FeedbackComponent implements OnInit{
   constructor(private fs: FeedbackService) {
   }
 
-  ngOnInit(): void {
-    this.fs.getAll().then(data => {if(data) this.feedback = data})
+  async ngOnInit(){
+    await this.fs.getAll().then(data => {if(data) this.feedback = data})
   }
 
 

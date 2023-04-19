@@ -14,15 +14,15 @@ export class HomeComponent implements OnInit{
 
   constructor(private router: Router, private ns: NewsService) {}
 
-  ngOnInit(): void
+  async ngOnInit()
   {
 
-    this.ns.getAll().then(data =>
+    await this.ns.getAll().then( async data =>
     {
       if (data)
         this.newsList = data
       for (let i = 0; i<this.newsList.length; i++)
-        this.ns.getPhoto(this.newsList[i].id).then(data => {if (data) this.url[i] = data})
+        await this.ns.getPhoto(this.newsList[i].id).then(data => {if (data) this.url[i] = data})
     })
   }
 

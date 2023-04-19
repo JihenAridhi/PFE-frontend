@@ -24,11 +24,11 @@ export class SaveNewsComponent implements OnInit{
 
   ngOnInit(): void {this.news = this.ns.getItem('news')}
 
-  onFileSelected(files: any): void {
+  async onFileSelected(files: any) {
     const file: File = files[0];
     const formData = new FormData();
     formData.append('file', file, this.news.id?.toString()+'.jpg');
-    this.ns.setPhoto(formData).then()
+    await this.ns.setPhoto(formData).then()
 
   }
 
