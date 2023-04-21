@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Article} from "../../../entities/Article";
 import {ArticleService} from "../../../services/article.service";
 import {PersonService} from "../../../services/person.service";
@@ -26,7 +26,6 @@ export class ListArticleComponent implements OnInit{
 
   async ngOnInit()
   {
-    console.log(localStorage.getItem('person') as Person)
     if(localStorage.getItem('person'))
       await this.as.getPerspnArticles(this.ps.getItem('person').id).then(data => {if (data) this.articles = data})
     else

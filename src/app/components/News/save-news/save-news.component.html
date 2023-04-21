@@ -1,16 +1,6 @@
 <section class="container" >
   <header>Add News</header>
-  <form class="form" #newsF="ngForm" (ngSubmit)="save(newsF)">
-
-    <!--<div class="input-box">
-      <label>Auteur</label>
-      <input type="text" placeholder=" Full name"  />
-    </div>
-
-    <div class="input-box">
-      <label>Date</label>
-      <input type="date"  required  />
-    </div>-->
+  <form class="form" #newsF="ngForm" (ngSubmit)="save(newsF)" ngNativeValidate>
     <div class="input-box">
       <label>Title</label>
       <input type="text" placeholder="Tile of news ..." required name="title" [(ngModel)]="news.title"/>
@@ -27,4 +17,3 @@
     <button>Submit</button>
   </form>
 </section>
-<img >

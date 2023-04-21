@@ -1,8 +1,8 @@
 <div class="top">
-  <a routerLink="index-fr.html"><img src="assets/photo/france.png" class="img1"></a>
-  <a routerLink="index.html"><img src="assets/photo/uk.png" class="img2"></a>
-  <a routerLink="/login" class="login"> Login</a>
-  <a routerLink="/signup" class="register">Register</a>
+  <a (click)="changeLang('french')"><img src="assets/photo/france.png" class="img1"></a>
+  <a (click)="changeLang('english')"><img src="assets/photo/uk.png" class="img2"></a>
+  <a routerLink="/login" class="login">{{content.login}}</a>
+  <a routerLink="/signup" class="register">{{content.register}}</a>
 </div>
 <div class="wrapper">
   <nav>
@@ -10,18 +10,18 @@
     <input type="checkbox" id="show-menu">
     <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
     <div class="content">
-      <div class="logo"><a routerLink=""><img src="assets/photo/logo.png"></a></div>
+      <div class="logo"><a routerLink="/home"><img src="assets/photo/logo.png"></a></div>
       <ul class="links">
-        <li><a routerLink="#" i18n>HOME</a><hr color="#FF9FB2"></li>
-        <li><a routerLink="/list-news" i18n>NEWS</a><hr color="##73877B"></li>
-        <li><a routerLink="/list-event" i18n>EVENTS</a><hr color="#0ACDFF"></li>
+        <li><a routerLink="/home">{{content.home}}</a><hr color="#FF9FB2"></li>
+        <li><a routerLink="/list-news">{{content.news}}</a><hr color="##73877B"></li>
+        <li><a routerLink="/list-event">{{content.events}}</a><hr color="#0ACDFF"></li>
         <li>
-          <a class="nav-link" i18n>RESEARCH</a>
+          <a class="nav-link">{{content.research}}</a>
           <input type="checkbox" id="show-Research">
-          <label for="show-Research" i18n>RESEARCH</label>
+          <label for="show-Research">{{content.research}}</label>
           <hr color="#60AB9A">
           <ul>
-            <li><a routerLink="#" i18n>Research Axis</a></li>
+            <li><a routerLink="#">{{content.researchAxis}}</a></li>
             <li><a routerLink="/teams">Teams</a></li>
             <li><a routerLink="/list-article">Publications</a></li>
 
@@ -35,28 +35,28 @@
           <ul>
             <li><a routerLink="international.html">International</a></li>
             <li><a routerLink="national.html">National</a></li>
-            <li><a routerLink="/partners" i18n>Partners</a></li>
+            <li><a routerLink="/partners">{{content.partners}}</a></li>
           </ul>
         </li>
         <li>
-          <a class="nav-link" i18n>MEMBERS</a>
+          <a class="nav-link">{{content.members}}</a>
           <input type="checkbox" id="show-Members">
-          <label for="show-Members" i18n>MEMBERS</label>
+          <label for="show-Members">{{content.members}}</label>
           <hr color="#D68C45">
           <ul>
-            <li><a routerLink="/teacher-researcher" i18n>teacher researcher</a></li>
-            <li><a routerLink="/doctors" i18n>Doctors</a></li>
-            <li><a routerLink="/phd-students" i18n>PH.D.Students</a></li>
-            <li><a routerLink="/members" i18n>All</a></li>
+            <li><a routerLink="/teacher-researcher">{{content.teacherResearcher}}</a></li>
+            <li><a routerLink="/doctors">{{content.doctors}}</a></li>
+            <li><a routerLink="/phd-students">{{content.phd}}</a></li>
+            <li><a routerLink="/members">{{content.all}}</a></li>
           </ul>
 
         </li>
-        <li><a routerLink="/contact" i18n>CONTACT US</a><hr color="#63474D"></li>
+        <li><a routerLink="/contact">{{content.contact}}</a><hr color="#63474D"></li>
       </ul>
     </div>
     <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
     <form action="#" class="search-box">
-      <input type="text" placeholder="Type Something to Search..." required i18n>
+      <input type="text" placeholder="Type Something to Search..." required>
       <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
     </form>
   </nav>
@@ -64,7 +64,7 @@
 
 
 <div class="container">
-  <h4 id="H4">Laboratory</h4>
+  <h4 id="H4">{{content.laboratory}}</h4>
   <h1 id="H1"><span>S</span>trategies for <span>M</span>odeling and <span>AR</span>tificial in<span>T</span>elligence</h1>
   <p id="P">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   <div class="boxes">
@@ -80,14 +80,14 @@
       <div class="b1">
         <h3>Publications</h3>
         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a routerLink="/list-article" class="btn"> learn more > </a>
+        <a routerLink="/list-article" class="btn"> {{content.seeMore}} > </a>
       </div>
     </div>
     <div class="box" id="blue">
       <div class="b2">
-        <h3>Research Axis</h3>
+        <h3>{{content.researchAxis}}</h3>
         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a routerLink="/research-axis" class="btn"> learn more > </a>
+        <a routerLink="/research-axis" class="btn"> {{content.seeMore}} > </a>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@
         <h2 align="center">Levi </h2> <br>
         <p id="first"> <i>iLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? Labore fugiat maxime tempora possimus quibusdam quae velit rerum in doloribus ut inventore hic alias necessitatibus beatae fuga, aliquam culpa deleniti laboriosam reprehenderit enim dolor quod ipsa? Accusantium, libero culpa.</i></p>
         <p id="second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ducimus perferendis iste inventore laborum dolor alias, voluptate dignissimos nihil, aliquam totam accusantium eum illo dolorem hic explicabo sequi quis recusandae.</p> <br>
-        <a routerLink="/profile" class="btn1"> learn more > </a>
+        <a routerLink="/profile" class="btn1"> {{content.seeMore}} > </a>
 
       </div>
     </div>
@@ -119,22 +119,22 @@
   <div>
     <img src="assets/photo/posts.png">
     <h1>0</h1>
-    <h4><i>POSTS</i></h4>
+    <h4><i>{{content.posts}}</i></h4>
   </div>
   <div>
     <img src="assets/photo/researchers.png">
     <h1>0</h1>
-    <h4><i>RESEARCHERS</i></h4>
+    <h4><i>{{content.researchers}}</i></h4>
   </div>
   <div>
     <img src="assets/photo/projects.png">
     <h1>0</h1>
-    <h4><i>PROJECTS</i></h4>
+    <h4><i>{{content.projects}}</i></h4>
   </div>
   <div>
     <img src="assets/photo/partners.png">
     <h1>0</h1>
-    <h4><i>PARTNERS</i></h4>
+    <h4><i>{{content.partners}}</i></h4>
   </div>
 </div>
 <div>
@@ -151,7 +151,7 @@
     </article>
   </div>
   <div class="btn-more">
-    <a routerLink="/list-news" class="more">See More</a>
+    <a routerLink="/list-news" class="more">{{content.seeMore}}</a>
   </div>
 </div>
 

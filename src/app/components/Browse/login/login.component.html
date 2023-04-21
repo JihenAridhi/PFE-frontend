@@ -5,7 +5,7 @@
   <div id="container">
     <div id="login">
       <h1>Welcome Back !</h1>
-      <form  #loginF='ngForm' (ngSubmit)="login(loginF)">
+      <form  #loginF='ngForm' (ngSubmit)="login(loginF)"  ngNativeValidate>
         <label for="email"> Email </label>
         <input type="email" id="email" placeholder="  your e-mail ..." ngModel name="email" required>
         <label for="password"> Password </label>
@@ -15,12 +15,6 @@
     </div>
     <div id="cover">
       <h1 style="text-align: center"><span>S</span>trategies for <span>M</span>odeling and <span>AR</span>tificial in<span>T</span>elligence</h1>
-      <p class="P1">Sign up with social media </p>
-      <div class="middle">
-        <a class="btn" href="#"><i class="fab fa-facebook-f"></i></a>
-        <a class="btn" href="#"><i class="fab fa-google"></i></a>
-        <a class="btn" href="#"><i class="fab fa-github"></i></a>
-      </div>
     </div>
   </div>
 </section>

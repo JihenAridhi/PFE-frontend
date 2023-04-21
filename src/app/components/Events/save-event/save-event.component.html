@@ -2,7 +2,7 @@
 
   <section class="container">
     <header>Add Event</header>
-    <form class="form" #addF="ngForm" (ngSubmit)="addEvent(addF)">
+    <form class="form" #addF="ngForm" (ngSubmit)="addEvent(addF)" ngNativeValidate>
 
       <div class="input-box">
         <label>Title</label>

@@ -64,9 +64,7 @@ export class UpdateProfileComponent implements OnInit{
     await this.ps.setPhoto(formData).then()
     await this.ps.getPhoto(this.person.id).then(data=>
     {
-      this.url=''
-      if (data)
-        this.url = data
+      this.url = data + '?v=' + Math.random().toString(36).substring(2);
       console.log(this.url)
     })
   }

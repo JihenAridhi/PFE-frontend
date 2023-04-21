@@ -2,7 +2,7 @@
 
 <section class="container">
   <header>Article</header>
-  <form class="form" #addF='ngForm' (ngSubmit)="save(addF)">
+  <form class="form" #addF='ngForm' (ngSubmit)="save(addF)" ngNativeValidate>
 
     <div class="input-box">
       <label>Title</label>
@@ -26,9 +26,6 @@
         <a routerLink="#" id="remove_fields" (click)="removeAuthor()"><i class="fa fa-plus"></i>Remove Field</a>
       </div>
     </div>
-
-
-
 
     <div class="input-box">
       <label>Year of publication</label>
@@ -57,12 +54,12 @@
 
     <div class="input-box">
       <label>URL of article</label>
-      <input type="text" placeholder=" Url of article" [(ngModel)]="article.url" name="url" required />
+      <input type="text" placeholder=" Url of article" [(ngModel)]="article.url" name="url"  />
     </div>
 
     <div class="select-box">
-      <select name="type" [(ngModel)]="article.type">
-        <option hidden>TYPE</option>
+      <select name="type" [(ngModel)]="article.type" required>
+        <option>TYPE</option>
         <option>TYPE1</option>
         <option>TYPE2</option>
         <option>TYPE3</option>
@@ -75,7 +72,7 @@
       <textarea name="description" rows="10" cols="70" [(ngModel)]="article.description"></textarea>
     </div>
 
-    <button>Submit</button>
+    <button type="submit">Submit</button>
   </form>
 </section>
 

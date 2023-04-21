@@ -145,6 +145,7 @@ transform: translateX(30%);
     position: absolute;
     width: 100%;
     bottom: 0;
+    padding: 50px;
   }
 }
 
