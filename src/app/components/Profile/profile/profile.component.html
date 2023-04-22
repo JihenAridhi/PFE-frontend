@@ -7,11 +7,8 @@
       <div class="content2">
         <h2>{{person.firstName}} {{person.lastName}}</h2> <br>
         <p> <i><b>email:</b> {{person.email}}<br><b>profession:</b> {{person.profession}}<br><b>team:</b> {{person.team}}<br></i></p>
-
       </div>
     </div>
   </div>
 </div>
-
-
-<app-list-article [person]="person.id"></app-list-article>
+<app-list-article [id]="person.id"></app-list-article>

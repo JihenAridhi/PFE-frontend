@@ -1,35 +1,19 @@
 
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: #202020;
-  z-index: -1;
-  text-align: center;
-}
-.content .header{
-  font-size: 45px;
-  font-weight: 600;
-}
-.content p{
-  font-size: 30px;
-  font-weight: 500;
-}
-
 
 section {
+  position: relative;
+  top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;height: 90vh;
+  width: 100%;height: auto;
 }
 
 .wrapper{
   position: relative;
   max-width: 800px;
   width: 100%;
-  height: 500px;
+  height: auto;
   border-radius: 5px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -95,10 +79,10 @@ section {
 .wrapper .container2 img  {
   position: absolute;
   top: 50px;
-  width: 300px;
+  max-width: 300px;
   height: 300px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .input_container {
@@ -139,6 +123,20 @@ input[type=file]::file-selector-button:hover {
   color: #FFF;
 }
 
+.container2 .add{
+  position: absolute;
+  top: 440px;
+  width: 160px;
+  height: 30px;
+  border : 0.5px solid #EEEEEE;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+
+}
+.container2 .add:hover {
+  background-color: #555;
+  color: #fff;
+}
 
 @media screen and (max-width:991px){
 
@@ -146,7 +144,7 @@ input[type=file]::file-selector-button:hover {
   section{
     display: inline-block;
     position: relative;
-    top: 80px;
+    top: 50px;
     height: 1000px;
 
   }
@@ -188,11 +186,10 @@ input[type=file]::file-selector-button:hover {
 
 
 #popup{
-  position: fixed;
+  position: relative;
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 600px;
   padding: 50px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
   background: #EEE;
@@ -253,11 +250,11 @@ input[type=file]::file-selector-button:hover {
 
 
 .table-container{
-
+  position: relative;
+  top: 200px;
   display: flex;
   justify-content: center;
   margin: auto;
-  width: 80%;
   background-color: #fff;
   border-radius: 10px;
   padding: 5px;
@@ -278,21 +275,7 @@ th{
   font-weight: 300;
   font-size: 20px;
 }
-.add{
-  width: 150px;
-  color: #fff;
-  background-color: #0D89BF;
-  font-size: 13px;
-  padding: 5px 8px;
-  border: none;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-.add:hover{
-  background-color: #aaa;
-  color: #fff;
-}
+
 
 td,th{
   padding: 12px;
@@ -332,6 +315,8 @@ td p {
   .table-container{
     width:95%;
     background: transparent;
+    position: relative;
+    top: -300px;
   }
 
   table,
@@ -393,7 +378,4 @@ td p {
   td:nth-of-type(5)::before{
     content: "ACTION";
   }
-
-
-
 }

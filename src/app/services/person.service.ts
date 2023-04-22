@@ -14,7 +14,7 @@ export class PersonService {
   constructor(private http: HttpClient, private router: Router, private as: AutorisationService) { }
 
   public get(id: number)
-  {this.http.get('http://localhost:8000/person/get/'+id).subscribe((data: Person)=> localStorage.setItem('person', JSON.stringify(data)))}
+  {return  this.http.get('http://localhost:8000/person/get/'+id).toPromise()}
 
   public getAll()
   {return this.http.get<Person[]>('http://localhost:8000/person/getAll').toPromise()/*.subscribe(data=> localStorage.setItem('personList', JSON.stringify(data)))*/}
@@ -55,6 +55,7 @@ export class PersonService {
       }
     )
   }
+
 
   getStatus(status: any)
   {

@@ -3,6 +3,7 @@ import {Article} from "../../../entities/Article";
 import {ArticleService} from "../../../services/article.service";
 import {PersonService} from "../../../services/person.service";
 import {Person} from "../../../entities/Person";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-list-article',
@@ -10,7 +11,7 @@ import {Person} from "../../../entities/Person";
   styleUrls: ['./list-article.component.css']
 })
 export class ListArticleComponent implements OnInit{
-  @Input() person: any;
+  @Input() id?: number
   articles: Article[] = []
   filteredList: Article[] = []
   article= new Article()
@@ -18,7 +19,18 @@ export class ListArticleComponent implements OnInit{
   recentValue: any;
   olderValue = new Date().toISOString().substring(0, 10);
 
-  constructor(private ps: PersonService, private as: ArticleService) {}
+  constructor(private ps: PersonService, private as: ArticleService, private route: ActivatedRoute) {}
+
+  async ngOnInit()
+  {
+    if (this.route.snapshot.paramMap.get('id')!)
+      this.id  = parseInt(this.route.snapshot.paramMap.get('id')!)
+    await this.as.getPerspnArticles(this.id).then(data =>
+    {
+      this.articles = data!
+      this.filteredList = this.articles
+    })
+  }
 
    async toggle(a: Article) {
     const popup = document.getElementById('popup') as HTMLElement;
@@ -26,16 +38,6 @@ export class ListArticleComponent implements OnInit{
     this.article = a;
     await this.as.getAuthors(this.article.id).then(data => {if (data) this.authors = data})
   }
-
-  async ngOnInit()
-  {
-    await this.as.getPerspnArticles(this.person).then(data =>
-    {
-      this.articles = data!
-      this.filteredList = this.articles
-    })
-  }
-
 
   onSearchTextEntered(searchText: string) {
     if (searchText=='')
