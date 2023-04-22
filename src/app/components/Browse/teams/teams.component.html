@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<div class="wrapp">
+  <h1>RH Team</h1>
+  <div class="our_team">
+    <div class="team_member" *ngFor="let p of HR" (click)="profile(p)">
+        <div class="member_img">
+          <img [src]="url[p.id!]" alt="our_team">
+          <div class="social_media">
+            <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+            <div class="github item"><i class="fab fa-github"></i></div>
+            <div class="instagram item"><i class="fab fa-linkedin"></i></div>
+          </div>
+        </div>
+        <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
+        <span>{{p.profession}}</span>
+    </div>
+  </div>
+</div>
+<div class="wrapp">
+  <h1>RH Team</h1>
+  <div class="our_team">
+    <div class="team_member" *ngFor="let p of Development" (click)="profile(p)">
+      <div class="member_img">
+        <img [src]="url[p.id!]" alt="our_team">
+        <div class="social_media">
+          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+          <div class="github item"><i class="fab fa-github"></i></div>
+          <div class="instagram item"><i class="fab fa-linkedin"></i></div>
+        </div>
+      </div>
+      <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
+      <span>{{p.profession}}</span>
+    </div>
+  </div>
+</div>
+

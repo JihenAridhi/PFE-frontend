@@ -75,7 +75,7 @@ export class PersonService {
   setPhoto(formData: FormData)
   {return this.http.post<string>('http://localhost:8000/photo/user', formData).toPromise()}
 
-  getPhoto(id: any)
+  getPhoto(id?: number)
   {return this.http.get<string>('http://localhost:8000/photo/user/get/'+id).toPromise()}
 
   setItem(key: string, value: any) {
@@ -91,4 +91,5 @@ export class PersonService {
     }
     return null;
   }
+
 }

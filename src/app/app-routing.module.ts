@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
-import {TeamsComponent} from "./components/teams/teams.component";
+import {RouterModule, Routes} from "@angular/router";
+import {TeamsComponent} from "./components/Browse/teams/teams.component";
 import {LoginGuard} from "./guards/login.guard";
 import {FooterComponent} from "./components/Browse/footer/footer.component";
 import {HomeComponent} from "./components/Browse/home/home.component";
@@ -25,10 +25,10 @@ import {EditNewsComponent} from "./components/News/edit-news/edit-news.component
 import {FeedbackComponent} from "./components/admin/feedback/feedback.component";
 import {SaveNewsComponent} from "./components/News/save-news/save-news.component";
 import {SaveEventComponent} from "./components/Events/save-event/save-event.component";
-import {TeacherResearcherComponent} from "./components/Members/teacher-researcher/teacher-researcher.component";
-import {DoctorsComponent} from "./components/Members/doctors/doctors.component";
-import {PhdStudentsComponent} from "./components/Members/phd-students/phd-students.component";
-import {AllComponent} from "./components/Members/all/all.component";
+import {TeacherResearcherComponent} from "./components/Browse/members/teacher-researcher/teacher-researcher.component";
+import {DoctorsComponent} from "./components/Browse/members/doctors/doctors.component";
+import {PhdStudentsComponent} from "./components/Browse/members/phd-students/phd-students.component";
+import {AllComponent} from "./components/Browse/members/all/all.component";
 
 
 

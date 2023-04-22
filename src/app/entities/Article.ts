@@ -6,7 +6,7 @@ export class Article
   title?: string
   type?: string
   journal?: string
-  year?: number
+  date?: Date
   firstPage?: number
   lastPage?: string
   editor?: string;

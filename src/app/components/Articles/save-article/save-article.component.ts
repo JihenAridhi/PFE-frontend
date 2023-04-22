@@ -36,11 +36,14 @@ export class SaveArticleComponent implements OnInit{
     let article = addF.value
     article.id = this.article.id
     article.authors = this.authors.map(r=>r.id)
+    article.authors.push(this.ps.getItem('person').id)
     this.as.save(article)
   }
 
   searchAuthor(i: number)
   {
+    if (this.fullName[i]=='')
+      this.filteredList = []
     this.filteredList = this.searchList.filter(person =>
       (person.firstName?.toLowerCase().includes(this.fullName[i].toLowerCase()) ||
       person.lastName?.toLowerCase().includes(this.fullName[i].toLowerCase()))
@@ -58,20 +61,16 @@ export class SaveArticleComponent implements OnInit{
   async ngOnInit()  {
     this.article = this.as.getItem('article')
     let person = this.ps.getItem('person')
-    if (this.article.id){
       await this.as.getAuthors(this.article.id).then(
         data => {
-          if (data) this.authors = data.filter(r => r.id !== person.id);
-          for (let i = 0; i < this.authors.length; i++)
-            this.fullName[i] = this.authors[i].firstName + ' ' + this.authors[i].lastName
+          this.authors = data!.filter(r => r.id !== person.id);
+          this.fullName = this.authors.map(p => p.firstName+' '+p.lastName)
         }
       )
-    }
-    this.authors.unshift(person)
-    this.fullName.unshift(person.firstName+' '+person.lastName)
-    //console.log(this.authors)
-    await this.ps.getStatus(true).then(data => {if (data) {
-      this.searchList = data.filter(r => !this.authors.some(a => a.id === r.id))
-    }})
+    /*this.authors.unshift(person)
+    this.fullName.unshift(person.firstName+' '+person.lastName)*/
+    await this.ps.getStatus(true).then(data => {
+      this.searchList = data!.filter(r => !this.authors.some(a => a.id === r.id) && !person.id)
+    })
   }
 }

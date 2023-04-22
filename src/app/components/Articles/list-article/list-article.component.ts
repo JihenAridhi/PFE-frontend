@@ -12,8 +12,11 @@ import {Person} from "../../../entities/Person";
 export class ListArticleComponent implements OnInit{
 
   articles: Article[] = []
+  filteredList: Article[] = []
   article= new Article()
   authors: Person[] = []
+  recentValue: any;
+  olderValue = new Date().toISOString().substring(0, 10);
 
   constructor(private ps: PersonService, private as: ArticleService) {}
 
@@ -26,11 +29,40 @@ export class ListArticleComponent implements OnInit{
 
   async ngOnInit()
   {
-    if(localStorage.getItem('person'))
-      await this.as.getPerspnArticles(this.ps.getItem('person').id).then(data => {if (data) this.articles = data})
-    else
-      await this.as.getPerspnArticles().then(data => {if (data) this.articles = data})
+    const id = localStorage.getItem('person') ? this.ps.getItem('person').id : undefined;
+    await this.as.getPerspnArticles(id).then(data =>
+    {
+      this.articles = data!
+      this.filteredList = this.articles
+    })
   }
 
 
+  onSearchTextEntered(searchText: string) {
+    if (searchText=='')
+      this.filteredList = this.articles
+    else
+      this.filteredList = this.articles.filter(article => article.title?.includes(searchText))
+  }
+
+  interval() {
+    if (!this.olderValue && !this.recentValue)
+      this.filteredList = this.articles
+    else {
+      this.filteredList = this.articles.filter(article => {
+        /*console.log(this.recentValue)
+        console.log(new Date(article.date!).toISOString().substring(0, 10))
+        console.log(this.olderValue)
+        console.log('---------------------------')*/
+        return new Date(article.date!).toISOString().substring(0, 10) <= this.olderValue! &&
+        new Date(article.date!).toISOString().substring(0, 10) >= this.recentValue!
+      })
+      console.log(this.filteredList)
+    }
+  }
+
+  a() {
+    console.log(this.olderValue)
+    console.log(this.recentValue)
+  }
 }

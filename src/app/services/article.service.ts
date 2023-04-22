@@ -25,13 +25,15 @@ export class ArticleService {
       this.http.put('http://localhost:8000/article/update', article).subscribe(()=> {
           this.setAuthors(article.id, article.authors);
           alert('changes have been affected successfully !!')})
-    else
-      this.http.post<Article>('http://localhost:8000/article/add', article).subscribe((data)=> {
-        if (data)
-          this.setAuthors(data.id, article.authors)
+    else {
+      article.date = new Date()
+      this.http.post<Article>('http://localhost:8000/article/add', article).subscribe((data) => {
+          if (data)
+            this.setAuthors(data.id, article.authors)
           alert('article have been posted successfully !! ')
         }
       )
+    }
   }
 
   delete(id?: number) {
@@ -53,9 +55,7 @@ export class ArticleService {
   }
 
   getAuthors(id?: number)
-  {
-    return this.http.get<Person[]>('http://localhost:8000/article/'+id+'/getAuthors').toPromise()
-  }
+  {return this.http.get<Person[]>('http://localhost:8000/article/'+id+'/getAuthors').toPromise()}
 
   setAuthors(id?: number, authors?: number[])
   {this.http.post('http://localhost:8000/article/'+id+'/setAuthors', authors).subscribe(()=>console.log('authors added'))}

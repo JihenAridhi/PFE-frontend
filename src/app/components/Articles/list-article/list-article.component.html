@@ -6,18 +6,16 @@
         <table class="tab" >
         <thead>
         <tr>
-          <th><label> Research by title</label></th>
-          <th><label> news older than</label></th>
+          <th><label> Search by title</label></th>
           <th><label>Events more recent than</label></th>
-          <th></th>
+          <th><label> news older than</label></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td><input type="text" name=""></td>
-          <td><input type="date" name=""></td>
-          <td><input type="date" name=""></td>
-          <td><input type="reset" name=""></td>
+          <td><input type="text" #search (input)="onSearchTextEntered(search.value)"></td>
+          <td><input type="date" [(ngModel)]="recentValue" name="recent" (input)="interval()"></td>
+          <td><input type="date" [(ngModel)]="olderValue" name="older" (input)="interval()"></td>
         </tr>
         </tbody>
         </table>
@@ -27,11 +25,11 @@
   </div>
 
   <table align="center" id="pub">
-    <tr *ngFor="let a of articles">
+    <tr *ngFor="let a of filteredList">
       <td>
         <div class="news" (click)="toggle(a)">
           <h4 routerLink="#">{{a.title}}</h4>
-          <p class="date">{{a.year}}</p>
+          <p class="date">{{a.date | date: 'dd-MM-yyyy'}}</p>
           <p>{{a.type}}</p>
           <p class="desc">{{a.description | slice:0:100}} . . .</p>
           <br><br>
@@ -56,7 +54,7 @@
       </tr>
       <tr>
         <th>Date de publication Conférence</th>
-        <td>{{article.year}}<br></td>
+        <td>{{article.date | date: 'dd-MM-yyyy'}}<br></td>
       </tr>
       <tr>
         <th>Pages</th>

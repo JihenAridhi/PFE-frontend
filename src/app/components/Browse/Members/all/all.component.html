@@ -1,9 +1,9 @@
 <div class="wrapp">
   <h1>All</h1>
   <div class="our_team">
-    <div class="team_member" *ngFor="let p of people" (click)="profile(p)">
+    <div class="team_member" *ngFor="let p of personList; let i=index" (click)="profile(p)">
       <div class="member_img">
-        <img src="https://i.pinimg.com/236x/61/f2/09/61f209923eae607cbd5b30dd179de1d7.jpg" alt="our_team">
+        <img [src]="url[i]" alt="our_team">
         <div class="social_media">
           <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
           <div class="github item"><i class="fab fa-github"></i></div>

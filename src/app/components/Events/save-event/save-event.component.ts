@@ -12,6 +12,7 @@ import {Route, Router} from "@angular/router";
 export class SaveEventComponent implements OnInit{
 
   event = new Event()
+  date: any;
   constructor(private es: EventService, private router: Router) {}
   async addEvent(addF: NgForm)
   {
@@ -24,7 +25,8 @@ export class SaveEventComponent implements OnInit{
   ngOnInit(): void
   {
     this.event = this.es.getItem('event')
-    }
+    this.date = new Date(this.event.date!).toISOString().substring(0, 10)
+  }
 
   async onFileSelected(files: any) {
     const file: File = files[0];

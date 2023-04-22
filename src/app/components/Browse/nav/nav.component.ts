@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {LanguageService} from "../../../services/language.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +11,7 @@ import {LanguageService} from "../../../services/language.service";
 export class NavComponent {
   content: any;
 
-  constructor(private http: HttpClient, private ls: LanguageService) {
+  constructor(private ls: LanguageService, private router: Router) {
     this.ls.getLanguage().subscribe(data => this.content=data)
   }
 
@@ -22,4 +23,8 @@ export class NavComponent {
     this.ls.getLanguage().subscribe(data => this.content = data)
   }
 
+  goTo(s: string) {
+    this.router.navigate(['/members'])
+    localStorage.setItem('',s)
+  }
 }

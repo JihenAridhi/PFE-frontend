@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Person} from "../../../../entities/Person";
 
 @Component({
   selector: 'app-doctors',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./doctors.component.css']
 })
 export class DoctorsComponent {
+  personList: Person[] = []
+
+  constructor() {
+  }
 
 }
