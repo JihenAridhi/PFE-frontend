@@ -42,9 +42,9 @@ const routes: Routes = [
     {path: '', component: NavComponent, children:
     [
       {path: 'list-news', component: ListNewsComponent},
-      {path: 'view-news', component: ViewNewsComponent},
+      {path: 'view-news/:id', component: ViewNewsComponent},
       {path: 'list-event', component: ListEventComponent},
-      {path: 'view-event', component: ViewEventComponent},
+      {path: 'view-event/:id', component: ViewEventComponent},
       {path: 'teams', component: TeamsComponent},
       {path: 'list-article', component: ListArticleComponent},
       {path: 'teacher-researcher', component: TeacherResearcherComponent},
@@ -53,7 +53,7 @@ const routes: Routes = [
       {path: 'members', component: AllComponent},
       {path: 'partners', component: PartnersComponent},
       {path: 'contact', component: ContactComponent},
-      {path: 'profile', component: ProfileComponent},
+      {path: 'profile/:id', component: ProfileComponent},
     ]}
   ]},
   {path: 'login', component: LoginComponent},
@@ -65,12 +65,12 @@ const routes: Routes = [
     {path: 'update', component: UpdateProfileComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'requests', component: RequestsComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'members', component: MembersComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-article', component: SaveArticleComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-article/:id', component: SaveArticleComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'edit-event', component: EditEventComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'edit-news', component: EditNewsComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'feedback', component: FeedbackComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-news', component: SaveNewsComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-event', component: SaveEventComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-news/:id', component: SaveNewsComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-event/:id', component: SaveEventComponent/*, canActivateChild: [LoginGuard]*/},
   ]},
 
 

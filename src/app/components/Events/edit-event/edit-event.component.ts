@@ -12,18 +12,7 @@ export class EditEventComponent implements OnInit{
 
   eventList: Event[] =  []
 
-  constructor(private es: EventService, private router: Router) {}
-
-  async update(e: Event)
-  {
-    this.es.setItem('event', e)
-    await this.router.navigate(['/account/save-event'])
-  }
-
-  async add() {
-    this.es.setItem('event', new Event())
-    await this.router.navigate(['/account/save-event'])
-  }
+  constructor(private es: EventService) {}
 
   delete(e: Event)
   {

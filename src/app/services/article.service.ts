@@ -11,6 +11,8 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
+  get(id: number)
+  {return this.http.get('http://localhost:8000/article/get/'+id).toPromise()}
   getPerspnArticles(id?: number)
   {
     if(id)

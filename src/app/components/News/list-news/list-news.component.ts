@@ -25,11 +25,4 @@ export class ListNewsComponent implements OnInit
         await this.ns.getPhoto(this.newsList[i].id).then(data => {if (data) this.url[i] = data})
     })
   }
-
-
-  viewNews(n: News) {
-    this.ns.setItem('news', n)
-    this.router.navigate(['/view-news'])
-  }
-
 }

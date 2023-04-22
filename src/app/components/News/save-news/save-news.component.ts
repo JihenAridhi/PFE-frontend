@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {News} from "../../../entities/News";
 import {NewsService} from "../../../services/news.service";
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-save-news',
   templateUrl: './save-news.component.html',
@@ -10,7 +11,7 @@ import {NewsService} from "../../../services/news.service";
 export class SaveNewsComponent implements OnInit{
 
   news: News = new News()
-  constructor(private ns: NewsService) {}
+  constructor(private ns: NewsService, private route: ActivatedRoute) {}
 
   save(form: NgForm)
   {
@@ -22,7 +23,12 @@ export class SaveNewsComponent implements OnInit{
 
 
 
-  ngOnInit(): void {this.news = this.ns.getItem('news')}
+  ngOnInit(): void
+  {
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    if (id)
+      this.ns.get(id).then(data => this.news=data!)
+  }
 
   async onFileSelected(files: any) {
     const file: File = files[0];

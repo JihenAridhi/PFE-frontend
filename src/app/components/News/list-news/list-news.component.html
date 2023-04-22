@@ -1,16 +1,14 @@
 <section class="articles">
-
-  <div class="article" *ngFor="let n of newsList; let i = index" (click)="viewNews(n)">
+  <a class="article" *ngFor="let n of newsList; let i = index" routerLink="/view-news/{{n.id}}" target="_blank">
     <div class="left">
       <img [src]="url[i]" alt="">
     </div>
     <div class="right">
       <p class="date">{{n.date | date: 'dd-MM-yyyy'}}</p>
-      <a routerLink="/view-news"><h1 id="tit">{{n.title}}</h1></a>
+      <a><h1 id="tit">{{n.title}}</h1></a>
       <p class="description">{{n.description}}</p>
     </div>
-  </div>
-
+  </a>
 </section>
 
 

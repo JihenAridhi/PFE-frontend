@@ -15,10 +15,10 @@ export class NewsService {
 
   getAll(){return this.http.get<News[]>('http://localhost:8000/news/getAll').toPromise()}
 
-  get(id?: number){this.http.get('http://localhost:8000/news/get/'+id).subscribe(
+  get(id?: number){return this.http.get('http://localhost:8000/news/get/'+id).toPromise()/*.subscribe(
     (data: News) =>
       this.news.next(data)
-  )}
+  )*/}
 
   save(news: News)
   {

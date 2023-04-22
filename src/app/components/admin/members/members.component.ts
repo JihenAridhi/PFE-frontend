@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
@@ -14,6 +14,7 @@ export class MembersComponent implements OnInit{
   members: Person[] = new Array<Person>()
   member: Person = new Person()
   autoList: number[][] =  []
+  url='';
 
   constructor(private ps: PersonService, private as: AutorisationService) {}
 
@@ -22,7 +23,11 @@ export class MembersComponent implements OnInit{
      if (blur) blur.classList.toggle('active');
     let popup = document.getElementById('popup');
     if (popup) popup.classList.toggle('active');
-    if (person) this.member = person
+    if (person) {
+      this.member = person
+      this.ps.getPhoto(person.id).then(data => this.url=data!)
+    }
+
   }
 
   async ngOnInit()

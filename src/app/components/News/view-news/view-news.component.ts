@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from "../../../entities/News";
 import {NewsService} from "../../../services/news.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-view-news',
@@ -12,12 +13,13 @@ export class ViewNewsComponent implements OnInit{
   news: News = new News()
   url = ''
 
-  constructor(private ns: NewsService) {}
+  constructor(private ns: NewsService, private route: ActivatedRoute) {}
 
   async ngOnInit()
   {
-    this.news = this.ns.getItem('news')
-    await this.ns.getPhoto(this.news.id).then(data => {if (data) this.url=data})
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    await this.ns.get(id).then(data => this.news=data!)
+    await this.ns.getPhoto(this.news.id).then(data => this.url=data!)
   }
 
 

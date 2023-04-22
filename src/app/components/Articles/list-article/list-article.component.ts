@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Article} from "../../../entities/Article";
 import {ArticleService} from "../../../services/article.service";
 import {PersonService} from "../../../services/person.service";
@@ -10,7 +10,7 @@ import {Person} from "../../../entities/Person";
   styleUrls: ['./list-article.component.css']
 })
 export class ListArticleComponent implements OnInit{
-
+  @Input() person: any;
   articles: Article[] = []
   filteredList: Article[] = []
   article= new Article()
@@ -29,8 +29,7 @@ export class ListArticleComponent implements OnInit{
 
   async ngOnInit()
   {
-    const id = localStorage.getItem('person') ? this.ps.getItem('person').id : undefined;
-    await this.as.getPerspnArticles(id).then(data =>
+    await this.as.getPerspnArticles(this.person).then(data =>
     {
       this.articles = data!
       this.filteredList = this.articles
@@ -50,19 +49,10 @@ export class ListArticleComponent implements OnInit{
       this.filteredList = this.articles
     else {
       this.filteredList = this.articles.filter(article => {
-        /*console.log(this.recentValue)
-        console.log(new Date(article.date!).toISOString().substring(0, 10))
-        console.log(this.olderValue)
-        console.log('---------------------------')*/
         return new Date(article.date!).toISOString().substring(0, 10) <= this.olderValue! &&
         new Date(article.date!).toISOString().substring(0, 10) >= this.recentValue!
       })
       console.log(this.filteredList)
     }
-  }
-
-  a() {
-    console.log(this.olderValue)
-    console.log(this.recentValue)
   }
 }

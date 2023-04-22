@@ -24,10 +24,10 @@ export class EventService
       this.http.post('http://localhost:8000/event/add', event).subscribe(()=> alert('news have been posted successfully !! '))
   }
 
-  get(id?: number){this.http.get('http://localhost:8000/event/get/'+id).subscribe(
+  get(id?: number){return this.http.get('http://localhost:8000/event/get/'+id).toPromise()/*.subscribe(
     (data: News) =>
       this.event.next(data)
-  )}
+  )*/}
 
   delete(id?: number) {
      this.http.delete('http://localhost:8000/event/delete/'+id).subscribe()

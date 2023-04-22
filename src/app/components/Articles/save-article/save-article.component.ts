@@ -4,6 +4,7 @@ import {ArticleService} from "../../../services/article.service";
 import {Article} from "../../../entities/Article";
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-save-article',
@@ -17,7 +18,7 @@ export class SaveArticleComponent implements OnInit{
   searchList: Person[] = []
   filteredList: Person[] = []
   authors: Person[] = []
-  constructor(private as: ArticleService, private ps: PersonService) {}
+  constructor(private as: ArticleService, private ps: PersonService, private route: ActivatedRoute) {}
 
     addAuthor() {
       this.fullName.push('')
@@ -59,18 +60,20 @@ export class SaveArticleComponent implements OnInit{
   }
 
   async ngOnInit()  {
-    this.article = this.as.getItem('article')
-    let person = this.ps.getItem('person')
+    //this.article = this.as.getItem('article')
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    if (id) {
+      await this.as.get(id).then(data => this.article = data!)
+      let person = this.ps.getItem('person')
       await this.as.getAuthors(this.article.id).then(
         data => {
           this.authors = data!.filter(r => r.id !== person.id);
-          this.fullName = this.authors.map(p => p.firstName+' '+p.lastName)
+          this.fullName = this.authors.map(p => p.firstName + ' ' + p.lastName)
         }
       )
-    /*this.authors.unshift(person)
-    this.fullName.unshift(person.firstName+' '+person.lastName)*/
-    await this.ps.getStatus(true).then(data => {
-      this.searchList = data!.filter(r => !this.authors.some(a => a.id === r.id) && !person.id)
-    })
+      await this.ps.getStatus(true).then(data => {
+        this.searchList = data!.filter(r => !this.authors.some(a => a.id === r.id) && !person.id)
+      })
+    }
   }
 }

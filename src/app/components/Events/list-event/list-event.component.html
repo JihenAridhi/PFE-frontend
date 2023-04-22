@@ -1,5 +1,5 @@
 <div class="container1">
-  <div class="item-container" *ngFor="let e of eventList; let i = index" (click)="viewEvent(e)">
+  <a class="item-container" *ngFor="let e of eventList; let i = index" routerLink="/view-event/{{e.id}}" target="_blank">
     <div class="img-container">
       <img [src]="url[i]" alt="Event image">
     </div>
@@ -27,5 +27,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>

@@ -34,6 +34,7 @@ import {TeacherResearcherComponent} from "./components/Browse/members/teacher-re
 import {DoctorsComponent} from "./components/Browse/members/doctors/doctors.component";
 import {PhdStudentsComponent} from "./components/Browse/members/phd-students/phd-students.component";
 import {AllComponent} from "./components/Browse/members/all/all.component";
+import { EditPartnersComponent } from './components/partners/edit-partners/edit-partners.component';
 
 
 
@@ -69,6 +70,7 @@ import {AllComponent} from "./components/Browse/members/all/all.component";
     SaveNewsComponent,
     SaveEventComponent,
     RequestsComponent,
+    EditPartnersComponent,
   ],
   imports: [
     BrowserModule,

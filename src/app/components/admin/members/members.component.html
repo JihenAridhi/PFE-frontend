@@ -10,6 +10,7 @@
           <th>NEWS</th>
           <th>EVENTS</th>
           <th>MEMBERS</th>
+          <th>PARTNERS</th>
           <th>FEEDBACK</th>
           <th>REQUESTS</th>
         </tr>
@@ -42,10 +43,10 @@
 </div>
 <div id="popup">
 
-  <h1 id="close" align="right" (click)="toggle(member)">&#10006;</h1>
+  <h1 id="close" align="right" (click)="toggle()">&#10006;</h1>
 
   <div class="profile">
-    <img src="/assets/userPhoto/{{member.id}}.jpg">
+    <img [src]="url">
 
     <div>
       <p> name : {{member.firstName}} {{member.lastName}}</p>
@@ -55,7 +56,4 @@
     </div>
 
   </div>
-
-
-
 </div>

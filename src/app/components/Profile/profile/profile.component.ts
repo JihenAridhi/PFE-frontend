@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
-import {Article} from "../../../entities/Article";
-import {ArticleService} from "../../../services/article.service";
 
 
 

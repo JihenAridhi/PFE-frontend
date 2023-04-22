@@ -6,7 +6,7 @@
       <th>TITLE</th>
       <th>DESCRIPTION</th>
       <th>DATE</th>
-      <th colspan="2"><a (click)="add()" class="btn2">ADD NEWS</a></th>
+      <th colspan="2"><a  routerLink="/account/save-news/0" target="_blank" class="btn2">ADD NEWS</a></th>
 
     </tr>
     </thead>
@@ -15,7 +15,7 @@
       <td>{{n.title}}</td>
       <td>{{n.description}}</td>
       <td>{{n.date | date: 'dd-MM-yyyy'}}</td>
-      <td><a (click)="update(n)" class="btn2">Update</a></td>
+      <td><a routerLink="/account/save-news/{{n.id}}" target="_blank" class="btn2">Update</a></td>
       <td><a (click)="delete(n)" class="btn2">Delete</a></td>
     </tr>
     </tbody>

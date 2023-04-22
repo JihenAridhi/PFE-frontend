@@ -69,18 +69,6 @@ export class UpdateProfileComponent implements OnInit{
     })
   }
 
-
-  async add() {
-    this.as.setItem('article', new Article())
-    await this.router.navigate(['/account/save-article'])
-  }
-
-  async updateArticle(a: Article)
-  {
-    this.as.setItem('article', a)
-    await this.router.navigate(['/account/save-article'])
-  }
-
   delete(a: Article) {
     let result = confirm('are you sure ??')
     if (result)

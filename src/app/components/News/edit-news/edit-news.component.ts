@@ -16,8 +16,7 @@ export class EditNewsComponent implements OnInit{
     await this.ns.getAll().then(data => {if (data) this.newsList = data})
   }
 
-  constructor(private ns: NewsService, private router: Router) {}
-
+  constructor(private ns: NewsService) {}
   delete(n: News)
   {
     let result = confirm('are you sure ?')
@@ -26,17 +25,5 @@ export class EditNewsComponent implements OnInit{
       this.newsList = this.newsList.filter(i => i !== n)
       this.ns.setItem('newsList', this.newsList)
     }
-  }
-
-  async update(n: News)
-  {
-    this.ns.setItem('news', n)
-    await this.router.navigate(['/account/save-news'])
-
-  }
-
-  async add() {
-    this.ns.setItem('news', new News())
-    await this.router.navigate(['/account/save-news'])
   }
 }
