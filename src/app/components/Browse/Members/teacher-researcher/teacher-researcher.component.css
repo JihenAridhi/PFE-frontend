@@ -16,6 +16,8 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  overflow-x : hidden;
+
 }
 
 .our_team .team_member{
