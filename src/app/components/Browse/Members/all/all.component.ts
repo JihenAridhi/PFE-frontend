@@ -18,7 +18,6 @@ export class AllComponent implements OnInit{
 
   ngOnInit(): void
   {
-
     this.prs.getStatus(true).then(data =>
     {
       this.personList = data!
@@ -27,8 +26,4 @@ export class AllComponent implements OnInit{
     })
   }
 
-  profile(p: Person) {
-    this.router.navigate(['/profile'])
-    this.prs.setItem('person', p)
-  }
 }

@@ -79,7 +79,6 @@ h1 {
 
 #keywords {
   margin: 0 auto;
-  font-size: 1.2em;
   margin-bottom: 15px;
 }
 
@@ -128,7 +127,7 @@ h1 {
     width:95%;
     background: transparent;
     position: relative;
-    
+
   }
   .table-container #keywords{
     width: 300px;
@@ -224,8 +223,8 @@ h1 {
     content: "Requests: ";
     font-weight: bold;
   }
-  
-  
+
+
 }
 
 #popup{
