@@ -79,6 +79,7 @@ h1 {
 
 #keywords {
   margin: 0 auto;
+  font-size: 1.2em;
   margin-bottom: 15px;
 }
 
@@ -121,7 +122,111 @@ h1 {
   text-align: left;
 }
 
+@media only screen and (max-width:768px),
+(min-device-width:768px) and (max-device-width:992px){
+  .table-container{
+    width:95%;
+    background: transparent;
+    position: relative;
+    
+  }
+  .table-container #keywords{
+    width: 300px;
+    padding: 0;
+  }
 
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr{
+    display: block;
+  }
+
+  thead tr{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr{
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  td{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+
+  }
+
+  td::before{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+
+  #keywords {
+    width: 100%;
+  }
+  #keywords thead th {
+    min-width: 120px;
+  }
+  #keywords tbody td {
+    word-break: break-word;
+    white-space: normal;
+    text-align: left;
+  }
+  #keywords tbody td:nth-child(1):before {
+    content: "Member: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(2):before {
+    content: "Delete: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(3):before {
+    content: "Profession: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(4):before {
+    content: "Teams: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(5):before {
+    content: "News: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(6):before {
+    content: "Events: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(7):before {
+    content: "Members: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(8):before {
+    content: "Feedback: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(9):before {
+    content: "Requests: ";
+    font-weight: bold;
+  }
+  
+  
+}
 
 #popup{
   position: fixed;
@@ -199,6 +304,3 @@ h1{color: #123C60; margin: 10px;}
   cursor: pointer;
   opacity: 0.8;
 }
-
-.profile{display: flex}
-.profile img {height: 300px; width: 300px}
