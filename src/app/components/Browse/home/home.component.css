@@ -461,7 +461,7 @@ nav .content .links{
 }
 
 .row .left img{
-  width:400px;
+  width:  350px;
   height:500px;
   object-fit:cover;
   transition: 0.3s;
