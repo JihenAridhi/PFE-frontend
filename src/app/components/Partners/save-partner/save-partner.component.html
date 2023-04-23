@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="container">
+  <header>Partner</header>
+  <form class="form" #addF='ngForm' (ngSubmit)="add(addF)" isNativeValidate>
+
+    <div class="input-box">
+      <label>Name</label>
+      <input type="text" placeholder=" Full name" required [(ngModel)]="partner.name" name="name"/>
+    </div>
+    <div class="input-box">
+      <label>urlpage</label>
+      <input type="text" placeholder=" url of website" required name="urlpage" [(ngModel)]="partner.url"/>
+    </div>
+    <div class="input-box">
+      <label>Image</label>
+      <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
+    </div>
+    <div class="input-box">
+      <label>Type of Partner</label>
+      <div class="select-box">
+        <select [(ngModel)]="partner.type" name="type">
+          <option value="">--</option>
+          <option value="National">National</option>
+          <option value="International">International</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-box">
+      <label>Description</label>
+      <textarea name="description" rows="10" cols="70" [(ngModel)]="partner.description"></textarea>
+    </div>
+
+    <button>Submit</button>
+  </form>
+</section>

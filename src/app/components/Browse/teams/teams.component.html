@@ -4,14 +4,9 @@
 <div class="wrapp">
   <h1>RH Team</h1>
   <div class="our_team">
-    <div class="team_member" *ngFor="let p of HR" (click)="profile(p)">
+    <div class="team_member" *ngFor="let p of HR" routerLink="/profile/{{p.id}}" target="_blank">
         <div class="member_img">
           <img [src]="url[p.id!]" alt="our_team">
-          <div class="social_media">
-            <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
-            <div class="github item"><i class="fab fa-github"></i></div>
-            <div class="instagram item"><i class="fab fa-linkedin"></i></div>
-          </div>
         </div>
         <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
         <span>{{p.profession}}</span>
@@ -21,14 +16,9 @@
 <div class="wrapp">
   <h1>RH Team</h1>
   <div class="our_team">
-    <div class="team_member" *ngFor="let p of Development" (click)="profile(p)">
+    <div class="team_member" *ngFor="let p of Development" routerLink="/profile/{{p.id}}" target="_blank">
       <div class="member_img">
         <img [src]="url[p.id!]" alt="our_team">
-        <div class="social_media">
-          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
-          <div class="github item"><i class="fab fa-github"></i></div>
-          <div class="instagram item"><i class="fab fa-linkedin"></i></div>
-        </div>
       </div>
       <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
       <span>{{p.profession}}</span>

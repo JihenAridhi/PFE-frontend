@@ -1,18 +1,14 @@
 <div class="table-container">
-
   <table id="keywords" cellspacing="0" cellpadding="0">
-
   <thead>
 <tr>
   <th>TITLE</th>
   <th>ORGANIZER</th>
   <th>LOCATION</th>
   <th>DATE</th>
-  <th colspan="2"><a routerLink="/account/save-event/0" target="_blank" class="btn2">ADD EVENT</a></th>
-
+  <th colspan="2"><a routerLink="/account/save-event" target="_blank" class="btn2">ADD EVENT</a></th>
 </tr>
 </thead>
-
 <tbody>
 <tr *ngFor="let e of eventList">
   <td>{{e.title}} </td>
@@ -22,7 +18,6 @@
   <td><a class="btn2" routerLink="/account/save-event/{{e.id}}" target="_blank">Update</a></td>
   <td><a class="btn2" (click)="delete(e)">Delete</a></td>
 </tr>
-
 </tbody>
   </table>
 </div>

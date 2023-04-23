@@ -18,7 +18,6 @@ export class TeamsComponent {
 
   ngOnInit(): void
   {
-
     this.prs.getStatus(true).then(data =>
     {
       if (data)

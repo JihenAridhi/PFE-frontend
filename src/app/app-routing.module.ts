@@ -29,6 +29,8 @@ import {TeacherResearcherComponent} from "./components/Browse/members/teacher-re
 import {DoctorsComponent} from "./components/Browse/members/doctors/doctors.component";
 import {PhdStudentsComponent} from "./components/Browse/members/phd-students/phd-students.component";
 import {AllComponent} from "./components/Browse/members/all/all.component";
+import {EditPartnersComponent} from "./components/Partners/edit-partners/edit-partners.component";
+import {SavePartnerComponent} from "./components/Partners/save-partner/save-partner.component";
 
 
 
@@ -65,15 +67,19 @@ const routes: Routes = [
     {path: 'update', component: UpdateProfileComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'requests', component: RequestsComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'members', component: MembersComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-article', component: SaveArticleComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-article/:id', component: SaveArticleComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'edit-event', component: EditEventComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'edit-news', component: EditNewsComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'feedback', component: FeedbackComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-news', component: SaveNewsComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-news/:id', component: SaveNewsComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-event', component: SaveEventComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-event/:id', component: SaveEventComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'edit-partners', component: EditPartnersComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-partner', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-partner/:id', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
   ]},
-
-
 ]
 
 @NgModule({

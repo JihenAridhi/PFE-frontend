@@ -23,7 +23,6 @@ export class EditNewsComponent implements OnInit{
     if (result) {
       this.ns.delete(n.id)
       this.newsList = this.newsList.filter(i => i !== n)
-      this.ns.setItem('newsList', this.newsList)
     }
   }
 }
