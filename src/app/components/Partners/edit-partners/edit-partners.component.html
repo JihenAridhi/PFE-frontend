@@ -1,0 +1,20 @@
+<div class="table-container">
+    <table id="keywords" cellspacing="0" cellpadding="0">
+      <thead>
+      <tr>
+        <th>PARTNER</th>
+        <th>TYPE</th>
+        <th colspan="2"><a  routerLink="/account/save-partner" target="_blank" class="btn2">ADD PARTNER</a></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of partnerList; let i = index;">
+        <td><a routerLink="{{p.url}}">{{p.name}}</a></td>
+        <td>{{p.type}}</td>
+        <td><a class="btn2" (click)="delete(p)">DELETE</a></td>
+        <td><a class="btn2" routerLink="/account/save-partner/{{p.id}}" target="_blank">UPDATE</a></td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+
