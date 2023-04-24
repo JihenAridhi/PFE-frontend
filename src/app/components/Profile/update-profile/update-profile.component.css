@@ -91,6 +91,8 @@ section {
   top: 360px;
   width: 160px;
   height: 30px;
+  max-width: 160px;
+  overflow-x: hidden;
 
 }
 input[type=file]::file-selector-button {
