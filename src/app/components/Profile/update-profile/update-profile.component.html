@@ -1,17 +1,15 @@
 <section>
   <div class="wrapper">
     <div class="container">
-      <h1>Update your information</h1>
+      <h1>{{content.update}}</h1>
       <form #updateF='ngForm' (ngSubmit)="update(updateF)">
-        <label> First Name </label>
+        <label> {{content.firstName}} </label>
         <input type="text" name="firstName" placeholder="  your first name ..." [(ngModel)]="person.firstName">
-        <label> Last Name </label>
+        <label> {{content.lastName}} </label>
         <input type="text" name="lastName" placeholder="  your last name ..." [(ngModel)]="person.lastName">
-        <label> Add email </label>
+        <label> Email </label>
         <input type="email" name="email" placeholder="  add your e-mail ..." [(ngModel)]="person.email">
-        <label> Area of interest </label>
-        <input type="text" name="interest" placeholder="  your area of interest ..." [(ngModel)]="person.interest">
-        <input type="submit" name="" value="Update your account" class="SBM">
+        <input type="submit" name="" value="{{content.update}}" class="SBM">
       </form>
     </div>
     <div class="container2">
@@ -19,7 +17,7 @@
       <div class="input_container">
         <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
       </div>
-      <button id="open-popup" (click)="toggle()">Update password</button>
+      <button id="open-popup" (click)="toggle()">{{content.update}} {{content.password}}</button>
     </div>
   </div>
 </section>
@@ -29,11 +27,11 @@
 <div id="popup">
   <div class="cont">
     <form #updateP='ngForm' (ngSubmit)="updatePass(updateP)">
-      <label> Old password </label>
+      <label> {{content.old}} {{content.password}} </label>
       <input type="password" name="oldP" placeholder="  your old password ..." ngModel required>
-      <label> Password </label>
+      <label> {{content.password}} </label>
       <input type="password" name="newP" placeholder="  your new password ..." ngModel required>
-      <label> Confirm your password </label>
+      <label> {{content.confirmP}} </label>
       <input type="password" name="confirmP" placeholder="  Confirm your new password ..." ngModel required>
       <input type="submit" name="" value="Update your password" class="SBM">
     </form>
@@ -46,9 +44,9 @@
   <table>
     <thead>
     <tr>
-      <th>TITLE</th>
-      <th>QUOTED BY</th>
-      <th>YEAR</th>
+      <th>{{content.title}}</th>
+      <th>Type</th>
+      <th>Date</th>
       <th align="center"><a routerLink="/account/save-article" target="_blank" class="add">ADD ARTICLE</a></th>
     </tr>
     </thead>
@@ -57,8 +55,8 @@
       <td><h4>{{a.title}}</h4></td>
       <td><p>{{a.type}}</p></td>
       <td>{{a.date | date: 'dd-MM-yyyy'}}</td>
-      <td><a routerLink="/account/save-article/{{a.id}}" target="_blank" class="btn2">Update</a></td>
-      <td><a (click)="delete(a)" class="btn2">Delete</a></td>
+      <td><a routerLink="/account/save-article/{{a.id}}" target="_blank" class="btn2">{{content.update}}</a></td>
+      <td><a (click)="delete(a)" class="btn2">{{content.delete}}</a></td>
     </tr>
     </tbody>
   </table>

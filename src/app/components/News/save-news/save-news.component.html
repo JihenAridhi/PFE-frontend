@@ -1,8 +1,8 @@
 <section class="container" >
-  <header>Add News</header>
+  <header>{{content.news}}</header>
   <form class="form" #newsF="ngForm" (ngSubmit)="save(newsF)" ngNativeValidate>
     <div class="input-box">
-      <label>Title</label>
+      <label>{{content.title}}</label>
       <input type="text" placeholder="Tile of news ..." required name="title" [(ngModel)]="news.title"/>
     </div>
     <div class="input-box">
@@ -11,9 +11,9 @@
     </div>
 
     <div class="input-box">
-      <label>description</label>
+      <label>Description</label>
       <textarea rows="10" cols="70" required name="description" [(ngModel)]="news.description"></textarea>
     </div>
-    <button>Submit</button>
+    <button>{{content.submit}}</button>
   </form>
 </section>

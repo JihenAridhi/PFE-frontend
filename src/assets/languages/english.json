@@ -50,5 +50,7 @@
   "member": "Member",
   "name": "Name",
   "authors": "Authors",
-  "datePub": "Date of Publication"
+  "datePub": "Date of Publication",
+  "submit": "Submit",
+  "old": "Old"
 }

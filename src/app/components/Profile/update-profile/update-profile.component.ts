@@ -5,6 +5,7 @@ import {PersonService} from "../../../services/person.service";
 import {Article} from "../../../entities/Article";
 import {ArticleService} from "../../../services/article.service";
 import {Router} from "@angular/router";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-update-profile',
@@ -17,8 +18,9 @@ export class UpdateProfileComponent implements OnInit{
   url = '';
   showContent = true;
   articles: Article[] = []
+  content: any
 
-  constructor(private ps: PersonService, private as: ArticleService, private router: Router) {}
+  constructor(private ps: PersonService, private as: ArticleService, private router: Router, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
    toggle() {
     let blur=document.getElementById('blur');

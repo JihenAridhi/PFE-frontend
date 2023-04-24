@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AutorisationService} from "../../../services/autorisation.service";
+import {LanguageService} from "../../../services/language.service";
 
 
 @Component({
@@ -11,8 +12,8 @@ import {AutorisationService} from "../../../services/autorisation.service";
 export class NavProfileComponent implements OnInit{
 
   autoList: Array<number> = new Array<number>()
-  constructor(private router: Router,
-              private aus: AutorisationService) {}
+  content: any
+  constructor(private router: Router, private aus: AutorisationService, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
   btn() {
    $('.btn').toggleClass("click");
@@ -26,8 +27,8 @@ export class NavProfileComponent implements OnInit{
 
 
 
-  logout() {
-    this.router.navigate(['/home'])
+  async logout() {
+    await this.router.navigate(['/home'])
     localStorage.removeItem('person')
     localStorage.removeItem('autoList')
   }

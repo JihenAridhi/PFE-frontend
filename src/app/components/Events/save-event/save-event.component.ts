@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {EventService} from "../../../services/event.service";
 import {Event} from "../../../entities/Event";
 import {ActivatedRoute, Route, Router} from "@angular/router";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'save-add-event',
@@ -13,7 +14,8 @@ export class SaveEventComponent implements OnInit{
 
   event = new Event()
   date: any;
-  constructor(private es: EventService, private route: ActivatedRoute) {}
+  content: any
+  constructor(private es: EventService, private route: ActivatedRoute, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
   async addEvent(addF: NgForm)
   {
     let e = addF.value

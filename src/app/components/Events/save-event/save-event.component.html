@@ -1,19 +1,19 @@
 <div id="body">
 
   <section class="container">
-    <header>Add Event</header>
+    <header>{{content.event}}</header>
     <form class="form" #addF="ngForm" (ngSubmit)="addEvent(addF)" ngNativeValidate>
 
       <div class="input-box">
-        <label>Title</label>
+        <label>{{content.title}}</label>
         <input type="text" placeholder="Tile of news ..." required [(ngModel)]="event.title" name="title"/>
       </div>
       <div class="input-box">
-        <label>Location</label>
+        <label>{{content.location}}</label>
         <input type="text" placeholder="Tile of news ..." required [(ngModel)]="event.location" name="location"/>
       </div>
       <div class="input-box">
-        <label>Organiser</label>
+        <label>{{content.organiser}}</label>
         <input type="text" placeholder=" Full name" required [(ngModel)]="event.organiser" name="organiser" />
       </div>
 
@@ -28,10 +28,10 @@
       </div>
 
       <div class="input-box">
-        <label>description</label>
+        <label>Description</label>
         <textarea name="description" rows="10" cols="70" required [(ngModel)]="event.description" ></textarea>
       </div>
-      <button>Submit</button>
+      <button>{{content.submit}}</button>
     </form>
   </section>
 </div>
