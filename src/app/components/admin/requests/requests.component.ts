@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PersonService} from "../../../services/person.service";
 import {Person} from "../../../entities/Person";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-requests',
@@ -8,13 +9,14 @@ import {Person} from "../../../entities/Person";
   styleUrls: ['./requests.component.css']
 })
 export class RequestsComponent implements OnInit{
-
-  constructor(private ps: PersonService) {
+  content: any
+  constructor(private ps: PersonService, private ls: LanguageService) {
   }
 
   requests: Person[] = new Array<Person>()
 
   async ngOnInit() {
+    this.ls.getLanguage().subscribe(data => this.content = data)
     await this.ps.getStatus(false).then(data => {if (data) this.requests = data})
   }
 

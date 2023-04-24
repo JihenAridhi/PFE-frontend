@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {PersonService} from "../../../services/person.service";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-signup',
@@ -8,8 +9,8 @@ import {PersonService} from "../../../services/person.service";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-
-  constructor(private ps: PersonService) {}
+  content: any
+  constructor(private ps: PersonService, private ls: LanguageService) {ls.getLanguage().subscribe(data => this.content=data)}
 
 
   addPerson(addF: NgForm) {

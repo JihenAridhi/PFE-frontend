@@ -4,13 +4,13 @@
 <section>
   <div id="container">
     <div id="login">
-      <h1>Welcome Back !</h1>
+      <h1>{{content.welcome}}</h1>
       <form  #loginF='ngForm' (ngSubmit)="login(loginF)"  ngNativeValidate>
         <label for="email"> Email </label>
         <input type="email" id="email" placeholder="  your e-mail ..." ngModel name="email" required>
-        <label for="password"> Password </label>
+        <label for="password"> {{content.password}} </label>
         <input type="password" id="password" placeholder="  your password ..." ngModel name="password" required>
-        <input type="submit" value="Login" class="SBM">
+        <input type="submit" value="{{content.login}}" class="SBM">
       </form>
     </div>
     <div id="cover">

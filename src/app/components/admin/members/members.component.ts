@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {Person} from "../../../entities/Person";
 import {PersonService} from "../../../services/person.service";
 import {AutorisationService} from "../../../services/autorisation.service";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-members',
@@ -15,8 +16,9 @@ export class MembersComponent implements OnInit{
   member: Person = new Person()
   autoList: number[][] =  []
   url='';
+  content: any
 
-  constructor(private ps: PersonService, private as: AutorisationService) {}
+  constructor(private ps: PersonService, private as: AutorisationService, private ls: LanguageService) {}
 
   toggle(person?: Person) {
     let blur=document.getElementById('blur');
@@ -32,6 +34,7 @@ export class MembersComponent implements OnInit{
 
   async ngOnInit()
   {
+    this.ls.getLanguage().subscribe(data => this.content = data)
      await this.ps.getStatus(true).then(data => {if (data) this.members = data})
      await this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
   }

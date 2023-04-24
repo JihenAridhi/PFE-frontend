@@ -223,7 +223,10 @@ h1 {
     content: "Requests: ";
     font-weight: bold;
   }
-
+  #keywords tbody td:nth-child(10):before {
+    content: "Partners: ";
+    font-weight: bold;
+  }
 
 }
 

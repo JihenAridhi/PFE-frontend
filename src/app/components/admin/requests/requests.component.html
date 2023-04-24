@@ -2,7 +2,7 @@
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
     <tr>
-      <th>NAME</th>
+      <th>{{content.name}}</th>
       <th>EMAIL</th>
       <th colspan="2">DECISION</th>
     </tr>
@@ -13,7 +13,7 @@
       <td>{{r.firstName}} {{r.lastName}}</td>
       <td>{{r.email}}</td>
       <td><button class="btn2" (click)="accept(r)">ACCEPT</button></td>
-      <td><button class="btn2" (click)="delete(r)">DELETE</button></td>
+      <td><button class="btn2" (click)="delete(r)">{{content.delete}}</button></td>
     </tr>
     </tbody>
   </table>

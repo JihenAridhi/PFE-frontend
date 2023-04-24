@@ -4,9 +4,9 @@
         <table class="tab" >
         <thead>
         <tr>
-          <th><label> Search by title</label></th>
-          <th><label>Events more recent than</label></th>
-          <th><label> news older than</label></th>
+          <th><label> {{content.searchByTitle}}</label></th>
+          <th><label>{{content.moreRecentThan}}</label></th>
+          <th><label> {{content.olderThan}}</label></th>
         </tr>
         </thead>
         <tbody>
@@ -42,11 +42,11 @@
   <div class="l-inner article">
     <table class="table">
       <tr>
-        <th>Authors</th>
+        <th>{{content.authors}}</th>
         <td *ngFor="let a of authors">{{a.firstName}} {{a.lastName}}</td>
       </tr>
       <tr>
-        <th>Date de publication Conférence</th>
+        <th>{{content.datePub}}</th>
         <td>{{article.date | date: 'dd-MM-yyyy'}}<br></td>
       </tr>
       <tr>
@@ -58,11 +58,11 @@
         <td>{{article.editor}}</td>
       </tr>
       <tr>
-        <th>Description </th>
+        <th>Abstract </th>
         <td>{{article.description}}</td>
       </tr>
       <tr>
-        <th>Articles Google Scholar</th>
+        <th>DOI</th>
         <td><a href="{{article.url}}" target="_blank" style="color: black">{{article.title}}</a></td>
       </tr>
     </table>

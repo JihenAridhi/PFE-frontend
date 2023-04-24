@@ -6,17 +6,17 @@
       <div class="corps-formulaire">
         <div class="gauche">
           <div class="groupe">
-            <label>Your first name</label>
+            <label>{{content.firstName}}</label>
             <input type="text" autocomplete="off" ngModel name="name" required/>
             <i class="fas fa-user"></i>
           </div>
           <div class="groupe">
-            <label>Your e-mail</label>
+            <label>Email</label>
             <input type="text" autocomplete="off" ngModel name="email" required/>
             <i class="fas fa-envelope"></i>
           </div>
           <div class="groupe">
-            <label>Your phone number</label>
+            <label>{{content.phone}}</label>
             <input type="text" autocomplete="off" ngModel name="phone" required/>
             <i class="fas fa-mobile"></i>
           </div>
@@ -38,7 +38,7 @@
   <div id="info">
     <div>
       <img src="assets/photo/phone.png">
-      <h4>Phone</h4>
+      <h4>{{content.phone}}</h4>
       <p>11111111</p>
     </div>
     <div>

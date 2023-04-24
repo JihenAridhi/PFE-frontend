@@ -16,15 +16,9 @@ export class NavComponent {
   }
 
   changeLang(language: string) {
-    if (language=='french')
-      this.ls.toFrench()
-    else
-      this.ls.toEnglish()
+    this.ls.switchTo(language)
     this.ls.getLanguage().subscribe(data => this.content = data)
+    window.location.reload()
   }
 
-  goTo(s: string) {
-    this.router.navigate(['/members'])
-    localStorage.setItem('',s)
-  }
 }

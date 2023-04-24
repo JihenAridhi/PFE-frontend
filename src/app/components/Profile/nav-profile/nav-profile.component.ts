@@ -28,7 +28,8 @@ export class NavProfileComponent implements OnInit{
 
   logout() {
     this.router.navigate(['/home'])
-    localStorage.clear()
+    localStorage.removeItem('person')
+    localStorage.removeItem('autoList')
   }
 
 }

@@ -5,16 +5,15 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class LanguageService {
-
   constructor(private http: HttpClient) { }
 
-  toFrench(){localStorage.setItem('language','french')}
-  toEnglish(){localStorage.removeItem('language')}
+  switchTo(language: string)
+  {localStorage.setItem('language', language)}
   getLanguage()
   {
-    let language='english'
-    if (localStorage.getItem('language'))
-      language='french'
+    let language=localStorage.getItem('language')
+    if (!language)
+      language = 'english'
     return this.http.get('/assets/languages/'+language+'.json')
   }
 }

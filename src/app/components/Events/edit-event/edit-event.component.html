@@ -2,11 +2,11 @@
   <table id="keywords" cellspacing="0" cellpadding="0">
   <thead>
 <tr>
-  <th>TITLE</th>
-  <th>ORGANIZER</th>
-  <th>LOCATION</th>
-  <th>DATE</th>
-  <th colspan="2"><a routerLink="/account/save-event" target="_blank" class="btn2">ADD EVENT</a></th>
+  <th>{{content.title}}</th>
+  <th>{{content.organiser}}</th>
+  <th>{{content.location}}</th>
+  <th>Date</th>
+  <th colspan="2"><a routerLink="/account/save-event" target="_blank" class="btn2">{{content.add}} {{content.event}}</a></th>
 </tr>
 </thead>
 <tbody>
@@ -15,8 +15,8 @@
   <td>{{e.organiser}}</td>
   <td>{{e.location}}</td>
   <td>{{e.date | date: 'dd-MM-yyyy'}}</td>
-  <td><a class="btn2" routerLink="/account/save-event/{{e.id}}" target="_blank">Update</a></td>
-  <td><a class="btn2" (click)="delete(e)">Delete</a></td>
+  <td><a class="btn2" routerLink="/account/save-event/{{e.id}}" target="_blank">{{content.update}}</a></td>
+  <td><a class="btn2" (click)="delete(e)">{{content.delete}}</a></td>
 </tr>
 </tbody>
   </table>

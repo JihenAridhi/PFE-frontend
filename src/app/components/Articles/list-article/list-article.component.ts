@@ -4,6 +4,7 @@ import {ArticleService} from "../../../services/article.service";
 import {PersonService} from "../../../services/person.service";
 import {Person} from "../../../entities/Person";
 import {ActivatedRoute} from "@angular/router";
+import {LanguageService} from "../../../services/language.service";
 
 @Component({
   selector: 'app-list-article',
@@ -18,11 +19,13 @@ export class ListArticleComponent implements OnInit{
   authors: Person[] = []
   recentValue: any;
   olderValue = new Date().toISOString().substring(0, 10);
+  content: any
 
-  constructor(private ps: PersonService, private as: ArticleService, private route: ActivatedRoute) {}
+  constructor(private ps: PersonService, private as: ArticleService, private route: ActivatedRoute, private ls: LanguageService) {}
 
   async ngOnInit()
   {
+    this.ls.getLanguage().subscribe(data => this.content = data)
     if (this.route.snapshot.paramMap.get('id')!)
       this.id  = parseInt(this.route.snapshot.paramMap.get('id')!)
     await this.as.getPerspnArticles(this.id).then(data =>
