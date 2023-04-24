@@ -1,17 +1,29 @@
 .main #blur.active{
+  position: relative;
   filter: blur(20px);
   pointer-events: none;
   user-select: none;
 }
 .Research {
-  height: 180px;
+  position: relative;
   width: 100%;
   justify-content: center;
+  overflow-y: hidden;
 
 }
 #pub{
+  position: relative;
   margin: auto;
   width: 80%;
+
+}
+
+@media only screen and (max-width:768px),
+(min-device-width:768px) and (max-device-width:992px){
+  .Research{
+    height: 400px;
+
+  }
 
 }
 .tab{
@@ -56,9 +68,14 @@ label {
 @media only screen and (max-width:768px),
 (min-device-width:768px) and (max-device-width:992px){
   .tab{
-    width:95%;
+    width:300px;
     background: transparent;
     height: 800px;
+  }
+   td input {
+    width: 200px;
+
+
   }
 
 
@@ -67,7 +84,7 @@ label {
   tr{
     display: block;
   }
-  th{
+  th label{
     display: none;
   }
 
@@ -118,38 +135,6 @@ label {
 }
 
 
-@media only screen and (max-width:768px),
-(min-device-width:768px) and (max-device-width:992px){
-  .tab{
-    width:95%;
-    background: transparent;
-    height: 800px;
-  }
-
-
-  .tabs,
-  td,
-  tr{
-    display: block;
-  }
-  th{
-    display: none;
-  }
-
-  td:nth-of-type(1)::before{
-    content: "Resaerch by title      ";
-  }
-
-  td:nth-of-type(2)::before{
-    content: "news older than        ";
-  }
-
-  td:nth-of-type(3)::before{
-    content: "news more recent than";
-  }
-
-}
-
 
 
 
@@ -171,7 +156,7 @@ label {
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
-  z-index: 13;
+  z-index: 999;
 }
 #popup::-webkit-scrollbar{display: none;}
 
