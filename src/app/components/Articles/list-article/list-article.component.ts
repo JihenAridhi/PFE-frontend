@@ -16,6 +16,7 @@ export class ListArticleComponent implements OnInit{
   articles: Article[] = []
   filteredList: Article[] = []
   article= new Article()
+  file = ''
   authors: Person[] = []
   recentValue: any;
   olderValue = new Date().toISOString().substring(0, 10);
@@ -39,7 +40,8 @@ export class ListArticleComponent implements OnInit{
     const popup = document.getElementById('popup') as HTMLElement;
     popup.classList.toggle('active');
     this.article = a;
-    await this.as.getAuthors(this.article.id).then(data => {if (data) this.authors = data})
+    await this.as.getAuthors(a.id).then(data => {if (data) this.authors = data})
+    await this.as.getFile(this.article.id).then(data => this.file=data!)
   }
 
   onSearchTextEntered(searchText: string) {

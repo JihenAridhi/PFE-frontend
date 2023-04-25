@@ -39,7 +39,7 @@ export class EventService
   getPhoto(id: any)
   {return this.http.get<string>('http://localhost:8000/photo/event/get/'+id).toPromise()}
 
-  setItem(key: string, value: any) {
+  /*setItem(key: string, value: any) {
     const encryptedValue = CryptoJS.AES.encrypt(JSON.stringify(value), 'key').toString();
     localStorage.setItem(key, encryptedValue);
   }
@@ -51,5 +51,5 @@ export class EventService
       return JSON.parse(decryptedValue);
     }
     return null;
-  }
+  }*/
 }

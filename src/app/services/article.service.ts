@@ -61,4 +61,10 @@ export class ArticleService {
 
   setAuthors(id?: number, authors?: number[])
   {this.http.post('http://localhost:8000/article/'+id+'/setAuthors', authors).subscribe(()=>console.log('authors added'))}
+
+  setFile(formData: FormData)
+  {return this.http.post<string>('http://localhost:8000/article/file', formData).toPromise()}
+
+  getFile(id: any)
+  {return this.http.get<string>('http://localhost:8000/article/file/get/'+id).toPromise()}
 }

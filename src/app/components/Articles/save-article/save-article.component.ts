@@ -76,4 +76,11 @@ export class SaveArticleComponent implements OnInit{
       })
     }
   }
+
+  async onFileSelected(files: any) {
+    const file: File = files[0];
+    const formData = new FormData();
+    formData.append('file', file, this.article.id?.toString()+file.name.substr(file.name.lastIndexOf('.')));
+    await this.as.setFile(formData).then(data=>console.log(data))
+  }
 }
