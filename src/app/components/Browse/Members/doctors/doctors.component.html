@@ -1,10 +1,10 @@
 <div class="wrapp">
-  <h1>Our Doctors</h1>
+  <h1>Doctors</h1>
   <div class="our_team">
-    <div class="our_team" *ngFor="let p of personList " >
-      <div class="team_member" *ngIf="p.profession === 'doctor'">
-        <div class="member_img"  >
-          <img src="https://i.pinimg.com/236x/61/f2/09/61f209923eae607cbd5b30dd179de1d7.jpg" alt="our_team">
+    <ng-container *ngFor="let p of personList; let i=index">
+      <div class="team_member" *ngIf="p.profession === 'doctor'" routerLink="/profile/{{p.id}}">
+        <div class="member_img">
+          <img [src]="url[i]" alt="our_team">
           <div class="social_media">
             <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
             <div class="github item"><i class="fab fa-github"></i></div>
@@ -14,8 +14,6 @@
         <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
         <span>{{p.profession}}</span>
       </div>
-
-    </div>
-
+    </ng-container>
   </div>
 </div>
