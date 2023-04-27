@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <div class="top">
   <a (click)="changeLang('french')"><img src="assets/photo/france.png" class="img1"></a>
@@ -80,16 +79,16 @@
   <div class="continer">
     <div class="box">
       <div class="b1">
-        <h3>Publications</h3>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a routerLink="/list-article" class="btn"> {{content.seeMore}} > </a>
+        <h3 > {{eventList[0].title}} </h3>
+        <p> {{eventList[0].description}}</p>
+        <a routerLink="/list-event" class="btn"> {{content.seeMore}} > </a>
       </div>
     </div>
     <div class="box" id="blue">
       <div class="b2">
-        <h3>{{content.researchAxis}}</h3>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a routerLink="/research-axis" class="btn"> {{content.seeMore}} > </a>
+        <h3>{{eventList[1].title}}</h3>
+        <p> {{eventList[1].description}}</p>
+        <a routerLink="/list-event" class="btn"> {{content.seeMore}} > </a>
       </div>
     </div>
   </div>
@@ -120,22 +119,22 @@
 <div id="counts">
   <div>
     <img src="assets/photo/posts.png">
-    <h1>0</h1>
+    <h1>{{ articleList.length + 1}}</h1>
     <h4><i>{{content.posts}}</i></h4>
   </div>
   <div>
     <img src="assets/photo/researchers.png">
-    <h1>0</h1>
+    <h1>{{personList.length}}</h1>
     <h4><i>{{content.researchers}}</i></h4>
   </div>
   <div>
     <img src="assets/photo/projects.png">
-    <h1>0</h1>
+    <h1>{{eventList.length}}</h1>
     <h4><i>{{content.projects}}</i></h4>
   </div>
   <div>
     <img src="assets/photo/partners.png">
-    <h1>0</h1>
+    <h1>{{partnersList.length}}</h1>
     <h4><i>{{content.partners}}</i></h4>
   </div>
 </div>
