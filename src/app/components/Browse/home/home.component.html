@@ -108,7 +108,7 @@
         <h2 align="center">Levi </h2> <br>
         <p id="first"> <i>iLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? Labore fugiat maxime tempora possimus quibusdam quae velit rerum in doloribus ut inventore hic alias necessitatibus beatae fuga, aliquam culpa deleniti laboriosam reprehenderit enim dolor quod ipsa? Accusantium, libero culpa.</i></p>
         <p id="second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ducimus perferendis iste inventore laborum dolor alias, voluptate dignissimos nihil, aliquam totam accusantium eum illo dolorem hic explicabo sequi quis recusandae.</p> <br>
-        <a routerLink="/profile" class="btn1"> {{content.seeMore}} > </a>
+        <a routerLink="/profile/36" class="btn1"> {{content.seeMore}} > </a>
 
       </div>
     </div>
@@ -142,7 +142,7 @@
   <div class="group"> <h1 style="text-align: center; color: #123C60; "><b>SMART LAB NEWS</b></h1></div>
   <div id="news">
     <article *ngFor="let n of newsList; let i = index">
-      <a (click)="viewNews(n.id)">
+      <a routerLink="/view-news/{{n.id}}">
         <img [src]="url[i]">
         <div>
           <h2>{{n.title}}</h2>

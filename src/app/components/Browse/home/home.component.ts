@@ -28,16 +28,16 @@ export class HomeComponent implements OnInit{
   content: any;
 
 
-  constructor(private router: Router, private ns: NewsService,private ls: LanguageService , private ar : ArticleService , private prt : PartnersService , private prs : PersonService , private ev : EventService) {}
+  constructor(private router: Router, private ns: NewsService, private es: ArticleService,private ls: LanguageService , private ar : ArticleService , private prt : PartnersService , private prs : PersonService , private ev : EventService) {}
 
   async ngOnInit()
   {
     await this.ev.getAll().then(async (data) => { if (data) this.eventList = data;})
     await this.prs.getAll().then(async (data) => { if (data) this.personList = data;})
-    await this.ns.getAll().then(async (data) => { if (data) this.articleList = data;})
+    await this.es.getAll().then(async (data) => { if (data) this.articleList = data;})
     await this.prt.getAll().then(async (data) => { if (data) this.partnersList = data;})
     this.ls.getLanguage().subscribe(data => this.content=data)
-    
+
     await this.ns.getAll().then( async data =>
     {
       if (data)
@@ -45,13 +45,6 @@ export class HomeComponent implements OnInit{
       for (let i = 0; i<this.newsList.length; i++)
         await this.ns.getPhoto(this.newsList[i].id).then(data => {if (data) this.url[i] = data})
     })
-  }
-  
-
-
-  viewNews(id: number|undefined) {
-    this.router.navigate(['/view-news'])
-    this.ns.get(id)
   }
 
   changeLang(language: string) {

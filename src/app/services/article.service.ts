@@ -67,4 +67,8 @@ export class ArticleService {
 
   getFile(id: any)
   {return this.http.get<string>('http://localhost:8000/article/file/get/'+id).toPromise()}
+
+  getAll() {
+    return this.http.get<Article[]>('http://localhost:8000/article/getAll').toPromise()
+  }
 }
