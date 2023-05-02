@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {TeamsComponent} from "./components/Browse/teams/teams.component";
-import {LoginGuard} from "./guards/login.guard";
 import {FooterComponent} from "./components/Browse/footer/footer.component";
 import {HomeComponent} from "./components/Browse/home/home.component";
 import {NavComponent} from "./components/Browse/nav/nav.component";
@@ -31,13 +30,14 @@ import {PhdStudentsComponent} from "./components/Browse/members/phd-students/phd
 import {AllComponent} from "./components/Browse/members/all/all.component";
 import {EditPartnersComponent} from "./components/Partners/edit-partners/edit-partners.component";
 import {SavePartnerComponent} from "./components/Partners/save-partner/save-partner.component";
+import {EmailVerifComponent} from "./components/Browse/email-verif/email-verif.component";
 
 
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: '', component: FooterComponent, children:
   [
     {path: 'home', component: HomeComponent},
@@ -80,6 +80,7 @@ const routes: Routes = [
     {path: 'save-partner', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-partner/:id', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
   ]},
+  {path: 'verify/*person', component: EmailVerifComponent}
 ]
 
 @NgModule({

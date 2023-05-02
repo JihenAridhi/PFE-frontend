@@ -60,7 +60,6 @@ body::-webkit-scrollbar{
 }
 
 .container #H4 {
-  padding-top:60px ;
   color : #0D89BF ;
   font-family: Helvetica;
   font-size : 30px;
@@ -68,6 +67,7 @@ body::-webkit-scrollbar{
 }
 
 .container #H1{
+  padding-top:60px ;
   font-size : 55px;
   color : #fff;
   font-family: Helvetica;

@@ -27,13 +27,11 @@ export class RequestsComponent implements OnInit{
     if (response) {
       this.ps.delete(r)
       this.requests = this.requests.filter(p => p!==r)
-      this.ps.setItem('personList', this.requests)
     }
   }
 
   accept(r: Person) {
     this.ps.accept(r)
       this.requests = this.requests.filter(p => p!==r)
-      this.ps.setItem('personList', this.requests)
   }
 }

@@ -22,6 +22,5 @@ export class ProfileComponent implements OnInit{
     else
       this.person = this.ps.getItem('person')
     await this.ps.getPhoto(this.person.id).then(data => this.url = data!)
-    console.log(this.person)
   }
 }

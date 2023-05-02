@@ -26,11 +26,19 @@ export class PersonService {
       {
         if(data)
           alert('this email is already in use !!')
-        else
-          this.http.post('http://localhost:8000/person/add', person).subscribe(()=>alert('your request have been submitted, please wait for further confirmation.'))
+        else {
+          let p = CryptoJS.AES.encrypt(JSON.stringify(person), 'key').toString();
+          let email: any = {}
+          email.subject = 'Confirm Your SMARTLAB Account Creation'
+          email.html = `You have requested an account Creation for SMARTLAB.Please click <a href="http://localhost:4200/verify/${p}" target="_blank">Confirm</a> to continue the process`;
+          email.to = person.email
+          this.http.post('http://localhost:8000/person/sendMail', email).subscribe(() => alert('We have sent you an email to confirm your account.'))
+        }
       }
     )
   }
+
+
 
   async login(person: Person)
   {
@@ -65,7 +73,14 @@ export class PersonService {
   }
 
   accept(person: Person)
-  {this.http.put('http://localhost:8000/person/accept/'+person.id, true).subscribe()}
+  {
+    let email: any = {}
+    email.subject = 'SMARTLAB Account'
+    email.html = 'Your SMARTLAB account have been accepted.\nYou can visit it <a href="http://localhost:4200/login">here</a>'
+    email.to = person.email
+    this.http.post('http://localhost:8000/person/sendMail', email).subscribe()
+    this.http.put('http://localhost:8000/person/accept/'+person.id, true).subscribe()
+  }
 
   update(person: Person)
   {this.http.put('http://127.0.0.1:8000/person/update', person).subscribe()}

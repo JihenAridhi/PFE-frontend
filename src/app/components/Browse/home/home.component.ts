@@ -1,8 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {News} from "../../../entities/News";
 import {NewsService} from "../../../services/news.service";
-import {HttpClient} from "@angular/common/http";
 import {LanguageService} from "../../../services/language.service";
 import { Article } from 'src/app/entities/Article';
 import { ArticleService } from 'src/app/services/article.service';
@@ -32,11 +31,11 @@ export class HomeComponent implements OnInit{
 
   async ngOnInit()
   {
+    this.ls.getLanguage().subscribe(data => this.content=data)
     await this.ev.getAll().then(async (data) => { if (data) this.eventList = data;})
     await this.prs.getAll().then(async (data) => { if (data) this.personList = data;})
     await this.es.getAll().then(async (data) => { if (data) this.articleList = data;})
     await this.prt.getAll().then(async (data) => { if (data) this.partnersList = data;})
-    this.ls.getLanguage().subscribe(data => this.content=data)
 
     await this.ns.getAll().then( async data =>
     {

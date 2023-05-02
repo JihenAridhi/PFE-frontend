@@ -36,6 +36,7 @@ import {PhdStudentsComponent} from "./components/Browse/members/phd-students/phd
 import {AllComponent} from "./components/Browse/members/all/all.component";
 import { EditPartnersComponent } from './components/Partners/edit-partners/edit-partners.component';
 import { SavePartnerComponent } from './components/Partners/save-partner/save-partner.component';
+import { EmailVerifComponent } from './components/Browse/email-verif/email-verif.component';
 
 
 
@@ -73,6 +74,7 @@ import { SavePartnerComponent } from './components/Partners/save-partner/save-pa
     RequestsComponent,
     EditPartnersComponent,
     SavePartnerComponent,
+    EmailVerifComponent,
   ],
   imports: [
     BrowserModule,
