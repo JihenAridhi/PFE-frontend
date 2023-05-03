@@ -16,8 +16,9 @@ export class SavePartnerComponent implements OnInit{
   }
 
   add(addF: NgForm) {
-    console.log(addF.value)
-    this.ps.save(addF.value)
+    let p = addF.value
+    p.id = this.partner.id
+    this.ps.save(p)
   }
 
   async onFileSelected(files: any) {
@@ -27,9 +28,9 @@ export class SavePartnerComponent implements OnInit{
     await this.ps.setPhoto(formData).then()
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     if (id)
-      this.ps.get(id).then(data => this.partner = data!)
+      await this.ps.get(id).then(data => this.partner = data!)
   }
 }

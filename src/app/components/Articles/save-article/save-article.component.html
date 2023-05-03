@@ -53,6 +53,7 @@
       <input type="text" placeholder=" Url of article" [(ngModel)]="article.url" name="url"  />
     </div>
 
+    <label>Type</label>
     <div class="select-box">
       <select name="type" [(ngModel)]="article.type" required>
         <option>TYPE</option>
@@ -64,7 +65,7 @@
     </div>
 
     <div class="input-box">
-      <label>description</label>
+      <label>Abstract</label>
       <textarea name="description" rows="10" cols="70" [(ngModel)]="article.description"></textarea>
     </div>
 

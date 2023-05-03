@@ -18,7 +18,6 @@ import {ViewEventComponent} from "./components/Events/view-event/view-event.comp
 import {TeamsComponent} from "./components/Browse/teams/teams.component";
 import {ListArticleComponent} from "./components/Articles/list-article/list-article.component";
 import {ContactComponent} from "./components/Browse/contact/contact.component";
-import {PartnersComponent} from "./components/Browse/partners/partners.component";
 import {ProfileComponent} from "./components/Profile/profile/profile.component";
 import {NavProfileComponent} from "./components/Profile/nav-profile/nav-profile.component";
 import {UpdateProfileComponent} from "./components/Profile/update-profile/update-profile.component";
@@ -37,6 +36,7 @@ import {AllComponent} from "./components/Browse/members/all/all.component";
 import { EditPartnersComponent } from './components/Partners/edit-partners/edit-partners.component';
 import { SavePartnerComponent } from './components/Partners/save-partner/save-partner.component';
 import { EmailVerifComponent } from './components/Browse/email-verif/email-verif.component';
+import {ViewPartnersComponent} from "./components/Partners/view-partners/view-partners.component";
 
 
 
@@ -60,7 +60,7 @@ import { EmailVerifComponent } from './components/Browse/email-verif/email-verif
     DoctorsComponent,
     PhdStudentsComponent,
     AllComponent,
-    PartnersComponent,
+    ViewPartnersComponent,
     ProfileComponent,
     NavProfileComponent,
     UpdateProfileComponent,

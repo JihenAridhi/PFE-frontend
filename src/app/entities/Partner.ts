@@ -3,6 +3,6 @@ export class Partner
   id?: number
   name?: string
   type?: string
-  url?: string
+  urlPage?: string
   description?: string
 }

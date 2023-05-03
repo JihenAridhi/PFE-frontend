@@ -61,20 +61,22 @@ export class SaveArticleComponent implements OnInit{
 
   async ngOnInit()  {
     //this.article = this.as.getItem('article')
+    let person = this.ps.getItem('person')
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     if (id) {
       await this.as.get(id).then(data => this.article = data!)
-      let person = this.ps.getItem('person')
       await this.as.getAuthors(this.article.id).then(
         data => {
           this.authors = data!.filter(r => r.id !== person.id);
           this.fullName = this.authors.map(p => p.firstName + ' ' + p.lastName)
         }
       )
-      await this.ps.getStatus(true).then(data => {
-        this.searchList = data!.filter(r => !this.authors.some(a => a.id === r.id) && !person.id)
-      })
     }
+    await this.ps.getStatus(true).then(data => {
+      console.log(data)
+      this.searchList = data!.filter(r => !this.authors.some(a => a.id === r.id) && r.id!=person.id)
+      console.log(this.searchList)
+    })
   }
 
   async onFileSelected(files: any) {

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Partner} from "../entities/Partner";
-import {News} from "../entities/News";
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +18,13 @@ export class PartnersService {
   {return this.http.post<string>('http://localhost:8000/photo/partner', formData).toPromise()}
 
   getPhoto(id?: number)
-  {return this.http.get<string>('http://localhost:8000/photo/partner/get/'+id).toPromise()}
+  {
+    return this.http.get<string>('http://localhost:8000/photo/partner/get/'+id).toPromise()
+  }
 
   save(partner: Partner)
   {
+    console.log(partner.id)
     if(!partner.id)
       this.http.post('http://localhost:8000/partner/add', partner).subscribe(()=> alert('news have been posted successfully !! '))
     else

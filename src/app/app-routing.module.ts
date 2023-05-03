@@ -9,7 +9,6 @@ import {ViewNewsComponent} from "./components/News/view-news/view-news.component
 import {ListEventComponent} from "./components/Events/list-event/list-event.component";
 import {ViewEventComponent} from "./components/Events/view-event/view-event.component";
 import {ListArticleComponent} from "./components/Articles/list-article/list-article.component";
-import {PartnersComponent} from "./components/Browse/partners/partners.component";
 import {ContactComponent} from "./components/Browse/contact/contact.component";
 import {ProfileComponent} from "./components/Profile/profile/profile.component";
 import {LoginComponent} from "./components/Browse/login/login.component";
@@ -31,6 +30,7 @@ import {AllComponent} from "./components/Browse/members/all/all.component";
 import {EditPartnersComponent} from "./components/Partners/edit-partners/edit-partners.component";
 import {SavePartnerComponent} from "./components/Partners/save-partner/save-partner.component";
 import {EmailVerifComponent} from "./components/Browse/email-verif/email-verif.component";
+import {ViewPartnersComponent} from "./components/Partners/view-partners/view-partners.component";
 
 
 
@@ -53,7 +53,7 @@ const routes: Routes = [
       {path: 'doctors', component: DoctorsComponent},
       {path: 'phd-students', component: PhdStudentsComponent},
       {path: 'members', component: AllComponent},
-      {path: 'partners', component: PartnersComponent},
+      {path: 'partners', component: ViewPartnersComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'profile/:id', component: ProfileComponent},
     ]}
