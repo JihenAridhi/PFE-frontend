@@ -2,7 +2,7 @@
   <h1>Doctors</h1>
   <div class="our_team">
     <ng-container *ngFor="let p of personList; let i=index">
-      <div class="team_member" *ngIf="p.profession === 'doctor'" routerLink="/profile/{{p.id}}">
+      <div class="team_member" *ngIf="p.profession === 'Doctor'" routerLink="/profile/{{p.id}}">
         <div class="member_img">
           <img [src]="url[i]" alt="our_team">
           <div class="social_media">

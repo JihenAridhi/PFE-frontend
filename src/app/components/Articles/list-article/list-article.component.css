@@ -33,38 +33,6 @@
 }
 .tab th, .tab td {width: 33%}
 
-input {
-  width: 200px;
-  height: 50px;
-  border: 1px solid #555;
-  border-radius: 5px;
-  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-  padding: 20px;
-
-}
-label {
-  font-family: Arial;
-  font-size: 18px;
-  color: #0D89BF;
-
-}
-
-.news a{
-  color: #0D89BF;
-  padding-bottom:80px ;
-
-}
-.news .date {
-  font-size: 13px;
-  color: #888;
-}
-
-.news .desc {
-  font-size: 15px;
-  color: #000;
-}
-
-
 @media only screen and (max-width:768px),
 (min-device-width:768px) and (max-device-width:992px){
   .tab{

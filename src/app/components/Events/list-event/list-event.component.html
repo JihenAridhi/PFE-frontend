@@ -1,5 +1,25 @@
+<div class="Research">
+  <form>
+    <table class="tab" >
+      <thead>
+      <tr>
+        <th><label> {{content.searchByTitle}}</label></th>
+        <th><label>{{content.moreRecentThan}}</label></th>
+        <th><label> {{content.olderThan}}</label></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="text" #search (input)="onSearchTextEntered(search.value)"></td>
+        <td><input type="date" [(ngModel)]="recentValue" name="recent" (input)="interval()"></td>
+        <td><input type="date" [(ngModel)]="olderValue" name="older" (input)="interval()"></td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
 <div class="container1">
-  <a class="item-container" *ngFor="let e of eventList; let i = index" routerLink="/view-event/{{e.id}}" target="_blank">
+  <a class="item-container" *ngFor="let e of filteredList; let i = index" routerLink="/view-event/{{e.id}}" target="_blank">
     <div class="img-container">
       <img [src]="url[i]" alt="Event image">
     </div>
