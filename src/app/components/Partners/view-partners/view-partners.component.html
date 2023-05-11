@@ -1,0 +1,18 @@
+<div class="bigrow" *ngFor="let p of partnersList">
+  <div class="row">
+    <div class="left">
+      <img [src]="p.photo" alt="">
+    </div>
+    <div class="right">
+      <div class="content2">
+        <h2 align="center">{{p.name}} </h2> <br>
+        <p id="first"> {{p.description}}</p> <br>
+        <a href="{{p.urlPage}}" target="_blank" class="btn1"> learn more > </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

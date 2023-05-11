@@ -13,7 +13,6 @@ export class ListEventComponent implements OnInit{
 
   url: string[] = []
   eventList: Event[] = [];
-  event = new Event()
   content: any;
   filteredList: Event[] = []
   recentValue: any;
@@ -26,8 +25,6 @@ export class ListEventComponent implements OnInit{
       if (data)
         this.eventList = data
       this.filteredList = this.eventList
-      for (let i = 0; i<this.filteredList.length; i++)
-        await this.es.getPhoto(this.filteredList[i].id).then(data => {if (data) this.url[i] = data})
     })
   }
 
@@ -35,7 +32,7 @@ export class ListEventComponent implements OnInit{
     if (searchText=='')
       this.filteredList = this.eventList
     else
-      this.filteredList = this.eventList.filter(event => event.title?.includes(searchText))
+      this.filteredList = this.eventList.filter(event => event.title?.toUpperCase().includes(searchText.toUpperCase()))
   }
 
   interval() {

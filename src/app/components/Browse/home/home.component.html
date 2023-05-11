@@ -81,14 +81,14 @@
       <div class="b1">
         <h3 > {{eventList[0].title}} </h3>
         <p> {{eventList[0].description}}</p>
-        <a routerLink="/list-event" class="btn"> {{content.seeMore}} > </a>
+        <a routerLink="/view-event/{{eventList[0].id}}" target="_blank" class="btn"> {{content.seeMore}} > </a>
       </div>
     </div>
     <div class="box" id="blue">
       <div class="b2">
         <h3>{{eventList[1].title}}</h3>
         <p> {{eventList[1].description}}</p>
-        <a routerLink="/list-event" class="btn"> {{content.seeMore}} > </a>
+        <a routerLink="/view-event/{{eventList[1].id}}" target="_blank" class="btn"> {{content.seeMore}} > </a>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@
         <h2 align="center">Levi </h2> <br>
         <p id="first"> <i>iLorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet, illo obcaecati incidunt enim similique aut temporibus sed eos doloribus? Labore fugiat maxime tempora possimus quibusdam quae velit rerum in doloribus ut inventore hic alias necessitatibus beatae fuga, aliquam culpa deleniti laboriosam reprehenderit enim dolor quod ipsa? Accusantium, libero culpa.</i></p>
         <p id="second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ducimus perferendis iste inventore laborum dolor alias, voluptate dignissimos nihil, aliquam totam accusantium eum illo dolorem hic explicabo sequi quis recusandae.</p> <br>
-        <a routerLink="/profile/36" class="btn1"> {{content.seeMore}} > </a>
+        <a routerLink="/profile/36" target="_blank" class="btn1"> {{content.seeMore}} > </a>
 
       </div>
     </div>
@@ -142,8 +142,8 @@
   <div class="group"> <h1 style="text-align: center; color: #123C60; "><b>SMART LAB NEWS</b></h1></div>
   <div id="news">
     <article *ngFor="let n of newsList; let i = index">
-      <a routerLink="/view-news/{{n.id}}">
-        <img [src]="url[i]">
+      <a routerLink="/view-news/{{n.id}}" target="_blank">
+        <img [src]="n.photo">
         <div>
           <h2>{{n.title}}</h2>
           <p>{{n.date | date: 'dd-MM-yyyy'}}</p>
@@ -152,7 +152,7 @@
     </article>
   </div>
   <div class="btn-more">
-    <a routerLink="/list-news" class="more">{{content.seeAll}}</a>
+    <a routerLink="/list-news" target="_blank" class="more">{{content.seeAll}}</a>
   </div>
 </div>
 

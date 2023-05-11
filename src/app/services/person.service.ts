@@ -32,7 +32,8 @@ export class PersonService {
           email.subject = 'Confirm Your SMARTLAB Account Creation'
           email.html = `You have requested an account Creation for SMARTLAB.Please click <a href="http://localhost:4200/verify/${p}" target="_blank">Confirm</a> to continue the process`;
           email.to = person.email
-          this.http.post('http://localhost:8000/person/sendMail', email).subscribe(() => alert('We have sent you an email to confirm your account.'))
+          //this.http.post('http://localhost:8000/person/sendMail', email).subscribe(() => alert('We have sent you an email to confirm your account.'))
+          this.http.post('http://localhost:8000/person/add', person).subscribe()
         }
       }
     )

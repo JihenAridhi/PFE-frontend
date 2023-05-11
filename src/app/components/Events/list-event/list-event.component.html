@@ -19,9 +19,9 @@
   </form>
 </div>
 <div class="container1">
-  <a class="item-container" *ngFor="let e of filteredList; let i = index" routerLink="/view-event/{{e.id}}" target="_blank">
+  <a class="item-container" *ngFor="let e of filteredList" routerLink="/view-event/{{e.id}}" target="_blank">
     <div class="img-container">
-      <img [src]="url[i]" alt="Event image">
+      <img [src]="e.photo" alt="Event image">
     </div>
     <div class="body-container">
       <div class="overlay"></div>

@@ -12,5 +12,6 @@ export class Article
   editor?: string;
   description?: string;
   url?: string
+  authors?: Person[]
   //DOI?: string;
 }

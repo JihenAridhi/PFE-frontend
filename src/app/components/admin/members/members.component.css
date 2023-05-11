@@ -255,6 +255,8 @@ h1 {
   display: none;
 }
 
+#popup img {height: 300px; width: 300px; border-radius: 50%}
+
 
 
 h1{color: #123C60; margin: 10px;}

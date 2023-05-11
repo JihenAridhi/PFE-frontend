@@ -33,8 +33,9 @@ export class UpdateProfileComponent implements OnInit{
 
   async ngOnInit() {
     this.person = this.ps.getItem('person')
-    await this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
-    await this.as.getPerspnArticles(this.person.id).then(data => {if (data) this.articles = data})
+    this.url = this.person.photo!
+    //await this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
+    await this.as.getPersonArticles(this.person.id).then(data => {if (data) this.articles = data})
   }
 
   update(updateF: NgForm) {
@@ -63,12 +64,16 @@ export class UpdateProfileComponent implements OnInit{
     const file: File = files[0];
     const formData = new FormData();
     formData.append('file', file, this.person.id?.toString()+'.jpg');
-    await this.ps.setPhoto(formData).then()
-    await this.ps.getPhoto(this.person.id).then(data=>
+    await this.ps.setPhoto(formData).then(data=>
     {
       this.url = data + '?v=' + Math.random().toString(36).substring(2);
       console.log(this.url)
     })
+    /*await this.ps.getPhoto(this.person.id).then(data=>
+    {
+      this.url = data + '?v=' + Math.random().toString(36).substring(2);
+      console.log(this.url)
+    })*/
   }
 
   delete(a: Article) {

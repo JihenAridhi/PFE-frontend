@@ -19,7 +19,7 @@ export class ViewNewsComponent implements OnInit{
   {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     await this.ns.get(id).then(data => this.news=data!)
-    await this.ns.getPhoto(this.news.id).then(data => this.url=data!)
+    //await this.ns.getPhoto(this.news.id).then(data => this.url=data!)
   }
 
 

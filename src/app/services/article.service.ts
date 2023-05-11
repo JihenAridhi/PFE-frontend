@@ -13,7 +13,7 @@ export class ArticleService {
 
   get(id: number)
   {return this.http.get('http://localhost:8000/article/get/'+id).toPromise()}
-  getPerspnArticles(id?: number)
+  getPersonArticles(id?: number)
   {
     if(id)
       return this.http.get<Article[]>('http://localhost:8000/article/getAll/'+id).toPromise()
@@ -24,17 +24,10 @@ export class ArticleService {
   save(article: any)
   {
     if(article.id)
-      this.http.put('http://localhost:8000/article/update', article).subscribe(()=> {
-          this.setAuthors(article.id, article.authors);
-          alert('changes have been affected successfully !!')})
+      this.http.put('http://localhost:8000/article/update', article).subscribe(()=> alert('changes have been affected successfully !!'))
     else {
       article.date = new Date()
-      this.http.post<Article>('http://localhost:8000/article/add', article).subscribe((data) => {
-          if (data)
-            this.setAuthors(data.id, article.authors)
-          alert('article have been posted successfully !! ')
-        }
-      )
+      this.http.post<Article>('http://localhost:8000/article/add', article).subscribe(() => alert('article have been posted successfully !! '))
     }
   }
 
@@ -42,31 +35,12 @@ export class ArticleService {
     this.http.delete('http://localhost:8000/article/delete/'+id).subscribe()
   }
 
-  setItem(key: string, value: any) {
-    const encryptedValue = CryptoJS.AES.encrypt(JSON.stringify(value), 'key').toString();
-    localStorage.setItem(key, encryptedValue);
-  }
-
-  getItem(key: string): any {
-    const encryptedValue = localStorage.getItem(key);
-    if (encryptedValue) {
-      const decryptedValue = CryptoJS.AES.decrypt(encryptedValue, 'key').toString(CryptoJS.enc.Utf8);
-      return JSON.parse(decryptedValue);
-    }
-    return null;
-  }
-
-  getAuthors(id?: number)
-  {return this.http.get<Person[]>('http://localhost:8000/article/'+id+'/getAuthors').toPromise()}
-
-  setAuthors(id?: number, authors?: number[])
-  {this.http.post('http://localhost:8000/article/'+id+'/setAuthors', authors).subscribe(()=>console.log('authors added'))}
-
   setFile(formData: FormData)
   {return this.http.post<string>('http://localhost:8000/article/file', formData).toPromise()}
 
   getFile(id: any)
   {return this.http.get<string>('http://localhost:8000/article/file/get/'+id).toPromise()}
+
 
   getAll() {
     return this.http.get<Article[]>('http://localhost:8000/article/getAll').toPromise()

@@ -19,22 +19,33 @@
         </table>
       </form>
   </div>
-
-  <table align="center" id="pub">
-    <tr *ngFor="let a of filteredList">
+  <!--<table align="center" id="pub">
+    <tr *ngFor="let a of filteredList; let i = index;">
       <td>
         <div class="news" (click)="toggle(a)">
-          <h4 routerLink="#">{{a.title}}</h4>
+          <h4>{{a.title}}</h4>
           <p class="date">{{a.date | date: 'dd-MM-yyyy'}}</p>
           <p>{{a.type}}</p>
           <p class="desc">{{a.description | slice:0:100}} . . .</p>
-          <br><br>
+          <br>
           <hr color="#0D89BF"><br><br>
-
         </div>
       </td>
     </tr>
-  </table>
+  </table>-->
+  <ul id="pub" *ngFor="let a of filteredList; let i = index;">
+    <li *ngIf="i === 0 || a.date!.getFullYear() !== filteredList[i-1].date!.getFullYear()">{{ a.date!.getFullYear() }}</li>
+    <li>
+        <div class="news" (click)="toggle(a)">
+          <h4>{{a.title}}</h4>
+          <p class="date">{{a.date | date: 'dd-MM-yyyy'}}</p>
+          <p>{{a.type}}</p>
+          <p class="desc">{{a.description | slice:0:100}} . . .</p>
+          <br>
+          <hr color="#0D89BF"><br><br>
+        </div>
+    </li>
+  </ul>
 </div>
 <div id="popup">
   <h1 id="close" align="right" (click)="toggle(article)">&#10006;</h1>
@@ -43,7 +54,7 @@
     <table class="table">
       <tr>
         <th>{{content.authors}}</th>
-        <td *ngFor="let a of authors">{{a.firstName}} {{a.lastName}}</td>
+        <td *ngFor="let a of article.authors">{{a.firstName}} {{a.lastName}}</td>
       </tr>
       <tr>
         <th>{{content.datePub}}</th>

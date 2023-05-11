@@ -1,3 +1,5 @@
+import {Autorisation} from "./Autorisation";
+
 export class Person
 {
   id?: number
@@ -8,5 +10,7 @@ export class Person
   profession?: string
   team?: string
   interest?: string
+  photo?: string
   status?: boolean
+  autorisations?: Autorisation[]
 }

@@ -17,7 +17,6 @@ export class ListArticleComponent implements OnInit{
   filteredList: Article[] = []
   article= new Article()
   file = ''
-  authors: Person[] = []
   recentValue: any;
   olderValue = new Date().toISOString().substring(0, 10);
   content: any
@@ -29,7 +28,7 @@ export class ListArticleComponent implements OnInit{
     this.ls.getLanguage().subscribe(data => this.content = data)
     if (this.route.snapshot.paramMap.get('id')!)
       this.id  = parseInt(this.route.snapshot.paramMap.get('id')!)
-    await this.as.getPerspnArticles(this.id).then(data =>
+    await this.as.getPersonArticles(this.id).then(data =>
     {
       this.articles = data!
       this.filteredList = this.articles
@@ -40,7 +39,7 @@ export class ListArticleComponent implements OnInit{
     const popup = document.getElementById('popup') as HTMLElement;
     popup.classList.toggle('active');
     this.article = a;
-    await this.as.getAuthors(a.id).then(data => {if (data) this.authors = data})
+    //await this.as.getAuthors(a.id).then(data => {if (data) this.authors = data})
     await this.as.getFile(this.article.id).then(data => this.file=data!)
   }
 
@@ -48,7 +47,7 @@ export class ListArticleComponent implements OnInit{
     if (searchText=='')
       this.filteredList = this.articles
     else
-      this.filteredList = this.articles.filter(article => article.title?.includes(searchText))
+      this.filteredList = this.articles.filter(article => article.title?.toUpperCase().includes(searchText.toUpperCase()))
   }
 
   interval() {

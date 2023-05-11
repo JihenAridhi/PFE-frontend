@@ -17,18 +17,34 @@ export class SaveArticleComponent implements OnInit{
   fullName: string[] = []
   searchList: Person[] = []
   filteredList: Person[] = []
-  authors: Person[] = []
   constructor(private as: ArticleService, private ps: PersonService, private route: ActivatedRoute) {}
+
+  async ngOnInit()  {
+    let person = this.ps.getItem('person')
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    if (id) {
+      await this.as.get(id).then(data => this.article = data!)
+      this.fullName = this.article.authors!.map(p => p.firstName + ' ' + p.lastName)
+      this.article.authors = this.article.authors!.filter(r => r.id !== person.id);
+      /*await this.as.getAuthors(this.article.id).then(
+        data => {
+          this.authors = data!.filter(r => r.id !== person.id);
+          this.fullName = this.authors.map(p => p.firstName + ' ' + p.lastName)
+        }
+      )*/
+    }
+    await this.ps.getStatus(true).then(data => {this.searchList = data!.filter(r => !this.article.authors!.some(a => a.id === r.id) && r.id!=person.id)})
+  }
 
     addAuthor() {
       this.fullName.push('')
-      this.authors.push(new Person())
+      this.article.authors!.push(new Person())
     }
 
     removeAuthor() {
-        let index = this.authors.length - 1
+        let index = this.article.authors!.length - 1
         this.fullName.splice(index, 1)
-        this.authors.splice(index, 1)
+        this.article.authors!.splice(index, 1)
 
     }
 
@@ -36,7 +52,7 @@ export class SaveArticleComponent implements OnInit{
   {
     let article = addF.value
     article.id = this.article.id
-    article.authors = this.authors.map(r=>r.id)
+    article.authors = this.article.authors!.map(r=>r.id)
     article.authors.push(this.ps.getItem('person').id)
     this.as.save(article)
   }
@@ -53,30 +69,9 @@ export class SaveArticleComponent implements OnInit{
 
   selectPerson(person: Person)
   {
-      this.authors[this.authors.length - 1] = person
-      this.fullName[this.authors.length - 1] = person.firstName+' '+person.lastName
+      this.article.authors![this.article.authors!.length - 1] = person
+      this.fullName[this.article.authors!.length - 1] = person.firstName+' '+person.lastName
       this.searchList = this.searchList.filter(r => r!==person)
-      this.filteredList = []
-  }
-
-  async ngOnInit()  {
-    //this.article = this.as.getItem('article')
-    let person = this.ps.getItem('person')
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    if (id) {
-      await this.as.get(id).then(data => this.article = data!)
-      await this.as.getAuthors(this.article.id).then(
-        data => {
-          this.authors = data!.filter(r => r.id !== person.id);
-          this.fullName = this.authors.map(p => p.firstName + ' ' + p.lastName)
-        }
-      )
-    }
-    await this.ps.getStatus(true).then(data => {
-      console.log(data)
-      this.searchList = data!.filter(r => !this.authors.some(a => a.id === r.id) && r.id!=person.id)
-      console.log(this.searchList)
-    })
   }
 
   async onFileSelected(files: any) {

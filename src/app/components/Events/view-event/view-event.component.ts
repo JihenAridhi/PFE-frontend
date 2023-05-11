@@ -17,7 +17,7 @@ export class ViewEventComponent implements OnInit{
   async ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     await this.es.get(id).then(data => this.event=data!)
-    await this.es.getPhoto(this.event.id).then(data => this.url=data!)
+    //await this.es.getPhoto(this.event.id).then(data => this.url=data!)
   }
 
 }

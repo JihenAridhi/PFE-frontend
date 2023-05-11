@@ -34,9 +34,7 @@ export class ListNewsComponent implements OnInit
     if (searchText=='')
       this.filteredList = this.newsList
     else
-      this.filteredList = this.newsList.filter(news => news.title?.includes(searchText))
-    for (let i = 0; i<this.filteredList.length; i++)
-      await this.ns.getPhoto(this.filteredList[i].id).then(data => {if (data) this.url[i] = data})
+      this.filteredList = this.newsList.filter(news => news.title?.toUpperCase().includes(searchText.toUpperCase()))
   }
 
   interval() {

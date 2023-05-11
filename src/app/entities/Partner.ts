@@ -5,4 +5,5 @@ export class Partner
   type?: string
   urlPage?: string
   description?: string
+  photo?: string
 }

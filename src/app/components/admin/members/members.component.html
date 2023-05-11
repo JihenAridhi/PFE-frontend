@@ -24,6 +24,7 @@
             <option value="Teacher Researcher">Researcher</option>
             <option value="Doctor">Doctor</option>
             <option value="Ph.D Student" >Ph.D Student</option>
+            <option value="Master Student" >Master Student</option>
           </select></td>
           <td><select name="team_{{i}}" class="teams" [(ngModel)]="m.team">
             <option value="">--</option>
@@ -47,7 +48,7 @@
   <h1 id="close" align="right" (click)="toggle()">&#10006;</h1>
 
   <div class="profile">
-    <img [src]="url">
+    <img [src]="member.photo">
 
     <div>
       <p> name : {{member.firstName}} {{member.lastName}}</p>
