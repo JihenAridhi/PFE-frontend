@@ -31,12 +31,12 @@
             <option value="HR">HR</option>
             <option value="Development" >Development</option>
           </select></td>
-          <td><input  type="checkbox" name="1_{{i}}" class="check" [ngModel]="autoList[i].includes(1)"></td>
-          <td><input  type="checkbox" name="2_{{i}}" class="check" [ngModel]="autoList[i].includes(2)"></td>
-          <td><input  type="checkbox" name="3_{{i}}" class="check" [ngModel]="autoList[i].includes(3)"></td>
-          <td><input  type="checkbox" name="4_{{i}}" class="check" [ngModel]="autoList[i].includes(4)"></td>
-          <td><input  type="checkbox" name="5_{{i}}" class="check" [ngModel]="autoList[i].includes(5)"></td>
-          <td><input  type="checkbox" name="6_{{i}}" class="check" [ngModel]="autoList[i].includes(6)"></td>
+          <td><input  type="checkbox" name="1_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(1)"></td>
+          <td><input  type="checkbox" name="2_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(2)"></td>
+          <td><input  type="checkbox" name="3_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(3)"></td>
+          <td><input  type="checkbox" name="4_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(4)"></td>
+          <td><input  type="checkbox" name="5_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(5)"></td>
+          <td><input  type="checkbox" name="6_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(6)"></td>
         </tr>
         <tr><td colspan="9"><input type="submit" value="SUBMIT CHANGES" class="btn2"></td></tr>
       </tbody>

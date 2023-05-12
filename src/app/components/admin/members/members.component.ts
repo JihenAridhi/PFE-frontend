@@ -35,8 +35,8 @@ export class MembersComponent implements OnInit{
   async ngOnInit()
   {
     this.ls.getLanguage().subscribe(data => this.content = data)
-     await this.ps.getStatus(true).then(data => {if (data) this.members = data})
-     await this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
+    await this.ps.getStatus(true).then(data => {if (data) this.members = data})
+    await this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
   }
 
   submit(changesF: NgForm)
@@ -74,7 +74,7 @@ export class MembersComponent implements OnInit{
     {
       this.ps.delete(m)
       this.members = this.members.filter(r => r!==m)
-      this.ps.setItem('personList', this.members)
+      this.autoList.splice(m.id!, 1)
     }
   }
 }

@@ -4,7 +4,7 @@
     <ng-container *ngFor="let p of personList; let i=index">
       <div class="team_member" *ngIf="p.profession === 'Ph.D Student'" routerLink="/profile/{{p.id}}">
         <div class="member_img">
-          <img [src]="url[i]" alt="our_team">
+          <img [src]="p.photo" alt="our_team">
           <div class="social_media">
             <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
             <div class="github item"><i class="fab fa-github"></i></div>

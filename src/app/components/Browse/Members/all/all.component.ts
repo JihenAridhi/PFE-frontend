@@ -21,8 +21,8 @@ export class AllComponent implements OnInit{
     this.prs.getStatus(true).then(data =>
     {
       this.personList = data!
-      for (let i = 0; i<this.personList.length; i++)
-        this.prs.getPhoto(this.personList[i].id).then(data => {if (data) this.url[i] = data})
+      /*for (let i = 0; i<this.personList.length; i++)
+        this.prs.getPhoto(this.personList[i].id).then(data => {if (data) this.url[i] = data})*/
     })
   }
 
