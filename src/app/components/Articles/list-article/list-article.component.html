@@ -19,21 +19,25 @@
         </table>
       </form>
   </div>
-  <!--<table align="center" id="pub">
-    <tr *ngFor="let a of filteredList; let i = index;">
-      <td>
+  <table align="center" id="pub">
+    <ng-container *ngFor="let a of filteredList; let i = index;">
+      <tr *ngIf="i==0 || filteredList[i].date!.getFullYear!=filteredList[i-1].date!.getFullYear">
+        {{a.date!.getFullYear}}
+      </tr>
+    <tr>
         <div class="news" (click)="toggle(a)">
           <h4>{{a.title}}</h4>
           <p class="date">{{a.date | date: 'dd-MM-yyyy'}}</p>
           <p>{{a.type}}</p>
           <p class="desc">{{a.description | slice:0:100}} . . .</p>
           <br>
-          <hr color="#0D89BF"><br><br>
+          <hr color="#0D89BF"><br>
         </div>
-      </td>
     </tr>
-  </table>-->
-  <ul id="pub" *ngFor="let a of filteredList; let i = index;">
+    </ng-container>
+  </table>
+  <!--<ul id="pub">
+    <ng-container *ngFor="let a of filteredList; let i = index;">
     <li *ngIf="i === 0 || a.date!.getFullYear() !== filteredList[i-1].date!.getFullYear()">{{ a.date!.getFullYear() }}</li>
     <li>
         <div class="news" (click)="toggle(a)">
@@ -42,10 +46,11 @@
           <p>{{a.type}}</p>
           <p class="desc">{{a.description | slice:0:100}} . . .</p>
           <br>
-          <hr color="#0D89BF"><br><br>
+          <hr color="#0D89BF"><br>
         </div>
     </li>
-  </ul>
+    </ng-container>
+  </ul>-->
 </div>
 <div id="popup">
   <h1 id="close" align="right" (click)="toggle(article)">&#10006;</h1>
@@ -64,10 +69,6 @@
         <th>Pages</th>
         <td>{{article.firstPage}}-{{article.lastPage}}</td>
       </tr>
-      <!--<tr>
-        <th>Editor</th>
-        <td>{{article.editor}}</td>
-      </tr>-->
       <tr>
         <th>Abstract </th>
         <td>{{article.description}}</td>

@@ -6,7 +6,7 @@
   <div class="our_team">
     <div class="team_member" *ngFor="let p of HR" routerLink="/profile/{{p.id}}" target="_blank">
         <div class="member_img">
-          <img [src]="url[p.id!]" alt="our_team">
+          <img [src]="p.photo" alt="our_team">
         </div>
         <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
         <span>{{p.profession}}</span>
@@ -18,7 +18,7 @@
   <div class="our_team">
     <div class="team_member" *ngFor="let p of Development" routerLink="/profile/{{p.id}}" target="_blank">
       <div class="member_img">
-        <img [src]="url[p.id!]" alt="our_team">
+        <img [src]="p.photo" alt="our_team">
       </div>
       <a><h3>{{p.firstName}} {{p.lastName}}</h3></a>
       <span>{{p.profession}}</span>

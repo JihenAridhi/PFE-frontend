@@ -26,12 +26,6 @@ export class SaveArticleComponent implements OnInit{
       await this.as.get(id).then(data => this.article = data!)
       this.fullName = this.article.authors!.map(p => p.firstName + ' ' + p.lastName)
       this.article.authors = this.article.authors!.filter(r => r.id !== person.id);
-      /*await this.as.getAuthors(this.article.id).then(
-        data => {
-          this.authors = data!.filter(r => r.id !== person.id);
-          this.fullName = this.authors.map(p => p.firstName + ' ' + p.lastName)
-        }
-      )*/
     }
     await this.ps.getStatus(true).then(data => {this.searchList = data!.filter(r => !this.article.authors!.some(a => a.id === r.id) && r.id!=person.id)})
   }

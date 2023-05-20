@@ -1,22 +1,150 @@
- <title>Register</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
- <section>
+<title>Register</title>
+<section>
   <div class="wrapper">
     <div class="container">
-      <h1>{{content.register}}</h1>
-      <form #addF='ngForm' (ngSubmit)="addPerson(addF)" ngNativeValidate>
-        <label> {{content.firstName}} </label>
-        <input type="text" name="firstName" placeholder="  your first name ..." required ngModel>
-        <label> {{content.lastName}} </label>
-        <input type="text" name="lastName" placeholder="  your last name ..." required ngModel>
-        <label> Email </label>
-        <input type="email" name="email" placeholder="  your e-mail ..." required ngModel>
-        <label> {{content.password}} </label>
-        <input type="password" name="password" placeholder="  your password ..." required ngModel>
-        <label> {{content.confirmP}} </label>
-        <input type="password" name="password1" placeholder="  Confirm your password ..." required ngModel>
-        <input type="submit" name="" value="{{content.create}}" class="SBM">
+      <h1>General Information</h1>
+      <form #addF='ngForm' (ngSubmit)="addPerson(addF)">
+        <div class="part-A">
+          <label> First Name </label>
+          <input type="text" name="firstName" placeholder="  your first name ..." ngModel>
+          <label> Last Name </label>
+          <input type="text" name="lastName" placeholder="  your last name ..." ngModel>
+          <label> email </label>
+          <input type="email" name="email" placeholder="  your e-mail ..." ngModel>
+          <label> Password </label>
+          <input type="password" name="password" placeholder="  your password ..." ngModel>
+          <label> Confirm your password </label>
+          <input type="password" placeholder="  Confirm your password ...">
+          <button class="SBM next-button" type="button">next</button>
+        </div>
+        <div class="part-B" style="display: none;">
+          <label> Phone </label>
+          <input type="text" name="phone" placeholder="  your phone ..." ngModel>
+          <label> Short Bio </label>
+          <input type="text" name="bio" style="height:100px;" placeholder="  your bio ..." ngModel>
+          <div style="width:160px; height:70px; overflow: hidden;">
+            <label>Curriculum vitae </label>
+            <input type="file" name="CV" >
+          </div>
+          <div style="display: block;">
+            <button class="SBM previous-button" type="button">previous</button>
+            <button class="SBM next-button next" type="button">next</button>
+          </div>
+        </div>
+        <div class="part-C" style="display: none;">
+          <div style="display:flex; width:260px; height:35px;">
+            <i class='fab fa-researchgate' style='font-size:20px;color:rgb(30, 48, 80);'></i> &nbsp;&nbsp;&nbsp;
+            <input type="text" name="ResearchGate" placeholder="  your ResearchGate's url ..." ngModel>
+          </div>
+          <div style="display:flex; width:260px; height:35px;">
+            <i class='fab fa-orcid' style='font-size:20px;color:rgb(30, 48, 80);'></i> &nbsp;&nbsp;&nbsp;
+            <input type="text" name="orcid" placeholder="  your ORCID's url ..." ngModel>
+          </div>
+          <div style="display:flex; width:260px; height:35px;">
+            <i class="fa-brands fa-google" style='font-size:20px;color:rgb(30, 48, 80);'></i> &nbsp;&nbsp;&nbsp;
+            <input type="text" name="scholar" placeholder="  your Google scholar's url ..." ngModel>
+          </div>
+          <div style="display:flex; width:260px; height:35px;">
+            <i class="fa fa-linkedin-square" style='font-size:20px;color:rgb(30, 48, 80);'></i> &nbsp;&nbsp;&nbsp;
+            <input type="text" name="linkedin" placeholder="  your Linkedin's url ..." ngModel>
+          </div>
+          <div style="display:flex; width:260px; height:35px;">
+            &nbsp;&nbsp;&nbsp;
+            <input type="text" name="dblp" placeholder="  your DBLP's url ..." ngModel>
+          </div>
+          <button class="SBM previous-button" type="button">previous</button>
+          <button class="SBM next-button next" type="button">next</button>
+        </div>
+        <div class="part-D" style="display: none;" [(ngModel)]="themes" name="themes">
+          <div class="cont">
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Artificial Intelligence">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Artificial intelligence</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Machine Learning">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Machine Learning</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Deep Learning">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name" style="margin:10px 10px;">Deep Learning</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Soft Computing">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Soft Computing</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Multi Agent System">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Multi Agent System</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Data Mining">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name" style="margin:10px 10px;">Data Mining</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Web">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name" style="margin:10px;">Web</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Optimization">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name" style="margin:10px 10px;">Optimization</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Cyber Security">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name" style="margin:10px 10px;">Cyber Security</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Computer Science">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Computer Science</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Graph Theory">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Graph Theory</div>
+              </div>
+            </label>
+            <label class="option_item">
+              <input type="checkbox" class="checkbox"  name="Big Data">
+              <div class="option_inner chek">
+                <div class="tickmark"></div>
+                <div class="name">Big Data</div>
+              </div>
+            </label>
+          </div>
+          <button class="SBM previous-button" type="button">previous</button>
+          <input type="submit" name="" value="submit" class="SBM next">
+        </div>
       </form>
     </div>
     <div class="container2">
@@ -24,4 +152,3 @@
     </div>
   </div>
 </section>
-

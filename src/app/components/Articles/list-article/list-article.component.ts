@@ -39,7 +39,6 @@ export class ListArticleComponent implements OnInit{
     const popup = document.getElementById('popup') as HTMLElement;
     popup.classList.toggle('active');
     this.article = a;
-    //await this.as.getAuthors(a.id).then(data => {if (data) this.authors = data})
     await this.as.getFile(this.article.id).then(data => this.file=data!)
   }
 

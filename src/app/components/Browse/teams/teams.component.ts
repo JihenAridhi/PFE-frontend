@@ -11,7 +11,6 @@ import {Person} from "../../../entities/Person";
 export class TeamsComponent {
   HR: Person[] = []
   Development: Person[] = []
-  url: string[] = [];
   personList: Person[] = [];
 
   constructor(private router: Router, private prs: PersonService) {}
@@ -20,9 +19,7 @@ export class TeamsComponent {
   {
     this.prs.getStatus(true).then(data =>
     {
-      if (data)
-        this.personList = data
-      this.personList.forEach(p => this.prs.getPhoto(p.id).then(data => {if (p.id && data) this.url[p.id] = data}))
+      this.personList = data!
       this.HR = this.personList.filter(r => r.team=='HR')
       this.Development = this.personList.filter(r => r.team=='Development')
     })
