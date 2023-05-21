@@ -242,7 +242,7 @@ nav .content .links{
 .content .links ul ul{
   position: absolute;
   top: 0;
-  right: calc(-100% + 8px);
+  left: 160px;
 }
 .content .links ul li{
   position: relative;
