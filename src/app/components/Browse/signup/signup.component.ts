@@ -10,7 +10,7 @@ import {LanguageService} from "../../../services/language.service";
 })
 export class SignupComponent implements OnInit  {
   content: any
-  themes: string[] = []
+  themes: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false]
   constructor(private ps: PersonService, private ls: LanguageService) {ls.getLanguage().subscribe(data => this.content=data)}
 
   ngOnInit() {
