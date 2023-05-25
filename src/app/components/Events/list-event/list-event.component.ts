@@ -11,7 +11,6 @@ import {LanguageService} from "../../../services/language.service";
 })
 export class ListEventComponent implements OnInit{
 
-  url: string[] = []
   eventList: Event[] = [];
   content: any;
   filteredList: Event[] = []

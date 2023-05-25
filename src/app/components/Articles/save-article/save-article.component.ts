@@ -48,6 +48,7 @@ export class SaveArticleComponent implements OnInit{
     article.id = this.article.id
     article.authors = this.article.authors!.map(r=>r.id)
     article.authors.push(this.ps.getItem('person').id)
+    console.log(article)
     this.as.save(article)
   }
 

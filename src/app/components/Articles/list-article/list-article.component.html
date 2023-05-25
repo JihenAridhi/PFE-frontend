@@ -5,15 +5,13 @@
         <thead>
         <tr>
           <th><label> {{content.searchByTitle}}</label></th>
-          <th><label>{{content.moreRecentThan}}</label></th>
-          <th><label> {{content.olderThan}}</label></th>
+          <th><label> {{content.searchByYear}}</label></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td><input type="text" #search (input)="onSearchTextEntered(search.value)"></td>
-          <td><input type="date" [(ngModel)]="recentValue" name="recent" (input)="interval()"></td>
-          <td><input type="date" [(ngModel)]="olderValue" name="older" (input)="interval()"></td>
+          <td><input type="text" #search (input)="onSearchTextEntered(search.value, year.value)"></td>
+          <td><input type="number" #year (input)="onSearchTextEntered(search.value, year.value)"></td>
         </tr>
         </tbody>
         </table>
@@ -21,36 +19,22 @@
   </div>
   <table align="center" id="pub">
     <ng-container *ngFor="let a of filteredList; let i = index;">
-      <tr *ngIf="i==0 || filteredList[i].date!.getFullYear!=filteredList[i-1].date!.getFullYear">
-        {{a.date!.getFullYear}}
+      <tr *ngIf="i==0 || filteredList[i].year!=filteredList[i-1].year">
+        <div class="year">
+          <p class="year-value">{{a.year}}</p>
+        </div>
       </tr>
     <tr>
         <div class="news" (click)="toggle(a)">
           <h4>{{a.title}}</h4>
-          <p class="date">{{a.date | date: 'dd-MM-yyyy'}}</p>
+          <p class="date">{{a.year}}</p>
           <p>{{a.type}}</p>
           <p class="desc">{{a.description | slice:0:100}} . . .</p>
           <br>
-          <hr color="#0D89BF"><br>
         </div>
     </tr>
     </ng-container>
   </table>
-  <!--<ul id="pub">
-    <ng-container *ngFor="let a of filteredList; let i = index;">
-    <li *ngIf="i === 0 || a.date!.getFullYear() !== filteredList[i-1].date!.getFullYear()">{{ a.date!.getFullYear() }}</li>
-    <li>
-        <div class="news" (click)="toggle(a)">
-          <h4>{{a.title}}</h4>
-          <p class="date">{{a.date | date: 'dd-MM-yyyy'}}</p>
-          <p>{{a.type}}</p>
-          <p class="desc">{{a.description | slice:0:100}} . . .</p>
-          <br>
-          <hr color="#0D89BF"><br>
-        </div>
-    </li>
-    </ng-container>
-  </ul>-->
 </div>
 <div id="popup">
   <h1 id="close" align="right" (click)="toggle(article)">&#10006;</h1>
@@ -59,11 +43,11 @@
     <table class="table">
       <tr>
         <th>{{content.authors}}</th>
-        <td *ngFor="let a of article.authors">{{a.firstName}} {{a.lastName}}</td>
+        <td *ngFor="let a of article.authors"><a routerLink="/profile/{{a.id}}" target="_blank">{{a.firstName}} {{a.lastName}}</a></td>
       </tr>
       <tr>
         <th>{{content.datePub}}</th>
-        <td>{{article.date | date: 'dd-MM-yyyy'}}<br></td>
+        <td>{{article.year}}<br></td>
       </tr>
       <tr>
         <th>Pages</th>

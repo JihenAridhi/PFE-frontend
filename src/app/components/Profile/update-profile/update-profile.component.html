@@ -54,7 +54,7 @@
     <tr *ngFor="let a of articles">
       <td><h4>{{a.title}}</h4></td>
       <td><p>{{a.type}}</p></td>
-      <td>{{a.date | date: 'dd-MM-yyyy'}}</td>
+      <td>{{a.year}}</td>
       <td><a routerLink="/account/save-article/{{a.id}}" target="_blank" class="btn2">{{content.update}}</a></td>
       <td><a (click)="delete(a)" class="btn2">{{content.delete}}</a></td>
     </tr>

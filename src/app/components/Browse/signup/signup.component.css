@@ -249,6 +249,14 @@ section {
   background-repeat: no-repeat;
 }
 
+span {
+  color : red;
+}
+.ps {
+  font-size: 10px;
+  color: red;
+}
+
 .container{
   display: flex;
   align-items: center;

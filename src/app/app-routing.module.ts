@@ -31,6 +31,10 @@ import {EditPartnersComponent} from "./components/Partners/edit-partners/edit-pa
 import {SavePartnerComponent} from "./components/Partners/save-partner/save-partner.component";
 import {EmailVerifComponent} from "./components/Browse/email-verif/email-verif.component";
 import {ViewPartnersComponent} from "./components/Partners/view-partners/view-partners.component";
+import {ListProjectComponent} from "./components/Projects/list-project/list-project.component";
+import {ViewProjectComponent} from "./components/Projects/view-project/view-project.component";
+import {SaveProjectComponent} from "./components/Projects/save-project/save-project.component";
+import {ResearchAxisComponent} from "./components/Browse/research-axis/research-axis.component";
 
 
 
@@ -56,6 +60,9 @@ const routes: Routes = [
       {path: 'partners', component: ViewPartnersComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'profile/:id', component: ProfileComponent},
+      {path: 'list-project', component: ListProjectComponent},
+      {path: 'view-project', component: ViewProjectComponent},
+      {path: 'research-axis', component: ResearchAxisComponent}
     ]}
   ]},
   {path: 'login', component: LoginComponent},
@@ -79,6 +86,7 @@ const routes: Routes = [
     {path: 'edit-partners', component: EditPartnersComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-partner', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-partner/:id', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
+    {path: 'save-project', component: SaveProjectComponent}
   ]},
   {path: 'verify/*person', component: EmailVerifComponent}
 ]

@@ -4,14 +4,14 @@
 <section class="container">
   <header>Article</header>
   <form class="form" #addF='ngForm' (ngSubmit)="save(addF)" ngNativeValidate>
-
+    <label class="ps"> champ obligatoire * </label>
     <div class="input-box">
-      <label>Title</label>
+      <label>Title <span>*</span></label>
       <input type="text" placeholder=" Article Title" [(ngModel)]="article.title" name="title" required />
     </div>
 
     <div class="input-box">
-      <label>Author</label>
+      <label>Author <span>*</span></label>
       <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
       <div class="dropdown">
       <ul>
@@ -28,19 +28,14 @@
       </div>
     </div>
 
-    <div class="input-box">
-      <label>Conférence / journal</label>
-      <input type="text" placeholder=" Name of conference" [(ngModel)]="article.journal" name="journal" required />
-    </div>
-
     <div class="column">
       <div class="input-box">
-        <label>Page </label>
+        <label>Page <span>*</span></label>
         <input type="number" placeholder=" Start page" required [(ngModel)]="article.firstPage" name="firstPage"/>
       </div>
       <div class="input-box">
-        <label>page </label>
-        <input type="number" placeholder=" Last page" required [(ngModel)]="article.lastPage" name="lastPage"/>
+        <label>Page <span>*</span></label>
+        <input type="number" min="{{addF.value.firstPage}}" placeholder=" Last page" required [(ngModel)]="article.lastPage" name="lastPage"/>
       </div>
     </div>
 
@@ -50,23 +45,42 @@
     </div>
 
     <div class="input-box">
-      <label>URL of article</label>
+      <label>URL of article <span>*</span></label>
       <input type="text" placeholder=" Url of article" [(ngModel)]="article.url" name="url"  />
     </div>
 
-    <label>Type</label>
+    <label>Type <span>*</span></label>
     <div class="select-box">
       <select name="type" [(ngModel)]="article.type" required>
-        <option>TYPE</option>
-        <option>TYPE1</option>
-        <option>TYPE2</option>
-        <option>TYPE3</option>
-        <option>TYPE4</option>
+        <option>Journal</option>
+        <option>Conference</option>
+        <option>Book</option>
+        <option>Thesis</option>
       </select>
     </div>
 
+    <div class="input-box" *ngIf="addF.value.type=='Book'">
+      <label>Editor <span>*</span></label>
+      <input type="text" placeholder=" Editor" [(ngModel)]="article.editor" name="editor" required />
+    </div>
+
+    <div class="input-box" *ngIf="addF.value.type=='Thesis'">
+      <label>Institute <span>*</span></label>
+      <input type="text" placeholder=" Name of conference" [(ngModel)]="article.institute" name="institute" required />
+    </div>
+
+    <div class="input-box" *ngIf="addF.value.type=='Conference'">
+      <label>Month <span>*</span></label>
+      <input type="number" min="1" max="12" placeholder=" Month" [(ngModel)]="article.month" name="month" required />
+    </div>
+
     <div class="input-box">
-      <label>Abstract</label>
+      <label>Year <span>*</span></label>
+      <input type="number" placeholder=" Year" [(ngModel)]="article.year" name="year" required />
+    </div>
+
+    <div class="input-box">
+      <label>Abstract <span>*</span></label>
       <textarea name="description" rows="10" cols="70" [(ngModel)]="article.description"></textarea>
     </div>
 

@@ -5,25 +5,26 @@
       <h1>General Information</h1>
       <form #addF='ngForm' (ngSubmit)="addPerson(addF)">
         <div class="part-A">
-          <label> First Name </label>
+          <label class="ps"> champ obligatoire * </label>
+          <label> First Name <span>*</span> </label>
           <input type="text" name="firstName" placeholder="  your first name ..." ngModel>
-          <label> Last Name </label>
+          <label> Last Name <span>*</span> </label>
           <input type="text" name="lastName" placeholder="  your last name ..." ngModel>
-          <label> email </label>
+          <label> email <span>*</span> </label>
           <input type="email" name="email" placeholder="  your e-mail ..." ngModel>
-          <label> Password </label>
+          <label> Password <span>*</span> </label>
           <input type="password" name="password" placeholder="  your password ..." ngModel>
-          <label> Confirm your password </label>
+          <label> Confirm your password <span>*</span> </label>
           <input type="password" placeholder="  Confirm your password ...">
           <button class="SBM next-button" type="button">next</button>
         </div>
         <div class="part-B" style="display: none;">
-          <label> Phone </label>
+          <label> Phone <span color="red">*</span> </label>
           <input type="text" name="phone" placeholder="  your phone ..." ngModel>
-          <label> Short Bio </label>
+          <label> Short Bio <span color="red">*</span> </label>
           <input type="text" name="bio" style="height:100px;" placeholder="  your bio ..." ngModel>
           <div style="width:160px; height:70px; overflow: hidden;">
-            <label>Curriculum vitae </label>
+            <label>Curriculum vitae <span color="red">*</span> </label>
             <input type="file" name="CV" >
           </div>
           <div style="display: block;">

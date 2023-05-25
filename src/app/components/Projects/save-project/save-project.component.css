@@ -1,5 +1,5 @@
 #body{
-  background-image:url("https://i.pinimg.com/564x/2c/3e/bf/2c3ebfbdcbd038da6753b169c98d89bc.jpg") ;
+  background-image:url("https://i.pinimg.com/564x/fc/fd/79/fcfd79b9019b511dfccaaa090c6dda45.jpg") ;
   background-size: cover;
   padding: 1px;
 }
@@ -13,13 +13,6 @@
   display:grid;
   z-index: 9;
 
-}
-span {
-  color : red;
-}
-.ps {
-  font-size: 10px;
-  color: red;
 }
 .row{
   place-items:center;
@@ -173,4 +166,3 @@ span {
     row-gap: 15px;
   }
 }
-

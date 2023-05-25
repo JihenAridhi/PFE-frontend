@@ -52,5 +52,7 @@
   "authors": "Authors",
   "datePub": "Date of Publication",
   "submit": "Submit",
-  "old": "Old"
+  "old": "Old",
+  "searchByName": "Search by Name",
+  "searchByYear": "Search by Year"
 }

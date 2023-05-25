@@ -1,0 +1,32 @@
+<div class="Research">
+  <form>
+    <table class="tab" >
+      <thead>
+      <tr>
+        <th><label> {{content.searchByTitle}}</label></th>
+        <th><label>{{content.moreRecentThan}}</label></th>
+        <th><label> {{content.olderThan}}</label></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="text" #search (input)="onSearchTextEntered(search.value)"></td>
+        <td><input type="date" [(ngModel)]="recentValue" name="recent" (input)="interval()"></td>
+        <td><input type="date" [(ngModel)]="olderValue" name="older" (input)="interval()"></td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+
+<section class="projects">
+  <a class="project" *ngFor="let p of projectList" routerLink="" target="_blank">
+    <div class="left">
+      <img [src]="p.photo" alt="">
+    </div>
+    <div class="right">
+      <a><h1 id="tit">{{p.title}}</h1></a>
+      <p class="description">{{p.description}}</p>
+    </div>
+  </a>
+</section>

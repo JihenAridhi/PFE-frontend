@@ -1,0 +1,29 @@
+<div id="body">
+
+  <section class="container">
+    <header>{{content.project}}</header>
+    <form class="form" #addF="ngForm" (ngSubmit)="addproject(addF)" ngNativeValidate>
+
+      <div class="input-box">
+        <label>name</label>
+        <input type="text" placeholder="Name of project ..." required [(ngModel)]="project.title" name="title"/>
+      </div>
+
+      <div class="input-box">
+        <label>Date</label>
+        <input type="date" id="date" required [(ngModel)]="date"  name="date"/>
+      </div>
+
+      <div class="input-box">
+        <label>Image</label>
+        <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
+      </div>
+
+      <div class="input-box">
+        <label>Description</label>
+        <textarea name="description" rows="10" cols="70" required [(ngModel)]="project.description" ></textarea>
+      </div>
+      <button>{{content.submit}}</button>
+    </form>
+  </section>
+</div>

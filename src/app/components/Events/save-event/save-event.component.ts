@@ -16,12 +16,6 @@ export class SaveEventComponent implements OnInit{
   date: any;
   content: any
   constructor(private es: EventService, private route: ActivatedRoute, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
-  async addEvent(addF: NgForm)
-  {
-    let e = addF.value
-    e.id = this.event.id
-    this.es.save(e);
-  }
 
   ngOnInit(): void
   {
@@ -31,6 +25,13 @@ export class SaveEventComponent implements OnInit{
         this.event = data!
         this.date = new Date(this.event.date!).toISOString().substring(0, 10)
       })
+  }
+
+  async addEvent(addF: NgForm)
+  {
+    let e = addF.value
+    e.id = this.event.id
+    this.es.save(e);
   }
 
   async onFileSelected(files: any) {

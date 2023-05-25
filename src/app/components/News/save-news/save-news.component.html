@@ -1,17 +1,18 @@
 <section class="container" >
   <header>{{content.news}}</header>
   <form class="form" #newsF="ngForm" (ngSubmit)="save(newsF)" ngNativeValidate>
+    <label class="ps"> champ obligatoire * </label>
     <div class="input-box">
-      <label>{{content.title}}</label>
+      <label>{{content.title}} <span>*</span></label>
       <input type="text" placeholder="Tile of news ..." required name="title" [(ngModel)]="news.title"/>
     </div>
     <div class="input-box">
-      <label>Image</label>
+      <label>Image  <span>*</span></label>
       <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
     </div>
 
     <div class="input-box">
-      <label>Description</label>
+      <label>Description  <span>*</span></label>
       <textarea rows="10" cols="70" required name="description" [(ngModel)]="news.description"></textarea>
     </div>
     <button>{{content.submit}}</button>

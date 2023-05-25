@@ -17,6 +17,7 @@ export class MembersComponent implements OnInit{
   autoList: number[][] =  []
   url='';
   content: any
+  filteredList: Person[] = [];
 
   constructor(private ps: PersonService, private as: AutorisationService, private ls: LanguageService) {}
 
@@ -36,7 +37,7 @@ export class MembersComponent implements OnInit{
   {
     this.ls.getLanguage().subscribe(data => this.content = data)
     await this.ps.getStatus(true).then(data => {if (data) this.members = data})
-    await this.as.getAllAutorisations().then(data => {if(data) this.autoList = data; console.log(this.autoList)})
+    await this.as.getAllAutorisations().then(data => {if(data) this.autoList = data})
   }
 
   submit(changesF: NgForm)
@@ -49,16 +50,15 @@ export class MembersComponent implements OnInit{
       this.ps.update(this.members[i])
       this.ps.setItem('personList', this.members)
       let a = [f['1_'+i], f['2_'+i], f['3_'+i], f['4_'+i], f['5_'+i], f['6_'+i]]
-      console.log(a)
       for(let j=0; j<6; j++)
       {
-        if (a[j] && !this.autoList[i].includes(j+1)) {
+        if (a[j] && !this.autoList[this.members[i].id!].includes(j+1)) {
           this.as.addAutorisation(this.members[i].id, j + 1)
-          this.autoList[i].push(j+1)
+          this.autoList[this.members[i].id!].push(j+1)
         }
         else if (!a[j]) {
           this.as.deletePerson(this.members[i].id, j + 1)
-          this.autoList[i].map(r => r!== j+1)
+          this.autoList[this.members[i].id!].map(r => r!== j+1)
         }
       }
       this.as.setItem('personAutoList', this.autoList)
@@ -76,5 +76,12 @@ export class MembersComponent implements OnInit{
       this.members = this.members.filter(r => r!==m)
       this.autoList.splice(m.id!, 1)
     }
+  }
+
+  onSearchTextEntered(searchText: string) {
+    if (searchText=='')
+      this.filteredList = this.members
+    else
+      this.filteredList = this.members.filter(member => member.firstName?.toUpperCase().includes(searchText.toUpperCase()) && member.lastName?.toUpperCase().includes(searchText.toUpperCase()))
   }
 }

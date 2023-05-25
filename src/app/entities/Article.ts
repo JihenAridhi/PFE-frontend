@@ -5,8 +5,8 @@ export class Article
   id?: number
   title?: string
   type?: string
-  journal?: string
-  date?: Date
+  year?: number
+  month?: number
   firstPage?: number
   lastPage?: string
   editor?: string;
@@ -14,4 +14,5 @@ export class Article
   url?: string
   authors?: Person[]
   //DOI?: string;
+  institute?: string;
 }

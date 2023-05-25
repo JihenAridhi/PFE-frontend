@@ -41,12 +41,11 @@ export class ListArticleComponent implements OnInit{
     this.article = a;
     await this.as.getFile(this.article.id).then(data => this.file=data!)
   }
-
-  onSearchTextEntered(searchText: string) {
-    if (searchText=='')
+  onSearchTextEntered(searchText: string, year: string) {
+    if (searchText==='' && year==='')
       this.filteredList = this.articles
     else
-      this.filteredList = this.articles.filter(article => article.title?.toUpperCase().includes(searchText.toUpperCase()))
+      this.filteredList = this.articles.filter(article => article.year!.toString().includes(searchText) || article.title!.toUpperCase().includes(searchText.toUpperCase()))
   }
 
   interval() {
@@ -54,8 +53,8 @@ export class ListArticleComponent implements OnInit{
       this.filteredList = this.articles
     else {
       this.filteredList = this.articles.filter(article => {
-        return new Date(article.date!).toISOString().substring(0, 10) <= this.olderValue! &&
-        new Date(article.date!).toISOString().substring(0, 10) >= this.recentValue!
+        /*return new Date(article.date!).toISOString().substring(0, 10) <= this.olderValue! &&
+        new Date(article.date!).toISOString().substring(0, 10) >= this.recentValue!*/
       })
       console.log(this.filteredList)
     }
