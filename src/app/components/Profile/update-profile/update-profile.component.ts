@@ -29,6 +29,13 @@ export class UpdateProfileComponent implements OnInit{
       blur.classList.toggle('active');
       popup.classList.toggle('active');
     }
+    toggle1() {
+    let blur=document.getElementById('blur');
+     let popup1 = document.getElementById('popup1');
+    if(blur!=null && popup1!=null) {
+      blur.classList.toggle('active');
+      popup1.classList.toggle('active');
+    }
   }
 
   async ngOnInit() {
