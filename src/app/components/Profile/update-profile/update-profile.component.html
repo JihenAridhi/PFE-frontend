@@ -1,23 +1,12 @@
 <section>
   <div class="wrapper">
     <div class="container">
-      <h1>{{content.update}}</h1>
-      <form #updateF='ngForm' (ngSubmit)="update(updateF)">
-        <label> {{content.firstName}} </label>
-        <input type="text" name="firstName" placeholder="  your first name ..." [(ngModel)]="person.firstName">
-        <label> {{content.lastName}} </label>
-        <input type="text" name="lastName" placeholder="  your last name ..." [(ngModel)]="person.lastName">
-        <label> Email </label>
-        <input type="email" name="email" placeholder="  add your e-mail ..." [(ngModel)]="person.email">
-        <input type="submit" name="" value="{{content.update}}" class="SBM">
-      </form>
+      <button id="open-popup1" (click)="toggle()">Update account</button>
+       <div class="input_container"><input type="file" name="" value="Update " id="fileUpload" ></div>
+       <button id="open-popup" (click)="toggle()">Update password</button>
     </div>
     <div class="container2">
       <img [src]="url" alt="image" *ngIf="showContent">
-      <div class="input_container">
-        <input type="file" accept="image/*" #fileUpload (change)="onFileSelected(fileUpload.files)" >
-      </div>
-      <button id="open-popup" (click)="toggle()">{{content.update}} {{content.password}}</button>
     </div>
   </div>
 </section>
@@ -35,6 +24,21 @@
       <input type="password" name="confirmP" placeholder="  Confirm your new password ..." ngModel required>
       <input type="submit" name="" value="Update your password" class="SBM">
     </form>
+  </div>
+  <button  id="close-popup" (click)="toggle()">Close</button>
+</div>
+<div id="popup1">
+  <div class="cont">
+    <form #updateF='ngForm' (ngSubmit)="update(updateF)">
+        <label> {{content.firstName}} </label>
+        <input type="text" name="firstName" placeholder="  your first name ..." [(ngModel)]="person.firstName">
+        <label> {{content.lastName}} </label>
+        <input type="text" name="lastName" placeholder="  your last name ..." [(ngModel)]="person.lastName">
+        <label> Email </label>
+        <input type="email" name="email" placeholder="  add your e-mail ..." [(ngModel)]="person.email">
+        <input type="submit" name="" value="{{content.update}}" class="SBM">
+      </form>
+  </div>
   </div>
   <button  id="close-popup" (click)="toggle()">Close</button>
 </div>
