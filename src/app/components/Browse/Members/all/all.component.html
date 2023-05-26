@@ -1,7 +1,23 @@
 <div class="wrapp">
-  <h1>All</h1>
+  <h1>All Members</h1>
+  <div class="Research">
+    <form>
+      <table class="tab" >
+        <thead>
+        <tr>
+          <th><label> {{content.searchByName}}</label></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><input type="text" #search (input)="onSearchTextEntered(search.value)"></td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
   <div class="our_team">
-    <div class="team_member" *ngFor="let p of personList; let i=index" routerLink="/profile/{{p.id}}">
+    <div class="team_member" *ngFor="let p of filteredList; let i=index" routerLink="/profile/{{p.id}}">
       <div class="member_img">
         <img [src]="p.photo" alt="our_team">
         <div class="social_media">

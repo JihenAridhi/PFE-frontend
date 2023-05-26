@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Person} from "../../../../entities/Person";
 import {PersonService} from "../../../../services/person.service";
+import {LanguageService} from "../../../../services/language.service";
 
 
 @Component({
@@ -13,17 +14,23 @@ export class AllComponent implements OnInit{
 
   personList: Array<Person> = new Array<Person>()
   url: string[] = [];
+  content: any;
+  filteredList: Person[] = [];
 
-  constructor(private router: Router, private prs: PersonService) {}
+  constructor(private router: Router, private prs: PersonService, private ls: LanguageService) {ls.getLanguage().subscribe(data=>this.content=data)}
 
   ngOnInit(): void
   {
-    this.prs.getStatus(true).then(data =>
-    {
+    this.prs.getStatus(true).then(data => {
       this.personList = data!
-      /*for (let i = 0; i<this.personList.length; i++)
-        this.prs.getPhoto(this.personList[i].id).then(data => {if (data) this.url[i] = data})*/
+      this.filteredList = this.personList
     })
   }
 
+  onSearchTextEntered(searchText: string) {
+    if (searchText=='')
+      this.filteredList = this.personList
+    else
+      this.filteredList = this.personList.filter(person => person.firstName?.toUpperCase().includes(searchText.toUpperCase()) || person.lastName?.toUpperCase().includes(searchText.toUpperCase()))
+  }
 }

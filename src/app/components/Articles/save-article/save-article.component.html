@@ -16,7 +16,8 @@
       <div class="dropdown">
       <ul>
         <li *ngFor="let person of filteredList" (click)="selectPerson(person)">
-          {{ person.firstName }} {{ person.lastName }}
+          <img [src]="person.photo" alt="Person Photo" style="height: 40px; width: 40px">
+          <span>{{person.firstName}} {{person.lastName}}</span>
         </li>
       </ul>
       </div>

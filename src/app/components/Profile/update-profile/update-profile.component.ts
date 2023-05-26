@@ -23,12 +23,13 @@ export class UpdateProfileComponent implements OnInit{
   constructor(private ps: PersonService, private as: ArticleService, private router: Router, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
    toggle() {
-    let blur=document.getElementById('blur');
+     let blur = document.getElementById('blur');
      let popup = document.getElementById('popup');
-    if(blur!=null && popup!=null) {
-      blur.classList.toggle('active');
-      popup.classList.toggle('active');
-    }
+     if (blur != null && popup != null) {
+       blur.classList.toggle('active');
+       popup.classList.toggle('active');
+     }
+   }
     toggle1() {
     let blur=document.getElementById('blur');
      let popup1 = document.getElementById('popup1');
