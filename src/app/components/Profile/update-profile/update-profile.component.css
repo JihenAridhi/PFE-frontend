@@ -38,7 +38,7 @@ section {
   color: #123C60;
 }
 
-.container input {
+.container input , #theme {
   display: block;
   margin: auto;
   width: 240px;
