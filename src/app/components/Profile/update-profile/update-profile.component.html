@@ -36,6 +36,23 @@
         <input type="text" name="lastName" placeholder="  your last name ..." [(ngModel)]="person.lastName">
         <label> Email </label>
         <input type="email" name="email" placeholder="  add your e-mail ..." [(ngModel)]="person.email">
+        <label> Phone </label>
+        <input type="number" name="phone" placeholder="  add your phone ..." >
+        <label> Short Bio </label>
+        <input type="text" name="bio" placeholder="  add your Bio ..." [(ngModel)]="person.email">
+        <label> Social media  </label>
+        <input type="text" name="ResearchGate" placeholder="  your ResearchGate's url ...">
+        <input type="text" name="ORCID" placeholder="  your ORCID's url ...">
+        <input type="text" name="googlescholar" placeholder="  your Google scholar's url ...">
+        <input type="text" name="linkedin" placeholder="  your Linkedin's url ...">
+        <input type="text" name="DBLP" placeholder="  your DBLP's url ...">
+        <label> Themes  </label>
+        <select name="themes" id="theme">
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="Web">Web</option>
+            <option value="Big Data">Big Data</option>
+            <option value="Cyber Security">Cyber Security</option>
+        </select>
         <input type="submit" name="" value="{{content.update}}" class="SBM">
       </form>
   </div>
