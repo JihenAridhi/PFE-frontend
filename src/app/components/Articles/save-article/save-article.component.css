@@ -146,3 +146,39 @@ a {
   }
 }
 
+.input-box {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown li {
+  padding: 10px;
+}
+
+.dropdown li:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+span {
+  color : red;
+}
+.ps {
+  font-size: 10px;
+  color: red;
+}

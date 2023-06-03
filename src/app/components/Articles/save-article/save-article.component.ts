@@ -25,9 +25,8 @@ export class SaveArticleComponent implements OnInit{
     if (id) {
       await this.as.get(id).then(data => this.article = data!)
       this.fullName = this.article.authors!.map(p => p.firstName + ' ' + p.lastName)
-      this.addAuthor()
-      //this.article.authors = this.article.authors!.filter(r => r.id !== person.id);
     }
+    this.addAuthor()
     await this.ps.getStatus(true).then(data => {this.searchList = data!/*.filter(r => !this.article.authors!.some(a => a.id === r.id)); console.log(this.searchList)*/})
   }
 
@@ -36,27 +35,30 @@ export class SaveArticleComponent implements OnInit{
       if (!this.article.authors)
         this.article.authors = []
       this.article.authors.push(new Person())
+      /*this.article.authors[this.article.authors.length-1].firstName = ''
+      this.article.authors[this.article.authors.length-1].lastName = ''*/
     }
 
     removeAuthor() {
         let index = this.article.authors!.length - 1
         this.fullName.splice(index, 1)
-        this.article.authors!.splice(index, 1)
-
+        let person = this.article.authors!.splice(index, 1)
+      this.searchList.push(person[0])
     }
 
   save(addF: NgForm)
   {
     let article = addF.value
     article.id = this.article.id
-    article.authors = this.article.authors!.map(r=>r.id)
-    article.authors.push(this.ps.getItem('person').id)
+    article.authors = this.article.authors!.map(r=> ({id: r.id || null, firstName: r.firstName, lastName: r.lastName}))
+    //article.authors.push(this.ps.getItem('person').id)
     console.log(article)
     this.as.save(article)
   }
 
   searchAuthor(i: number)
   {
+    console.log(this.article.authors![i].firstName+' '+this.article.authors![i].lastName)
     if (this.fullName[i]=='')
       this.filteredList = []
     this.filteredList = this.searchList.filter(person =>

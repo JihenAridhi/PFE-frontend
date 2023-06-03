@@ -46,25 +46,57 @@
         <td *ngFor="let a of article.authors"><a routerLink="/profile/{{a.id}}" target="_blank">{{a.firstName}} {{a.lastName}}</a></td>
       </tr>
       <tr>
+        <th>Type</th>
+        <td>{{article.type}}<br></td>
+      </tr>
+      <tr>
+        <th>{{content.name}}</th>
+        <td>{{article.name}}<br></td>
+      </tr>
+      <tr *ngIf="article.type!='Conference'">
         <th>{{content.datePub}}</th>
         <td>{{article.year}}<br></td>
       </tr>
-      <tr>
+      <tr *ngIf="article.type=='Conference'">
+        <th>{{content.datePub}}</th>
+        <td>{{article.month}}/{{article.year}}<br></td>
+      </tr>
+      <tr *ngIf="article.type=='Conference'">
+        <th>Location</th>
+        <td>{{article.location}}<br></td>
+      </tr>
+      <tr *ngIf="article.type=='Journal'">
+        <th>Volume</th>
+        <td>{{article.volume}}<br></td>
+      </tr>
+      <tr *ngIf="article.type=='Journal'">
+        <th>Numero</th>
+        <td>{{article.numero}}<br></td>
+      </tr>
+      <tr *ngIf="article.type=='Journal'">
         <th>Pages</th>
         <td>{{article.firstPage}}-{{article.lastPage}}</td>
+      </tr>
+      <tr *ngIf="article.type=='Book'">
+        <th>{{content.editor}}</th>
+        <td>{{article.editor}}<br></td>
+      </tr>
+      <tr *ngIf="article.type=='Thesis'">
+        <th>Institute</th>
+        <td>{{article.institute}}<br></td>
       </tr>
       <tr>
         <th>Abstract </th>
         <td>{{article.description}}</td>
       </tr>
-      <tr>
+      <!--<tr>
         <th>DOI</th>
         <td><a href="{{article.url}}" target="_blank" style="color: black">{{article.title}}</a></td>
       </tr>
       <tr>
         <th>File</th>
         <td><a href="{{file}}" download="{{article.title}}" style="color: black">{{article.title}}</a></td>
-      </tr>
+      </tr>-->
     </table>
   </div>
 </div>

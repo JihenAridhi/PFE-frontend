@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit  {
       const partD = document.querySelector('.part-D');
       const nextButtons = document.querySelectorAll('.next-button');
       const previousButtons = document.querySelectorAll('.previous-button');
+      const addF = document.getElementById('addF');
 
       // Function to show a specific part and hide others
       const showPart = (partToShow: HTMLElement) => {
@@ -75,10 +76,10 @@ export class SignupComponent implements OnInit  {
   }
 
   addPerson(addF: NgForm) {
-    console.log(addF.value)
-    console.log(this.themes)
-    /*if (addF.value.password != addF.value.password1)
+    if(addF.value.password=='')
+      alert('enter your password please !!')
+    if (addF.value.password != addF.value.password1)
       alert('confirm password please !!')
-    else this.ps.add(addF.value)*/
+    else this.ps.add(addF.value)
   }
 }

@@ -88,7 +88,7 @@ const routes: Routes = [
     {path: 'save-partner/:id', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
     {path: 'save-project', component: SaveProjectComponent}
   ]},
-  {path: 'verify/*person', component: EmailVerifComponent}
+  {path: 'verify/:person', component: EmailVerifComponent}
 ]
 
 @NgModule({

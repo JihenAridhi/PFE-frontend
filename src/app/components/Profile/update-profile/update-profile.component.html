@@ -39,13 +39,13 @@
         <label> Phone </label>
         <input type="number" name="phone" placeholder="  add your phone ..." >
         <label> Short Bio </label>
-        <input type="text" name="bio" placeholder="  add your Bio ..." [(ngModel)]="person.email">
+        <input type="text" name="bio" placeholder="  add your Bio ..." [(ngModel)]="person.bio">
         <label> Social media  </label>
-        <input type="text" name="ResearchGate" placeholder="  your ResearchGate's url ...">
-        <input type="text" name="ORCID" placeholder="  your ORCID's url ...">
-        <input type="text" name="googlescholar" placeholder="  your Google scholar's url ...">
-        <input type="text" name="linkedin" placeholder="  your Linkedin's url ...">
-        <input type="text" name="DBLP" placeholder="  your DBLP's url ...">
+        <input type="text" name="ResearchGate" placeholder="  your ResearchGate's url ..." [(ngModel)]="person.researchGate">
+        <input type="text" name="ORCID" placeholder="  your ORCID's url ..." [(ngModel)]="person.orcid">
+        <input type="text" name="googlescholar" placeholder="  your Google scholar's url ..." [(ngModel)]="person.scholar">
+        <input type="text" name="linkedin" placeholder="  your Linkedin's url ..." [(ngModel)]="person.linkedin">
+        <input type="text" name="DBLP" placeholder="  your DBLP's url ..." [(ngModel)]="person.dblp">
         <label> Themes  </label>
         <select name="themes" id="theme">
             <option value="Artificial Intelligence">Artificial Intelligence</option>
@@ -55,9 +55,9 @@
         </select>
         <input type="submit" name="" value="{{content.update}}" class="SBM">
       </form>
+    <button  id="close-popup" (click)="toggle1()">Close</button>
   </div>
   </div>
-  <button  id="close-popup" (click)="toggle1()">Close</button>
 </div>
 
 

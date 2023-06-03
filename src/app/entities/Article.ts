@@ -13,6 +13,10 @@ export class Article
   description?: string;
   url?: string
   authors?: Person[]
-  //DOI?: string;
   institute?: string;
+  location?: string;
+  volume?: string;
+  numero?: string;
+  name?: string;
+  bibtex?: string;
 }

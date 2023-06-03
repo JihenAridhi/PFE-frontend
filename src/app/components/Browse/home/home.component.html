@@ -119,7 +119,7 @@
 <div id="counts">
   <div>
     <img src="assets/photo/posts.png">
-    <h1>{{ articleList.length + 1}}</h1>
+    <h1>{{ articleList.length }}</h1>
     <h4><i>Publications</i></h4>
   </div>
   <div>
@@ -157,8 +157,9 @@
 </div>
 
 <div class="slider">
-  <ul>
-    <li><img src="assets/photo/commission_european.png" alt=""></li>
+  <ul *ngFor="let p of partnersList">
+    <li><img [src]="p.photo" alt=""></li>
+    <!--<li><img src="assets/photo/commission_european.png" alt=""></li>
     <li><img src="assets/photo/isg.png" alt=""></li>
     <li><img src="assets/photo/mesrs.png" alt=""></li>
     <li><img src="assets/photo/UT.png" alt=""></li>
@@ -169,6 +170,6 @@
     <li><img src="assets/photo/commission_european.png" alt=""></li>
     <li><img src="assets/photo/isg.png" alt=""></li>
     <li><img src="assets/photo/mesrs.png" alt=""></li>
-    <li><img src="assets/photo/UT.png" alt=""></li>
+    <li><img src="assets/photo/UT.png" alt=""></li>-->
   </ul>
 </div>

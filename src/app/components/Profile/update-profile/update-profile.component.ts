@@ -22,6 +22,12 @@ export class UpdateProfileComponent implements OnInit{
 
   constructor(private ps: PersonService, private as: ArticleService, private router: Router, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
+  async ngOnInit() {
+    this.person = this.ps.getItem('person')
+    this.url = this.person.photo!
+    await this.as.getPersonArticles(this.person.id).then(data => {if (data) this.articles = data})
+  }
+
    toggle() {
      let blur = document.getElementById('blur');
      let popup = document.getElementById('popup');
@@ -37,13 +43,6 @@ export class UpdateProfileComponent implements OnInit{
       blur.classList.toggle('active');
       popup1.classList.toggle('active');
     }
-  }
-
-  async ngOnInit() {
-    this.person = this.ps.getItem('person')
-    this.url = this.person.photo!
-    //await this.ps.getPhoto(this.person.id).then(data => {if (data) this.url = data})
-    await this.as.getPersonArticles(this.person.id).then(data => {if (data) this.articles = data})
   }
 
   update(updateF: NgForm) {

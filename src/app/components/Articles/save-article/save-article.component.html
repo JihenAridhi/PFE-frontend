@@ -12,11 +12,14 @@
 
     <div class="input-box">
       <label>Author <span>*</span></label>
-      <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
+<!--
+      <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="a.firstName+' '+a.lastName" name="authors_{{i}}" (input)="searchAuthor(i)"/>
+-->
+            <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
       <div class="dropdown">
       <ul>
-        <li *ngFor="let person of filteredList" (click)="selectPerson(person)">
-          <img [src]="person.photo" alt="Person Photo" style="height: 40px; width: 40px">
+        <li *ngFor="let person of filteredList" (click)="selectPerson(person)" style="list-style: none">
+          <img [src]="person.photo" alt="Person Photo" style="height: 40px; width: 40px; border-radius: 50%;">
           <span>{{person.firstName}} {{person.lastName}}</span>
         </li>
       </ul>
@@ -29,18 +32,7 @@
       </div>
     </div>
 
-    <div class="column">
-      <div class="input-box">
-        <label>Page <span>*</span></label>
-        <input type="number" placeholder=" Start page" required [(ngModel)]="article.firstPage" name="firstPage"/>
-      </div>
-      <div class="input-box">
-        <label>Page <span>*</span></label>
-        <input type="number" min="{{addF.value.firstPage}}" placeholder=" Last page" required [(ngModel)]="article.lastPage" name="lastPage"/>
-      </div>
-    </div>
-
-    <div class="input-box">
+    <!--<div class="input-box">
       <label>File</label>
       <input type="file"  #fileUpload (change)="onFileSelected(fileUpload.files)" >
     </div>
@@ -48,7 +40,7 @@
     <div class="input-box">
       <label>URL of article <span>*</span></label>
       <input type="text" placeholder=" Url of article" [(ngModel)]="article.url" name="url"  />
-    </div>
+    </div>-->
 
     <label>Type <span>*</span></label>
     <div class="select-box">
@@ -60,14 +52,19 @@
       </select>
     </div>
 
-    <div class="input-box" *ngIf="addF.value.type=='Book'">
-      <label>Editor <span>*</span></label>
-      <input type="text" placeholder=" Editor" [(ngModel)]="article.editor" name="editor" required />
+    <div class="input-box">
+      <label>Name <span>*</span></label>
+      <input type="text" placeholder=" Name" [(ngModel)]="article.name" name="name" required />
     </div>
 
-    <div class="input-box" *ngIf="addF.value.type=='Thesis'">
-      <label>Institute <span>*</span></label>
-      <input type="text" placeholder=" Name of conference" [(ngModel)]="article.institute" name="institute" required />
+    <div class="input-box">
+      <label>BibTex <span>*</span></label>
+      <input type="text" placeholder=" bibtex" [(ngModel)]="article.bibtex" name="bibtex" required />
+    </div>
+
+    <div class="input-box">
+      <label>Year <span>*</span></label>
+      <input type="number" placeholder=" Year" [(ngModel)]="article.year" name="year" required />
     </div>
 
     <div class="input-box" *ngIf="addF.value.type=='Conference'">
@@ -75,9 +72,40 @@
       <input type="number" min="1" max="12" placeholder=" Month" [(ngModel)]="article.month" name="month" required />
     </div>
 
-    <div class="input-box">
-      <label>Year <span>*</span></label>
-      <input type="number" placeholder=" Year" [(ngModel)]="article.year" name="year" required />
+    <div class="input-box" *ngIf="addF.value.type=='Conference'">
+      <label>Location <span>*</span></label>
+      <input type="text" placeholder=" Location" [(ngModel)]="article.location" name="location" required />
+    </div>
+
+    <div class="input-box" *ngIf="addF.value.type=='Journal'">
+      <label>Volume <span>*</span></label>
+      <input type="text" placeholder=" Volume" [(ngModel)]="article.volume" name="month" required />
+    </div>
+
+    <div class="input-box" *ngIf="addF.value.type=='Journal'">
+      <label>Numero <span>*</span></label>
+      <input type="text" placeholder=" Numero" [(ngModel)]="article.numero" name="month" required />
+    </div>
+
+    <div class="column" *ngIf="addF.value.type=='Journal'">
+      <div class="input-box">
+        <label>First Page <span>*</span></label>
+        <input type="number" placeholder=" First page" required [(ngModel)]="article.firstPage" name="firstPage"/>
+      </div>
+      <div class="input-box">
+        <label>Last Page <span>*</span></label>
+        <input type="number" min="{{addF.value.firstPage}}" placeholder=" Last page" required [(ngModel)]="article.lastPage" name="lastPage"/>
+      </div>
+    </div>
+
+    <div class="input-box" *ngIf="addF.value.type=='Book'">
+      <label>Editor <span>*</span></label>
+      <input type="text" placeholder=" Editor" [(ngModel)]="article.editor" name="editor" required />
+    </div>
+
+    <div class="input-box" *ngIf="addF.value.type=='Thesis'">
+      <label>Institute <span>*</span></label>
+      <input type="text" placeholder=" Institute" [(ngModel)]="article.institute" name="institute" required />
     </div>
 
     <div class="input-box">
