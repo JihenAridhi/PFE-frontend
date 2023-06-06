@@ -35,7 +35,6 @@ import {PhdStudentsComponent} from "./components/Browse/members/phd-students/phd
 import {AllComponent} from "./components/Browse/members/all/all.component";
 import { EditPartnersComponent } from './components/Partners/edit-partners/edit-partners.component';
 import { SavePartnerComponent } from './components/Partners/save-partner/save-partner.component';
-import { EmailVerifComponent } from './components/Browse/email-verif/email-verif.component';
 import {ViewPartnersComponent} from "./components/Partners/view-partners/view-partners.component";
 import { ViewProjectComponent } from './components/Projects/view-project/view-project.component';
 import { SaveProjectComponent } from './components/Projects/save-project/save-project.component';
@@ -78,7 +77,6 @@ import { ResearchAxisComponent } from './components/Browse/research-axis/researc
     RequestsComponent,
     EditPartnersComponent,
     SavePartnerComponent,
-    EmailVerifComponent,
     ViewProjectComponent,
     SaveProjectComponent,
     ListProjectComponent,

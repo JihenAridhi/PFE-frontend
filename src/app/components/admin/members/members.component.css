@@ -227,6 +227,10 @@ h1 {
     content: "Partners: ";
     font-weight: bold;
   }
+  #keywords tbody td:nth-child(11):before {
+    content: "Projects: ";
+    font-weight: bold;
+  }
 
 }
 

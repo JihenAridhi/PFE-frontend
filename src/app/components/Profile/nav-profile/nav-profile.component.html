@@ -22,6 +22,7 @@
       <li (click)="li()" *ngIf="autoList.includes(4)"><a routerLink="/account/feedback">Feedback</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(5)"><a routerLink="/account/requests">{{content.requests}}</a><hr color="#fff"></li>
       <li (click)="li()" *ngIf="autoList.includes(6)"><a routerLink="/account/edit-partners">{{content.partners}}</a><hr color="#fff"></li>
+      <li (click)="li()" *ngIf="autoList.includes(7)"><a routerLink="/account/edit-projects"><!--{{content.partners}}-->Projects</a><hr color="#fff"></li>
       <li (click)="li()"><a (click)="logout()">{{content.logout}}</a><hr color="#fff"></li>
     </ul>
 

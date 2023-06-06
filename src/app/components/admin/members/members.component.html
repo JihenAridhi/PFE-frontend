@@ -13,6 +13,7 @@
           <th>Feedback</th>
           <th>{{content.requests}}</th>
           <th>{{content.partners}}</th>
+          <th>Projects</th>
         </tr>
       </thead>
       <tbody>
@@ -37,6 +38,7 @@
           <td><input  type="checkbox" name="4_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(4)"></td>
           <td><input  type="checkbox" name="5_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(5)"></td>
           <td><input  type="checkbox" name="6_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(6)"></td>
+          <td><input  type="checkbox" name="7_{{i}}" class="check" [ngModel]="autoList[m.id!].includes(7)"></td>
         </tr>
         <tr><td colspan="9"><input type="submit" value="SUBMIT CHANGES" class="btn2"></td></tr>
       </tbody>

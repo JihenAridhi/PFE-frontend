@@ -12,7 +12,6 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./save-article.component.css']
 })
 export class SaveArticleComponent implements OnInit{
-
   article: Article = new Article()
   fullName: string[] = []
   searchList: Person[] = []

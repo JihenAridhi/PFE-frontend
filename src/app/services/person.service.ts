@@ -21,7 +21,6 @@ export class PersonService {
 
   public add(person: Person)
   {
-    console.log(person)
     this.http.get('http://127.0.0.1:8000/person/getEmail/'+person.email).subscribe(
       (data)=>
       {
@@ -33,18 +32,18 @@ export class PersonService {
           let email: any = {}
           email.subject = 'Confirm Your SMARTLAB Account Creation'
           email.html = `You have requested an account Creation for SMARTLAB. Your confirmation code is `+code;
-          //email.html = `You have requested an account Creation for SMARTLAB.Please click <a href="http://localhost:4200/verify/${p}" target="_blank">Confirm</a> to continue the process`;
           email.to = person.email
           this.http.post('http://localhost:8000/person/sendMail', email).subscribe(() => {
-            //alert('We have sent you an email to confirm your account.')
             let verify = ''
-            while (verify!=code.toString()) {
+            while (verify!=code.toString())
               verify = window.prompt("enter the code")!
-            }
-            this.http.post('http://localhost:8000/person/add', person).subscribe(()=>alert("Your request have been submitted, please wait for further confirmation."))
+            this.http.post('http://localhost:8000/person/add', person).subscribe((id)=> {
+              alert("Your request have been submitted, please wait for further confirmation.")
+              console.log(person.themes)
+              for(let i=0; i<person.themes!.length; i++)
+                this.http.post('http://localhost:8000/person/'+id+'/addTheme/'+person.themes![i].id, null).subscribe();
+            })
           })
-
-          //this.http.post('http://localhost:8000/person/add', person).subscribe(()=>alert("Your request have been submitted, please wait for further confirmation."))
         }
       }
     )

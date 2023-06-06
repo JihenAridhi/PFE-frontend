@@ -22,8 +22,8 @@
           <a *ngIf="person.dblp" href="{{person.dblp}}" target="_blank"><i icon="simple-icons:dblp"></i></a>
 
         </div>
-        <div class="theme">
-          <p>Data Mining</p> <p> Machine Learning</p> <p> Big Data</p>
+        <div class="theme" *ngFor="let t of person.themes">
+          <p>{{t.title}}</p>
         </div>
       </div>
 
