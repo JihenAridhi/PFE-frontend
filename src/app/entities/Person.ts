@@ -10,7 +10,6 @@ export class Person
   password?: string
   profession?: string
   team?: string
-  interest?: string
   photo?: string
   status?: boolean
   coAuthor?: boolean

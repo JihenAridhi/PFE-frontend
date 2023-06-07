@@ -40,6 +40,8 @@ import { ViewProjectComponent } from './components/Projects/view-project/view-pr
 import { SaveProjectComponent } from './components/Projects/save-project/save-project.component';
 import { ListProjectComponent } from './components/Projects/list-project/list-project.component';
 import { ResearchAxisComponent } from './components/Browse/research-axis/research-axis.component';
+import { EditProjectComponent } from './components/Projects/edit-project/edit-project.component';
+import { ReportingComponent } from './components/admin/reporting/reporting.component';
 
 
 
@@ -81,6 +83,8 @@ import { ResearchAxisComponent } from './components/Browse/research-axis/researc
     SaveProjectComponent,
     ListProjectComponent,
     ResearchAxisComponent,
+    EditProjectComponent,
+    ReportingComponent,
   ],
   imports: [
     BrowserModule,

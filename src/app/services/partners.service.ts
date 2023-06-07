@@ -31,5 +31,5 @@ export class PartnersService {
       this.http.put('http://localhost:8000/partner/update', partner).subscribe(()=> alert('changes have been affected successfully !!'))
   }
 
-  delete(id: number | undefined) {this.http.delete('http://localhost:8000/partner/delete/'+id)}
+  delete(id: number | undefined) {this.http.delete('http://localhost:8000/partner/delete/'+id).subscribe()}
 }

@@ -6,6 +6,8 @@ import {Article} from "../../../entities/Article";
 import {ArticleService} from "../../../services/article.service";
 import {Router} from "@angular/router";
 import {LanguageService} from "../../../services/language.service";
+import {ThemeService} from "../../../services/theme.service";
+import {Theme} from "../../../entities/Theme";
 
 @Component({
   selector: 'app-update-profile',
@@ -19,13 +21,22 @@ export class UpdateProfileComponent implements OnInit{
   showContent = true;
   articles: Article[] = []
   content: any
+  searchList: Theme[] = []
+  filteredList: Theme[] = []
+  themeList: Theme[] = []
 
-  constructor(private ps: PersonService, private as: ArticleService, private router: Router, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
+  constructor(private ps: PersonService, private as: ArticleService, private router: Router, private ts: ThemeService, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
   async ngOnInit() {
     this.person = this.ps.getItem('person')
     this.url = this.person.photo!
     await this.as.getPersonArticles(this.person.id).then(data => {if (data) this.articles = data})
+    this.ts.getAllThemes().then(data => {
+      this.themeList = data!
+      this.searchList = data!.filter(theme => !this.person.themes?.includes(theme))
+      this.filteredList = this.searchList
+    })
+    this.addTheme()
   }
 
    toggle() {
@@ -45,12 +56,7 @@ export class UpdateProfileComponent implements OnInit{
     }
   }
 
-  update(updateF: NgForm) {
-    this.person.firstName = updateF.value.firstName
-    this.person.lastName = updateF.value.lastName
-    this.person.email = updateF.value.email
-    this.person.interest = updateF.value.interest
-
+  update() {
     this.ps.update(this.person)
     this.ps.setItem('person', this.person)
     alert('your information have been updated successfully !!')
@@ -71,16 +77,7 @@ export class UpdateProfileComponent implements OnInit{
     const file: File = files[0];
     const formData = new FormData();
     formData.append('file', file, this.person.id?.toString()+'.jpg');
-    await this.ps.setPhoto(formData).then(data=>
-    {
-      this.url = data + '?v=' + Math.random().toString(36).substring(2);
-      console.log(this.url)
-    })
-    /*await this.ps.getPhoto(this.person.id).then(data=>
-    {
-      this.url = data + '?v=' + Math.random().toString(36).substring(2);
-      console.log(this.url)
-    })*/
+    await this.ps.setPhoto(formData).then(data=> this.url = data + '?v=' + Math.random().toString(36).substring(2))
   }
 
   delete(a: Article) {
@@ -90,5 +87,25 @@ export class UpdateProfileComponent implements OnInit{
       this.as.delete(a.id)
       this.articles = this.articles.filter(r => r!==a)
     }
+  }
+
+  addTheme() {
+    this.person.themes?.push(new Theme())
+  }
+
+  removeTheme() {
+    this.person.themes?.splice(this.person.themes?.length-1,1)
+  }
+
+  selectTheme(theme: Theme) {
+    this.person.themes![this.person.themes!.length - 1] = theme
+    this.searchList = this.searchList.filter(r => r!=theme)
+  }
+
+  searchTheme(i: number)
+  {
+    if (this.person.themes![i].title=='')
+      this.filteredList = []
+    this.filteredList = this.searchList.filter(theme => theme.title?.toUpperCase().includes(this.person.themes![i].title!.toUpperCase()))
   }
 }

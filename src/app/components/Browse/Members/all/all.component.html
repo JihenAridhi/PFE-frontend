@@ -17,7 +17,7 @@
     </form>
   </div>
   <div class="our_team">
-    <div class="team_member" *ngFor="let p of filteredList; let i=index" routerLink="/profile/{{p.id}}">
+    <div class="team_member" *ngFor="let p of filteredList; let i=index" routerLink="/profile/{{p.id}}" target="_blank">
       <div class="member_img">
         <img [src]="p.photo" alt="our_team">
         <div class="social_media">

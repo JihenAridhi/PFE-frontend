@@ -57,7 +57,6 @@ export class SaveArticleComponent implements OnInit{
 
   searchAuthor(i: number)
   {
-    console.log(this.article.authors![i].firstName+' '+this.article.authors![i].lastName)
     if (this.fullName[i]=='')
       this.filteredList = []
     this.filteredList = this.searchList.filter(person =>
@@ -70,7 +69,7 @@ export class SaveArticleComponent implements OnInit{
   {
       this.article.authors![this.article.authors!.length - 1] = person
       this.fullName[this.article.authors!.length - 1] = person.firstName+' '+person.lastName
-      this.searchList = this.searchList.filter(r => r!==person)
+      this.searchList = this.searchList.filter(r => r!=person)
   }
 
   async onFileSelected(files: any) {

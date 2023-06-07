@@ -34,7 +34,7 @@ export class EventService
   }
 
   setPhoto(formData: FormData)
-  {return this.http.post<string>('http://localhost:8000/photo/event', formData).toPromise()}
+  {return this.http.post<string>('http://localhost:8000/photo/event/', formData).toPromise()}
 
   getPhoto(id: any)
   {return this.http.get<string>('http://localhost:8000/photo/event/get/'+id).toPromise()}

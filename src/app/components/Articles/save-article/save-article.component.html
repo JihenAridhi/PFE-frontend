@@ -12,10 +12,7 @@
 
     <div class="input-box">
       <label>Author <span>*</span></label>
-<!--
-      <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="a.firstName+' '+a.lastName" name="authors_{{i}}" (input)="searchAuthor(i)"/>
--->
-            <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
+      <input *ngFor="let a of article.authors; let i = index" type="text" placeholder=" Full name" required [(ngModel)]="fullName[i]" name="authors_{{i}}" (input)="searchAuthor(i)"/>
       <div class="dropdown">
       <ul>
         <li *ngFor="let person of filteredList" (click)="selectPerson(person)" style="list-style: none">

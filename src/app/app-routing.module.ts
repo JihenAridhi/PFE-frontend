@@ -34,6 +34,7 @@ import {ListProjectComponent} from "./components/Projects/list-project/list-proj
 import {ViewProjectComponent} from "./components/Projects/view-project/view-project.component";
 import {SaveProjectComponent} from "./components/Projects/save-project/save-project.component";
 import {ResearchAxisComponent} from "./components/Browse/research-axis/research-axis.component";
+import {EditProjectComponent} from "./components/Projects/edit-project/edit-project.component";
 
 
 
@@ -67,25 +68,26 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
 
-  {path: 'account', component: NavProfileComponent/*, canActivate: [LoginGuard]*/, children:
+  {path: 'account', component: NavProfileComponent, children:
   [
-    {path: 'profile', component: ProfileComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'update', component: UpdateProfileComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'requests', component: RequestsComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'members', component: MembersComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-article', component: SaveArticleComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-article/:id', component: SaveArticleComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'edit-event', component: EditEventComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'edit-news', component: EditNewsComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'feedback', component: FeedbackComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-news', component: SaveNewsComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-news/:id', component: SaveNewsComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-event', component: SaveEventComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-event/:id', component: SaveEventComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'edit-partners', component: EditPartnersComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-partner', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-partner/:id', component: SavePartnerComponent/*, canActivateChild: [LoginGuard]*/},
-    {path: 'save-project', component: SaveProjectComponent}
+    {path: 'profile', component: ProfileComponent},
+    {path: 'update', component: UpdateProfileComponent},
+    {path: 'requests', component: RequestsComponent},
+    {path: 'members', component: MembersComponent},
+    {path: 'save-article', component: SaveArticleComponent},
+    {path: 'save-article/:id', component: SaveArticleComponent},
+    {path: 'edit-event', component: EditEventComponent},
+    {path: 'edit-news', component: EditNewsComponent},
+    {path: 'feedback', component: FeedbackComponent},
+    {path: 'save-news', component: SaveNewsComponent},
+    {path: 'save-news/:id', component: SaveNewsComponent},
+    {path: 'save-event', component: SaveEventComponent},
+    {path: 'save-event/:id', component: SaveEventComponent},
+    {path: 'edit-partners', component: EditPartnersComponent},
+    {path: 'save-partner', component: SavePartnerComponent},
+    {path: 'save-partner/:id', component: SavePartnerComponent},
+    {path: 'save-project', component: SaveProjectComponent},
+    {path: 'edit-projects', component: EditProjectComponent}
   ]},
 ]
 
