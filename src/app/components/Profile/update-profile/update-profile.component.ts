@@ -42,18 +42,26 @@ export class UpdateProfileComponent implements OnInit{
    toggle() {
      let blur = document.getElementById('blur');
      let popup = document.getElementById('popup');
+     let popup1 = document.getElementById('popup1');
      if (blur != null && popup != null) {
        blur.classList.toggle('active');
        popup.classList.toggle('active');
      }
+     if (popup1 != null && popup1.classList.contains('active')) {
+       popup1.classList.remove('active');
+     }
    }
     toggle1() {
     let blur=document.getElementById('blur');
-     let popup1 = document.getElementById('popup1');
+    let popup = document.getElementById('popup');
+    let popup1 = document.getElementById('popup1');
     if(blur!=null && popup1!=null) {
       blur.classList.toggle('active');
       popup1.classList.toggle('active');
     }
+      if (popup != null && popup.classList.contains('active')) {
+        popup.classList.remove('active');
+      }
   }
 
   update() {
