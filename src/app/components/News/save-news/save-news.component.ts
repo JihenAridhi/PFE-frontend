@@ -13,6 +13,7 @@ export class SaveNewsComponent implements OnInit{
 
   news: News = new News()
   content: any;
+  private selectedFiles: any;
   constructor(private ns: NewsService, private route: ActivatedRoute, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
   save(form: NgForm)
@@ -20,7 +21,7 @@ export class SaveNewsComponent implements OnInit{
     let news = form.value
     news.date = new Date()
     news.id=this.news.id
-    this.ns.save(news)
+    this.ns.save(news, this.selectedFiles)
   }
 
 
@@ -32,12 +33,8 @@ export class SaveNewsComponent implements OnInit{
       this.ns.get(id).then(data => this.news=data!)
   }
 
-  async onFileSelected(files: any) {
-    const file: File = files[0];
-    const formData = new FormData();
-    formData.append('file', file, this.news.id?.toString()+'.jpg');
-    await this.ns.setPhoto(formData).then()
-
+  onFileSelected(files: FileList | null) {
+    this.selectedFiles = files;
   }
 
 

@@ -15,6 +15,7 @@ export class SaveEventComponent implements OnInit{
   event = new Event()
   date: any;
   content: any
+  selectedFiles: any = null;
   constructor(private es: EventService, private route: ActivatedRoute, private ls: LanguageService) {this.ls.getLanguage().subscribe(data => this.content=data)}
 
   ngOnInit(): void
@@ -31,15 +32,19 @@ export class SaveEventComponent implements OnInit{
   {
     let e = addF.value
     e.id = this.event.id
-    this.es.save(e);
+    this.es.save(e, this.selectedFiles);
   }
 
-  async onFileSelected(files: any) {
+  onFileSelected(files: FileList | null) {
+      this.selectedFiles = files;
+    }
+
+  /*async onFileSelected(files: any) {
     const file: File = files[0];
     const formData = new FormData();
     formData.append('file', file, this.event.id?.toString()+'.jpg');
     await this.es.setPhoto(formData).then()
-  }
+  }*/
 
   /*async onFileSelected(files: any) {
     const formData = new FormData();

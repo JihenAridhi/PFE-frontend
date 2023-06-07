@@ -17,21 +17,29 @@ export class NewsService {
 
   get(id?: number){return this.http.get('http://localhost:8000/news/get/'+id).toPromise()}
 
-  save(news: News)
+  save(news: News, files: any)
   {
-    if(!news.id)
-      this.http.post('http://localhost:8000/news/add', news).subscribe(()=> alert('news have been posted successfully !! '))
+    if(news.id)
+      this.http.put('http://localhost:8000/news/update', news).subscribe(()=> {
+        this.setPhoto(files, news.id!)
+        alert('changes have been affected successfully !!')
+      })
     else
-      this.http.put('http://localhost:8000/news/update', news).subscribe(()=> alert('changes have been affected successfully !!'))
+      this.http.post<number>('http://localhost:8000/news/add', news).subscribe((data)=> {
+        this.setPhoto(files, data)
+        alert('news have been posted successfully !! ')
+      })
   }
 
   delete(id?: number) { this.http.delete('http://localhost:8000/news/delete/'+id).subscribe()}
 
-  setPhoto(formData: FormData)
-  {return this.http.post<string>('http://localhost:8000/photo/news', formData).toPromise()}
-
-  getPhoto(id: any)
-  {return this.http.get<string>('http://localhost:8000/photo/news/get/'+id).toPromise()}
+  setPhoto(files: any, id: number)
+  {
+    const file: File = files[0];
+    const formData = new FormData();
+    formData.append('file', file, id.toString()+'.jpg');
+    this.http.post<string>('http://localhost:8000/photo/news', formData).toPromise().then()
+  }
 
   setItem(key: string, value: any) {
     const encryptedValue = CryptoJS.AES.encrypt(JSON.stringify(value), 'key').toString();
