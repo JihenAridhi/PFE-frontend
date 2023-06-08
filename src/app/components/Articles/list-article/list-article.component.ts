@@ -43,6 +43,6 @@ export class ListArticleComponent implements OnInit{
     if (searchText==='' && year==='')
       this.filteredList = this.articles
     else
-      this.filteredList = this.articles.filter(article => article.year!.toString().includes(searchText) || article.title!.toUpperCase().includes(searchText.toUpperCase()))
+      this.filteredList = this.articles.filter(article => article.year!.toString().includes(year) && article.title!.toUpperCase().includes(searchText.toUpperCase()))
   }
 }
