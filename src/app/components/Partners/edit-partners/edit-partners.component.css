@@ -168,4 +168,101 @@ h1{color: #123C60; margin: 10px;}
   background-color: #aaa;
   color: #fff;
 }
+.add-responsive{
+  z-index: -99;
+}
+
+@media only screen and (max-width:768px),
+(min-device-width:768px) and (max-device-width:992px){
+  .add-responsive{
+    position: relative;
+    top: 120px;
+    left: 50%;
+    z-index: 1;
+    width: 50px;
+  }
+
+
+  .table-container{
+    width:95%;
+    background: transparent;
+    position: relative;
+
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr{
+    display: block;
+  }
+
+  thead tr{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr{
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  td{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+
+  }
+
+  td::before{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+
+  #keywords {
+    width: 100%;
+  }
+  #keywords thead th {
+    min-width: 120px;
+  }
+  #keywords tbody td {
+    word-break: break-word;
+    white-space: normal;
+    text-align: left;
+  }
+  #keywords tbody td:nth-child(1):before {
+    content: "Title: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(2):before {
+    content: "Type: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(3):before {
+    content: "Delete: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(4):before {
+    content: "Update: ";
+    font-weight: bold;
+  }
+  #keywords tbody td:nth-child(5):before {
+    content: "Delete: ";
+    font-weight: bold;
+  }
+}
+
 

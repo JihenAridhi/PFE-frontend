@@ -112,7 +112,7 @@ input[type=file]::file-selector-button:hover {
   background-color: #555;
   color: #FFF;
 }
-.wrapper .container2 #open-popup {
+.wrapper .container2 #open-popup  {
   position: absolute;
   top: 400px;
   width: 160px;
@@ -215,7 +215,6 @@ input[type=file]::file-selector-button:hover {
 
 #popup1{
   position: relative;
-  top: 200px;
   left: 50%;
   width: 600px;
   transform: translate(-50%,-50%);
@@ -225,30 +224,34 @@ input[type=file]::file-selector-button:hover {
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
+  display: none;
+
 }
 #popup1.active{
   position: relative;
-  top: 400px;
+  top: 600px;
   width: 600px;
   z-index: 99;
   visibility: visible;
   opacity: 1;
   transform: 0.5s;
+  display: block;
+
 }
 
 
 #popup{
   position: relative;
-  top: 200px;
   left: 50%;
   width: 600px;
   transform: translate(-50%,-50%);
   padding: 50px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
-  background: #EEE;
+  background: #eee;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
+  display: none;
 }
 #popup.active{
   position: relative;
@@ -258,6 +261,7 @@ input[type=file]::file-selector-button:hover {
   visibility: visible;
   opacity: 1;
   transform: 0.5s;
+  display: block;
 }
 
 #close-popup {
@@ -288,6 +292,7 @@ input[type=file]::file-selector-button:hover {
 .cont input {
   display: block;
   margin: auto;
+  margin-bottom: 10px;
   width: 240px;
   height: 30px;
   border : 0.5px solid #EEEEEE;
@@ -301,6 +306,20 @@ input[type=file]::file-selector-button:hover {
   padding-top:7px ;
   padding-bottom: 7px;
 }
+.controls{
+  margin: 10px;
+}
+#add_more_fields{
+  margin-right: 30px;
+  color: #000;
+  font-size: 13px;
+}
+
+#remove_fields{
+  color: #000;
+  font-size: 13px;
+
+}
 @media only screen and (max-width:768px),
 (min-device-width:768px) and (max-device-width:992px){
   #popup{
@@ -308,7 +327,16 @@ input[type=file]::file-selector-button:hover {
   }
   #popup.active{
     position: relative;
-    top: 20%;
+    top: -600px;
+    width: 300px;
+  }
+
+  #popup1{
+    width: 300px;
+  }
+  #popup1.active{
+    position: relative;
+    top: -400px;
     width: 300px;
   }
 
@@ -318,7 +346,7 @@ input[type=file]::file-selector-button:hover {
 
 .table-container{
   position: relative;
-  top: 200px;
+  top: 600px;
   display: flex;
   justify-content: center;
   margin: auto;
