@@ -42,6 +42,8 @@ import { ListProjectComponent } from './components/Projects/list-project/list-pr
 import { ResearchAxisComponent } from './components/Browse/research-axis/research-axis.component';
 import { EditProjectComponent } from './components/Projects/edit-project/edit-project.component';
 import { ReportingComponent } from './components/admin/reporting/reporting.component';
+import { AboutComponent } from './components/Browse/about/about.component';
+import { EditWebsiteComponent } from './components/admin/edit-website/edit-website.component';
 
 
 
@@ -85,6 +87,8 @@ import { ReportingComponent } from './components/admin/reporting/reporting.compo
     ResearchAxisComponent,
     EditProjectComponent,
     ReportingComponent,
+    AboutComponent,
+    EditWebsiteComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,30 @@
-<p>reporting works!</p>
+<div class="box">
+  <div class="title">
+    Reporting Form
+  </div>
+  <div class="form">
+    <div class="inputfield">
+      <label>Year</label>
+      <input type="year" class="input"  [(ngModel)]="selectedYear">
+    </div>
+    <div class="inputfield terms" *ngFor="let checkbox of checkboxes"  >
+      <label class="check">
+        <input type="checkbox" [(ngModel)]="checkbox.checked">
+        <span class="checkmark"></span>
+      </label>
+      <p>{{ checkbox.label }}</p>
+    </div>
+
+
+    <div style="width:100%; height: 100px;">
+
+    </div>
+
+    <div class="inputfield">
+      <input type="submit" value="Generate PDF" class="btn" (click)="submitForm()">
+    </div>
+    <div class="inputfield">
+      <!--<input type="submit" value="Download PDF" class="btn">-->
+    </div>
+  </div>
+</div>
