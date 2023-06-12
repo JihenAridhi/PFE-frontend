@@ -1,7 +1,8 @@
-#container0{display: flex; align-items: center; justify-content: center;}
+#container0{display: flex; align-items: center; justify-content: center; flex-direction: column; }
 
 #container
 {
+
   width: 1000px;
   margin: 50px;
 }
@@ -47,4 +48,26 @@ button
   #container div{flex-direction: column}
   #container div div{width: 93%}
   #content{flex-wrap: wrap}
+}
+.content1{
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.content1 img{
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  object-position: bottom;
+  padding: 5px;
+}
+
+.content1 img:hover{
+  cursor:pointer;
+  opacity: 0.5;
+  transition: 0.5s;
 }

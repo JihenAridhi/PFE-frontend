@@ -411,8 +411,8 @@ td p {
   .table-container{
     width:95%;
     background: transparent;
-    position: relative;
-    top: -300px;
+    position: absolute;
+    top: 1000px;
   }
 
   table,
@@ -480,9 +480,6 @@ td p {
   position: relative;
 }
 .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
   z-index: 999;
   background-color: #fff;
   border: 1px solid #ccc;
