@@ -51,12 +51,11 @@ export class PersonService {
 
   async login(person: Person)
   {
-    await this.http.get('http://127.0.0.1:8000/person/getByEmail/'+person.email).toPromise().then(
+    await this.http.post('http://127.0.0.1:8000/person/login',{email: person.email, password: person.password}).toPromise().then(
       async (data?: Person)=>
       {
         if(data)
         {
-          //data.password = JSON.parse(CryptoJS.AES.decrypt(data.password!, 'key').toString(CryptoJS.enc.Utf8))
           if(person.password == data.password && data.status) {
             this.setItem('person', data)
             await this.as.getAutorisations(data).then(

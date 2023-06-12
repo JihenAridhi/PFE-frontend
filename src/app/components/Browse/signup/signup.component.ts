@@ -44,20 +44,21 @@ export class SignupComponent implements OnInit  {
   };
 
   addPerson(addF: NgForm) {
-    //this.ps.checkEmail(addF.value.email)
-    if(addF.value.password=='')
-      alert('enter your password please !!')
-    if (addF.value.password != addF.value.password1)
-      alert('confirm password please !!')
-    else {
-      let person: Person = addF.value
-      person.themes = []
-      for(let i=0; i<12; i++)
-        if(this.themes[i])
-          person.themes?.push(this.themeList[i])
-      //person.password = CryptoJS.AES.encrypt(JSON.stringify(person.password), 'key').toString();
-      this.ps.add(person, this.selectedFiles)
+    if (addF.valid) {
+      if (!addF.value.password)
+        alert('enter your password please !!')
+      else if (addF.value.password != addF.value.password1)
+        alert('confirm password please !!')
+      else {
+        let person: Person = addF.value
+        person.themes = []
+        for (let i = 0; i < 12; i++)
+          if (this.themes[i])
+            person.themes?.push(this.themeList[i])
+        this.ps.add(person, this.selectedFiles)
+      }
     }
+    else alert('missing data !!!')
   }
 
   onFileSelected(files: FileList | null) {
