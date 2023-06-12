@@ -2,8 +2,11 @@
   <div class="wrapper">
     <div class="container">
       <button id="open-popup1" (click)="toggle1()">Update account</button>
-       <div class="input_container"><input type="file" name="" value="Update " id="fileUpload" ></div>
-       <button id="open-popup" (click)="toggle()">Update password</button>
+      <div class="input_container">
+        <input type="file" name="" value="Update" #fileUpload accept="image/*" (change)="onFileSelected(fileUpload.files)">
+      </div>
+
+      <button id="open-popup" (click)="toggle()">Update password</button>
     </div>
     <div class="container2">
       <img [src]="url" alt="image" *ngIf="showContent">
@@ -37,7 +40,7 @@
         <label> Email </label>
         <input type="email" name="email" placeholder="  add your e-mail ..." [(ngModel)]="person.email">
         <label> Phone </label>
-        <input type="number" name="phone" placeholder="  add your phone ..." >
+        <input type="number" name="phone" placeholder="  add your phone ..." [(ngModel)]="person.phone">
         <label> Short Bio </label>
         <input type="text" name="bio" placeholder="  add your Bio ..." [(ngModel)]="person.bio">
         <label> Social media  </label>

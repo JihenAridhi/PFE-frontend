@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {LanguageService} from "../../../services/language.service";
 import {ThemeService} from "../../../services/theme.service";
 import {Theme} from "../../../entities/Theme";
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-update-profile',
@@ -29,6 +30,7 @@ export class UpdateProfileComponent implements OnInit{
 
   async ngOnInit() {
     this.person = this.ps.getItem('person')
+    console.log(this.person)
     this.url = this.person.photo!
     await this.as.getPersonArticles(this.person.id).then(data => {if (data) this.articles = data})
     this.ts.getAllThemes().then(data => {
@@ -67,17 +69,18 @@ export class UpdateProfileComponent implements OnInit{
   update() {
     this.ps.update(this.person)
     this.ps.setItem('person', this.person)
-    alert('your information have been updated successfully !!')
   }
 
 
   updatePass(updateP: NgForm) {
-    if(updateP.value.newP !=updateP.value.confirmP)
+    console.log(this.person.password)
+    if(updateP.value.newP != updateP.value.confirmP)
       alert('please confirm your new password')
+      else if (this.person.password != updateP.value.oldP)
+        alert("incorrect password")
     else {
       this.person.password = updateP.value.newP
       this.ps.update(this.person)
-      alert('your information have been updated successfully !!')
     }
   }
 

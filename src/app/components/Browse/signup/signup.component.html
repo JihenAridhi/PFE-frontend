@@ -4,7 +4,7 @@
     <div class="container">
       <h1>General Information</h1>
       <form #addF='ngForm' (ngSubmit)="addPerson(addF)" ngNativeValidate>
-        <div class="part-A">
+        <div id="partA" #partA>
           <label class="ps"> champ obligatoire * </label>
           <label> First Name <span>*</span> </label>
           <input type="text" name="firstName" placeholder="  your first name ..." ngModel required>
@@ -16,23 +16,23 @@
           <input type="password" name="password" placeholder="  your password ..." ngModel required>
           <label> Confirm your password <span>*</span> </label>
           <input type="password" placeholder="  Confirm your password ..." name="password1" ngModel required>
-          <button class="SBM next-button" type="button">next</button>
+          <button class="SBM next-button" type="button" (click)="showPart(partB)">next</button>
         </div>
-        <div class="part-B" style="display: none;">
+        <div id="partB" #partB style="display: none;">
           <label> Phone <span color="red">*</span> </label>
           <input type="text" name="phone" placeholder="  your phone ..." ngModel>
           <label> Short Bio <span color="red">*</span> </label>
           <input type="text" name="bio" style="height:100px;" placeholder="  your bio ..." ngModel>
           <div style="width:160px; height:70px; overflow: hidden;">
             <label>Curriculum vitae <span color="red">*</span> </label>
-            <input type="file" name="CV" >
+            <input type="file" name="CV" accept=".pdf" #fileUpload (change)="onFileSelected(fileUpload.files)">
           </div>
           <div style="display: block;">
-            <button class="SBM previous-button" type="button">previous</button>
-            <button class="SBM next-button next" type="button">next</button>
+            <button class="SBM previous-button" type="button"  (click)="showPart(partA)">previous</button>
+            <button class="SBM next-button next" type="button" (click)="showPart(partC)">next</button>
           </div>
         </div>
-        <div class="part-C" style="display: none;">
+        <div id="partC" #partC style="display: none;">
           <div style="display:flex; width:260px; height:35px;">
             <i class='fab fa-researchgate' style='font-size:20px;color:rgb(30, 48, 80);'></i> &nbsp;&nbsp;&nbsp;
             <input type="text" name="researchGate" placeholder="  your ResearchGate's url ..." ngModel>
@@ -52,10 +52,10 @@
           <div style="display:flex; width:260px; height:35px;">
             <input type="text" name="dblp" placeholder="  your DBLP's url ..." ngModel>
           </div>
-          <button class="SBM previous-button" type="button">previous</button>
-          <button class="SBM next-button next" type="button">next</button>
+          <button class="SBM previous-button" type="button" (click)="showPart(partB)">previous</button>
+          <button class="SBM next-button next" type="button" (click)="showPart(partD)">next</button>
         </div>
-        <div class="part-D" style="display: none;">
+        <div id="partD" #partD style="display: none;">
           <div class="cont">
             <label class="option_item" *ngFor="let t of themeList; let i = index">
               <input type="checkbox" class="checkbox" name="Artificial Intelligence" [(ngModel)]="themes![i]">
@@ -64,12 +64,11 @@
                 <div class="name">{{t.title}}</div>
               </div>
             </label>
-
           </div>
-          <button class="SBM previous-button" type="button">previous</button>
+          <button class="SBM previous-button" type="button" (click)="showPart(partC)">previous</button>
           <input type="submit" name="" value="submit" class="SBM next">
         </div>
-        <!--<div class="part-E">
+        <!--<div id="partE" #partE>
           <p>We have sent you an email, please enter the code</p>
           <input type="text" >
           <button class="SBM previous-button" type="button">previous</button>

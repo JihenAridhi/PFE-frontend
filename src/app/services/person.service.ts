@@ -19,7 +19,7 @@ export class PersonService {
   public getAll()
   {return this.http.get<Person[]>('http://localhost:8000/person/getAll').toPromise()/*.subscribe(data=> localStorage.setItem('personList', JSON.stringify(data)))*/}
 
-  public add(person: Person)
+  public add(person: Person, files: any)
   {
     this.http.get('http://127.0.0.1:8000/person/getEmail/'+person.email).subscribe(
       (data)=>
@@ -27,7 +27,6 @@ export class PersonService {
         if(data)
           alert('this email is already in use !!')
         else {
-          //let p = CryptoJS.AES.encrypt(JSON.stringify(person), 'key').toString();
           let code = Math.floor(Math.random()*1000000)
           let email: any = {}
           email.subject = 'Confirm Your SMARTLAB Account Creation'
@@ -37,20 +36,17 @@ export class PersonService {
             let verify = ''
             while (verify!=code.toString())
               verify = window.prompt("enter the code")!
-            this.http.post('http://localhost:8000/person/add', person).subscribe((id)=> {
+            this.http.post<number>('http://localhost:8000/person/add', person).subscribe((id: number)=> {
               alert("Your request have been submitted, please wait for further confirmation.")
-              console.log(person.themes)
               for(let i=0; i<person.themes!.length; i++)
                 this.http.post('http://localhost:8000/person/'+id+'/addTheme/'+person.themes![i].id, null).subscribe();
+              this.setCV(files, id!)
             })
           })
         }
       }
     )
   }
-
-  register(p: Person){this.http.post('http://localhost:8000/person/add', p).subscribe(()=>alert("Your request have been submitted, please wait for further confirmation."))}
-
 
 
   async login(person: Person)
@@ -60,6 +56,7 @@ export class PersonService {
       {
         if(data)
         {
+          //data.password = JSON.parse(CryptoJS.AES.decrypt(data.password!, 'key').toString(CryptoJS.enc.Utf8))
           if(person.password == data.password && data.status) {
             this.setItem('person', data)
             await this.as.getAutorisations(data).then(
@@ -96,7 +93,12 @@ export class PersonService {
   }
 
   update(person: Person)
-  {this.http.put('http://127.0.0.1:8000/person/update', person).subscribe()}
+  {
+    //person.password = CryptoJS.AES.encrypt(person.password!, 'key').toString()
+    if (!person.themes![person.themes!.length-1].id)
+      person.themes?.splice(person.themes?.length-1, 1)
+    this.http.put('http://127.0.0.1:8000/person/update', person).subscribe(()=>alert('your information have been updated successfully !!'))
+  }
 
   delete(person: Person)
   {this.http.delete('http://localhost:8000/person/delete/'+person.id).subscribe()}
@@ -121,4 +123,11 @@ export class PersonService {
     return null;
   }
 
+  setCV(files: any, id: number)
+  {
+    const file: File = files[0];
+    const formData = new FormData();
+    formData.append('file', file, id.toString()+'.pdf');
+    this.http.post<string>('http://localhost:8000/cv', formData).toPromise().then()
+  }
 }
