@@ -15,80 +15,33 @@ export class SignupComponent implements OnInit  {
   content: any
   themes: boolean[] = [false, false, false, false, false, false, false, false, false, false, false, false]
   themeList: Theme[] = []
+  parts: HTMLElement[] = []
+  selectedFiles: any;
   constructor(private ps: PersonService, private ls: LanguageService, private ts: ThemeService) {ls.getLanguage().subscribe(data => this.content=data)}
 
   ngOnInit() {
     this.ts.getAllThemes().then((data)=>this.themeList=data!)
     // Wait for the DOM to load before executing code
     document.addEventListener('DOMContentLoaded', () => {
-      // Get the divs and buttons
-      const partA = document.querySelector('.part-A');
-      const partB = document.querySelector('.part-B');
-      const partC = document.querySelector('.part-C');
-      const partD = document.querySelector('.part-D');
-      const partE = document.querySelector('.part-E');
-      const nextButtons = document.querySelectorAll('.next-button');
-      const previousButtons = document.querySelectorAll('.previous-button');
-
-      // Function to show a specific part and hide others
-      const showPart = (partToShow: HTMLElement) => {
-        const parts = [partA, partB, partC, partD, partE];
-        parts.forEach(part => {
-          if (part === partToShow) {
-            (part as HTMLElement).style.display = 'block'; // Type assertion
-          } else {
-            (part as HTMLElement).style.display = 'none'; // Type assertion
-          }
-        });
-      };
-
-      // Show part-B when next is clicked in part-A
-      nextButtons[0].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partB as HTMLElement);
-      });
-
-      // Show part-C when next is clicked in part-B
-      nextButtons[1].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partC as HTMLElement);
-      });
-
-      // Show part-D when next is clicked in part-C
-      nextButtons[2].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partD as HTMLElement);
-      });
-
-      nextButtons[3].addEventListener('submit', event => {
-        //event.preventDefault();
-        showPart(partE as HTMLElement);
-      });
-
-      // Show part-A when previous is clicked in part-B
-      previousButtons[0].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partA as HTMLElement);
-      });
-
-      // Show part-B when previous is clicked in part-C
-      previousButtons[1].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partB as HTMLElement);
-      });
-
-      // Show part-C when previous is clicked in part-D
-      previousButtons[2].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partC as HTMLElement);
-      });
-
-      previousButtons[3].addEventListener('click', event => {
-        event.preventDefault();
-        showPart(partD as HTMLElement);
-      });
+      // Get the divs
+      this.parts.push(document.getElementById('partA')!);
+      this.parts.push(document.getElementById('partB')!);
+      this.parts.push(document.getElementById('partC')!);
+      this.parts.push(document.getElementById('partD')!);
     });
+    this.showPart(this.parts[0])
   }
+
+  // Function to show a specific part and hide others
+  showPart(partToShow: HTMLElement){
+    this.parts.forEach(part => {
+      if (part === partToShow) {
+        part.style.display = 'block'; // Type assertion
+      } else {
+        part.style.display = 'none'; // Type assertion
+      }
+    });
+  };
 
   addPerson(addF: NgForm) {
     //this.ps.checkEmail(addF.value.email)
@@ -102,8 +55,13 @@ export class SignupComponent implements OnInit  {
       for(let i=0; i<12; i++)
         if(this.themes[i])
           person.themes?.push(this.themeList[i])
-      this.ps.add(person)
+      //person.password = CryptoJS.AES.encrypt(JSON.stringify(person.password), 'key').toString();
+      this.ps.add(person, this.selectedFiles)
     }
+  }
+
+  onFileSelected(files: FileList | null) {
+    this.selectedFiles = files;
   }
 
 }

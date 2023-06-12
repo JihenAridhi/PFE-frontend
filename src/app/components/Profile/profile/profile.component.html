@@ -12,8 +12,12 @@
       <div class="content2">
         <h2>{{person.firstName}} {{person.lastName}}</h2> <br>
         <p style="margin:0;">{{person.bio}}</p>
-        <a href="#">CV Link</a>
-        <p> <i><b>email:</b> {{person.email}}<br><b>profession:</b> {{person.profession}}<br><b>team:</b> {{person.team}}<br></i></p>
+        <a *ngIf="cvExisits" href="assets/CV/{{person.id}}.pdf" download>CV</a>
+        <p><i><b>email:</b> {{person.email}}<br>
+          <b>phone:</b> {{person.phone}}<br>
+          <b>profession:</b> {{person.profession}}<br>
+          <b>team:</b> {{person.team}}<br>
+        </i></p>
         <div class="social-media">
           <a *ngIf="person.researchGate" href="{{person.researchGate}}" target="_blank"><i class='fab fa-researchgate' ></i></a>
           <a *ngIf="person.orcid" href="{{person.orcid}}" target="_blank"><i class='fab fa-orcid'></i></a>

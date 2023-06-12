@@ -10,7 +10,7 @@ export class ReportingComponent {
   constructor(private http: HttpClient) {
   }
 
-  selectedYear: number = 4;
+  selectedYear?: number ;
   checkboxes = [
     {label: 'Articles', checked: false},
     {label: 'Members', checked: false},
@@ -27,7 +27,7 @@ export class ReportingComponent {
 
     // Send the data to the backend
     const formData = new FormData();
-    formData.append('year', this.selectedYear.toString());
+    formData.append('year', this.selectedYear!.toString());
     formData.append('checkboxes', JSON.stringify(selectedCheckboxes));
 
     // Make an HTTP request to the backend
