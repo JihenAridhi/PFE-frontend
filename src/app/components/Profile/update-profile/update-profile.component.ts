@@ -74,6 +74,10 @@ export class UpdateProfileComponent implements OnInit{
 
   updatePass(updateP: NgForm) {
     console.log(this.person.password)
+    if (updateP.value.newP.length < 8 || !/\d/.test(updateP.value.newP) || !/[a-zA-Z]/.test(updateP.value.newP)) {
+      alert('Please enter a new password that is at least 8 characters long and contains both letters and numbers.');
+      return; // Exit the function early
+    }
     if(updateP.value.newP != updateP.value.confirmP)
       alert('please confirm your new password')
       else if (this.person.password != updateP.value.oldP)
